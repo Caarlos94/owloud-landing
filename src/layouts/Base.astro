@@ -1,0 +1,71 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Owloud — Learn English with audiobooks",
+  description = "Listen to audiobooks with karaoke-style synced text, tap any word for its meaning, and master your vocabulary with smart flashcards.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/png" href="/owloud-mascot.png" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/owloud-mascot.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Lora:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="bg-neutral-100 font-nunito text-neutral-700 antialiased">
+    <!-- ─── Nav ─────────────────────────────────────────────────────────── -->
+    <header class="mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
+      <a href="/" class="flex items-center gap-2">
+        <img src="/owloud-mascot.png" alt="" class="h-9 w-9" />
+        <span class="text-xl font-extrabold text-green-dark">Owloud</span>
+      </a>
+      <a
+        href="/#download"
+        class="rounded-3xl bg-green-primary px-5 py-2.5 text-sm font-bold text-white transition-opacity hover:opacity-85"
+      >
+        Get the app
+      </a>
+    </header>
+
+    <slot />
+
+    <!-- ─── Footer ──────────────────────────────────────────────────────── -->
+    <footer class="mt-24 border-t-2 border-green-dark bg-green-light">
+      <div class="mx-auto max-w-5xl px-6 py-10">
+        <div class="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
+          <div class="flex items-center gap-2">
+            <img src="/owloud-mascot.png" alt="" class="h-8 w-8" />
+            <span class="font-extrabold text-green-dark">Owloud</span>
+          </div>
+          <nav class="flex flex-wrap gap-x-6 gap-y-2 text-sm font-semibold">
+            <a href="/privacy" class="text-green-dark hover:underline">Privacy Policy</a>
+            <a href="/terms" class="text-green-dark hover:underline">Terms of Service</a>
+            <a href="mailto:support@owloud.app" class="text-green-dark hover:underline">Support</a>
+          </nav>
+        </div>
+        <p class="mt-6 text-xs text-green-dark/70">
+          © 2026 Owloud. Learn English by listening.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

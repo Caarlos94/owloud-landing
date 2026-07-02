@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+/* ─── Owloud design tokens (mirrors constants/colors.ts in the app) ───────── */
+@theme {
+  --color-green-primary: #178160;
+  --color-green-light: #e1f5ee;
+  --color-green-dark: #085041;
+  --color-amber: #ef9f27;
+  --color-amber-text: #9d6400;
+  --color-amber-light: #faeeda;
+  --color-neutral-100: #f5f5f0;
+  --color-neutral-300: #d3d1c7;
+  --color-neutral-700: #444441;
+  --color-error: #d95a5a;
+
+  --font-nunito: "Nunito", ui-sans-serif, system-ui, sans-serif;
+  --font-lora: "Lora", Georgia, serif;
+}
+
+/* ─── Sticker card: thick dark border + hard offset shadow (no blur) ──────── */
+@utility card-sticker {
+  background: white;
+  border: 2px solid var(--color-green-dark);
+  border-radius: 1rem;
+  box-shadow: 0 4px 0 0 var(--color-green-dark);
+}
+
+html {
+  scroll-behavior: smooth;
+}

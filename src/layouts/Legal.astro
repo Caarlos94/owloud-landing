@@ -1,0 +1,80 @@
+---
+import Base from "./Base.astro";
+
+const { frontmatter } = Astro.props;
+---
+
+<Base title={`${frontmatter.title} — Owloud`}>
+  <main class="mx-auto max-w-3xl px-6 py-10">
+    <article class="legal card-sticker p-8 md:p-12">
+      <slot />
+    </article>
+  </main>
+</Base>
+
+<!-- Minimal typography for rendered markdown (kept local — no plugin needed) -->
+<style is:global>
+  .legal h1 {
+    font-size: 1.9rem;
+    font-weight: 800;
+    color: #085041;
+    line-height: 1.25;
+  }
+  .legal h2 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #085041;
+    margin-top: 2.25rem;
+  }
+  .legal h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #085041;
+    margin-top: 1.5rem;
+  }
+  .legal p,
+  .legal li {
+    margin-top: 0.75rem;
+    line-height: 1.7;
+    font-size: 0.95rem;
+  }
+  .legal ul {
+    padding-left: 1.25rem;
+    list-style: disc;
+  }
+  .legal a {
+    color: #178160;
+    text-decoration: underline;
+  }
+  .legal blockquote {
+    margin-top: 1rem;
+    border-left: 4px solid #ef9f27;
+    background: #faeeda;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+  }
+  .legal hr {
+    margin: 2rem 0;
+    border-color: #d3d1c7;
+  }
+  .legal table {
+    margin-top: 1rem;
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    display: block;
+    overflow-x: auto;
+  }
+  .legal th,
+  .legal td {
+    border: 1px solid #d3d1c7;
+    padding: 0.5rem 0.75rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  .legal th {
+    background: #e1f5ee;
+    color: #085041;
+  }
+</style>

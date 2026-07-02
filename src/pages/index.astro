@@ -1,0 +1,213 @@
+---
+import Base from "../layouts/Base.astro";
+
+const features = [
+  {
+    emoji: "🎧",
+    title: "Audiobooks with synced text",
+    text: "Follow every word as it's spoken, karaoke-style. Reading and listening at the same time trains your ear twice as fast.",
+  },
+  {
+    emoji: "👆",
+    title: "Tap any word",
+    text: "See its definition and Spanish translation instantly, with pronunciation and a real example — without leaving the story.",
+  },
+  {
+    emoji: "🃏",
+    title: "Smart flashcards",
+    text: "Words you save come back for review with spaced repetition, right before you'd forget them.",
+  },
+  {
+    emoji: "📥",
+    title: "Offline listening",
+    text: "Download chapters and keep learning on the subway, on a plane, or anywhere without internet.",
+  },
+  {
+    emoji: "❓",
+    title: "Comprehension quizzes",
+    text: "A short quiz after each chapter checks you really understood the story, not just heard it.",
+  },
+  {
+    emoji: "🔥",
+    title: "Streaks & goals",
+    text: "A daily goal, gentle reminders, and a streak that makes ten minutes a day a habit.",
+  },
+];
+
+const faqs = [
+  {
+    q: "Is Owloud free?",
+    a: "Yes. You can listen, tap words, and practice flashcards for free. Free chapters unlock with Feathers, which refill over time. Owloud Pro removes all limits.",
+  },
+  {
+    q: "What are Feathers?",
+    a: "Feathers are Owloud's free currency. Unlocking a chapter costs a few Feathers, and they refill automatically as time passes — so patient learners can use the whole app for free.",
+  },
+  {
+    q: "What English level do I need?",
+    a: "Owloud is made for beginner to intermediate learners (A2–B2). You choose your level during onboarding and we recommend books that match it.",
+  },
+  {
+    q: "Does it work offline?",
+    a: "Yes — download any unlocked chapter and both the audio and the synced text work with no connection.",
+  },
+  {
+    q: "Which languages are supported?",
+    a: "The stories are in English, and word translations are currently available in Spanish. More languages are on the way.",
+  },
+  {
+    q: "How do I cancel my subscription?",
+    a: "Subscriptions are handled by Apple. You can cancel anytime in your iPhone's Settings → Apple ID → Subscriptions, and you keep Pro until the period ends.",
+  },
+];
+---
+
+<Base>
+  <main class="mx-auto max-w-5xl px-6">
+    <!-- ─── Hero ────────────────────────────────────────────────────────── -->
+    <section class="grid items-center gap-12 py-12 md:grid-cols-2 md:py-20">
+      <div>
+        <h1 class="text-4xl font-extrabold leading-tight text-green-dark md:text-5xl">
+          Learn English by listening to stories
+        </h1>
+        <p class="mt-5 text-lg leading-relaxed">
+          Audiobooks with karaoke-style text. Tap any word to see what it means,
+          save it, and master it with flashcards — a few minutes a day.
+        </p>
+        <div class="mt-8 flex flex-wrap items-center gap-4">
+          <a
+            href="#download"
+            class="rounded-3xl bg-green-dark px-7 py-4 font-bold text-white transition-opacity hover:opacity-85"
+          >
+             Coming soon to the App Store
+          </a>
+          <a href="#features" class="font-bold text-green-primary hover:underline">
+            See how it works ↓
+          </a>
+        </div>
+      </div>
+
+      <!-- CSS phone mockup — replace with a real screenshot before launch -->
+      <div class="flex justify-center">
+        <div class="card-sticker w-[290px] rounded-[44px] p-3" style="box-shadow: 0 6px 0 0 #085041;">
+          <div class="overflow-hidden rounded-[32px] bg-neutral-100">
+            <div class="bg-green-light px-5 pb-4 pt-6">
+              <p class="text-[10px] font-bold uppercase tracking-widest text-green-primary">
+                Chapter 1
+              </p>
+              <p class="text-lg font-extrabold text-green-dark">The Little Prince</p>
+            </div>
+            <p class="px-5 py-6 font-lora text-[17px] leading-8 text-neutral-700">
+              Once when I was six years old I saw a
+              <span class="rounded-md bg-amber px-1 font-bold text-white">magnificent</span>
+              picture in a book about the primeval forest…
+            </p>
+            <div
+              class="mx-5 mb-5 rounded-xl border-2 border-green-dark bg-amber-light px-4 py-3"
+              style="box-shadow: 0 3px 0 0 #085041;"
+            >
+              <p class="font-bold text-green-dark">
+                magnificent <span class="font-normal">→ magnífico</span>
+              </p>
+              <p class="mt-0.5 text-xs text-amber-text">Saved to your vocabulary ✓</p>
+            </div>
+            <div class="flex items-center justify-center gap-8 pb-8">
+              <span class="text-xl text-green-dark">⏪</span>
+              <span
+                class="flex h-14 w-14 items-center justify-center rounded-full border-2 border-green-dark bg-green-primary text-xl text-white"
+                style="box-shadow: 0 3px 0 0 #085041;"
+              >▶</span>
+              <span class="text-xl text-green-dark">⏩</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Features ────────────────────────────────────────────────────── -->
+    <section id="features" class="py-12">
+      <h2 class="text-center text-3xl font-extrabold text-green-dark">
+        Everything you need to make English stick
+      </h2>
+      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          features.map((f) => (
+            <div class="card-sticker p-6">
+              <span class="text-3xl">{f.emoji}</span>
+              <h3 class="mt-3 text-lg font-extrabold text-green-dark">{f.title}</h3>
+              <p class="mt-2 text-sm leading-relaxed">{f.text}</p>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- ─── Spaced repetition explainer ─────────────────────────────────── -->
+    <section class="py-12">
+      <div class="card-sticker p-8 md:p-12" style="background: #e1f5ee;">
+        <div class="grid items-center gap-8 md:grid-cols-2">
+          <div>
+            <h2 class="text-3xl font-extrabold text-green-dark">
+              Review words right before you forget them
+            </h2>
+            <p class="mt-4 leading-relaxed">
+              Every word you save enters a spaced-repetition system. Answer a
+              flashcard correctly and the word moves up a box — and waits longer
+              until the next review. Get it wrong and it comes back tomorrow.
+              That's how words move from “seen once” to “yours forever”.
+            </p>
+          </div>
+          <div class="flex items-end justify-center gap-3">
+            {
+              ["Today", "Soon", "Later", "Rarely", "Mastered"].map((label, i) => (
+                <div class="flex flex-col items-center gap-2">
+                  <div
+                    class="card-sticker w-10 rounded-lg"
+                    style={`height: ${28 + i * 18}px; ${i === 4 ? "background:#EF9F27;" : ""}`}
+                  />
+                  <span class="text-[10px] font-bold text-green-dark">{label}</span>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── FAQ ─────────────────────────────────────────────────────────── -->
+    <section class="mx-auto max-w-3xl py-12">
+      <h2 class="text-center text-3xl font-extrabold text-green-dark">
+        Frequently asked questions
+      </h2>
+      <div class="mt-8 space-y-4">
+        {
+          faqs.map((f) => (
+            <details class="card-sticker group px-6 py-4">
+              <summary class="cursor-pointer list-none font-extrabold text-green-dark">
+                <span class="mr-2 inline-block transition-transform group-open:rotate-90">▸</span>
+                {f.q}
+              </summary>
+              <p class="mt-3 pl-6 text-sm leading-relaxed">{f.a}</p>
+            </details>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- ─── Download CTA ────────────────────────────────────────────────── -->
+    <section id="download" class="py-12">
+      <div class="card-sticker flex flex-col items-center gap-5 p-10 text-center">
+        <img src="/owloud-curious.png" alt="Owloud owl mascot" class="h-28 w-28" />
+        <h2 class="text-3xl font-extrabold text-green-dark">Owloud is landing soon</h2>
+        <p class="max-w-md leading-relaxed">
+          We're putting the final feathers on the iOS app. It will be available
+          on the App Store very soon.
+        </p>
+        <!-- Swap for the official App Store badge + link once the app is live -->
+        <span class="rounded-3xl bg-green-dark px-7 py-4 font-bold text-white">
+           App Store — coming soon
+        </span>
+      </div>
+    </section>
+  </main>
+</Base>
