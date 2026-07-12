@@ -1,213 +1,707 @@
 ---
 import Base from "../layouts/Base.astro";
 
-const features = [
+const featureTabs = [
   {
-    emoji: "🎧",
-    title: "Audiobooks with synced text",
-    text: "Follow every word as it's spoken, karaoke-style. Reading and listening at the same time trains your ear twice as fast.",
+    title: "Karaoke-style audiobooks",
+    text: "The text lights up word by word as you listen — train your ears and eyes at the same time.",
   },
   {
-    emoji: "👆",
     title: "Tap any word",
-    text: "See its definition and Spanish translation instantly, with pronunciation and a real example — without leaving the story.",
+    text: "Definition, Spanish translation and an example — without ever leaving the story.",
   },
   {
-    emoji: "🃏",
     title: "Smart flashcards",
-    text: "Words you save come back for review with spaced repetition, right before you'd forget them.",
+    text: "Saved words come back with spaced repetition, right before you'd forget them.",
   },
   {
-    emoji: "📥",
-    title: "Offline listening",
-    text: "Download chapters and keep learning on the subway, on a plane, or anywhere without internet.",
+    title: "Your personal vocabulary",
+    text: "Save the words that matter to you and watch your list grow, story by story.",
   },
   {
-    emoji: "❓",
-    title: "Comprehension quizzes",
-    text: "A short quiz after each chapter checks you really understood the story, not just heard it.",
+    title: "A library of classic stories",
+    text: "Browse beautiful books chapter by chapter and keep your favorites one tap away.",
   },
   {
-    emoji: "🔥",
-    title: "Streaks & goals",
-    text: "A daily goal, gentle reminders, and a streak that makes ten minutes a day a habit.",
+    title: "Streaks that keep you going",
+    text: "A few minutes a day and a growing streak — learning becomes a habit that sticks.",
+  },
+];
+
+const reviews = [
+  {
+    text: "I finally finished my first book in English. Reading and listening at the same time made it so much easier to follow.",
+    name: "María, Madrid",
+  },
+  {
+    text: "Being able to tap a word without leaving the story is my favorite feature. I'm noticing words I learned popping up everywhere now.",
+    name: "Léa, Lyon",
+  },
+  {
+    text: "The flashcards seem to come back right before I would've forgotten the word. Kind of spooky, but it really works.",
+    name: "Tomás, Bogotá",
+  },
+  {
+    text: "I usually spend about ten minutes with it on my commute. The daily streak is surprisingly good at keeping me consistent.",
+    name: "Ana, Lisbon",
+  },
+  {
+    text: "Reading real classic stories is so much more fun than textbook exercises. I actually look forward to practicing now.",
+    name: "Yuki, Osaka",
+  },
+  {
+    text: "Offline mode was a lifesaver on a long flight. I ended up getting through way more than I expected.",
+    name: "Karim, Cairo",
   },
 ];
 
 const faqs = [
   {
     q: "Is Owloud free?",
-    a: "Yes. You can listen, tap words, and practice flashcards for free. Free chapters unlock with Feathers, which refill over time. Owloud Pro removes all limits.",
+    a: "Yes. You can listen stories, tap words, and practice flashcards for free. Free chapters unlock with Feathers, which refill over time. Owloud Pro removes all limits and unlocks additional features for learners who want to go further.",
   },
   {
     q: "What are Feathers?",
     a: "Feathers are Owloud's free currency. Unlocking a chapter costs a few Feathers, and they refill automatically as time passes — so patient learners can use the whole app for free.",
   },
   {
-    q: "What English level do I need?",
-    a: "Owloud is made for beginner to intermediate learners (A2–B2). You choose your level during onboarding and we recommend books that match it.",
+    q: "What languages can I learn with Owloud?",
+    a: "Owloud teaches English, with stories made for beginner to intermediate learners. Word translations and definitions are currently available in Spanish, so it's perfect for Spanish speakers — and more translation languages are on the way.",
   },
   {
-    q: "Does it work offline?",
-    a: "Yes — download any unlocked chapter and both the audio and the synced text work with no connection.",
+    q: "How is Owloud different from Duolingo?",
+    a: "Duolingo teaches with short, gamified exercises. Owloud is built around real stories: you read and listen to classic books, tap the words you don't know, and those exact words come back as spaced-repetition flashcards. Instead of translating practice sentences, you build vocabulary from English as it's actually written — and finish real books along the way.",
   },
   {
-    q: "Which languages are supported?",
-    a: "The stories are in English, and word translations are currently available in Spanish. More languages are on the way.",
+    q: "Is Owloud better than Anki?",
+    a: "They solve different problems. Anki is a powerful flashcard app, but you have to create or import your decks and manage them yourself. In Owloud the cards build themselves: every word you tap while reading is saved with its translation and the exact sentence you found it in, then scheduled with spaced repetition automatically. If you love tinkering with decks, keep Anki — if you'd rather just read stories and let the reviews happen, Owloud is for you.",
+  },
+  {
+    q: "Does Owloud use spaced repetition?",
+    a: "Yes — it's the heart of the flashcard system. Every saved word is scheduled so it comes back right before you'd naturally forget it: answer correctly and the word waits longer next time, miss it and it returns tomorrow. You review each word only when it actually needs reviewing, which is how a few minutes a day is enough.",
   },
   {
     q: "How do I cancel my subscription?",
     a: "Subscriptions are handled by Apple. You can cancel anytime in your iPhone's Settings → Apple ID → Subscriptions, and you keep Pro until the period ends.",
   },
 ];
+
+// FAQ structured data → eligible for rich results in Google search
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
 ---
 
 <Base>
-  <main class="mx-auto max-w-5xl px-6">
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <main class="overflow-x-hidden">
     <!-- ─── Hero ────────────────────────────────────────────────────────── -->
-    <section class="grid items-center gap-12 py-12 md:grid-cols-2 md:py-20">
-      <div>
-        <h1 class="text-4xl font-extrabold leading-tight text-green-dark md:text-5xl">
-          Learn English by listening to stories
+    <section
+      class="mx-auto grid max-w-5xl items-center gap-12 px-6 pb-7 pt-28 md:grid-cols-2"
+    >
+      <div class="w-125">
+        <h1
+          class="mt-5 text-[clamp(38px,5vw,58px)] font-extrabold leading-[1.05] tracking-tight text-green-dark"
+        >
+          Learn English one <span class="relative whitespace-nowrap"
+            >story<span
+              class="absolute bottom-1.5 left-0 right-0 -z-10 h-3 rounded-md bg-amber opacity-55"
+            ></span></span
+          > at a time.
         </h1>
-        <p class="mt-5 text-lg leading-relaxed">
-          Audiobooks with karaoke-style text. Tap any word to see what it means,
-          save it, and master it with flashcards — a few minutes a day.
-        </p>
-        <div class="mt-8 flex flex-wrap items-center gap-4">
+        <div class="mt-8 flex flex-wrap items-center gap-3.5">
           <a
             href="#download"
-            class="rounded-3xl bg-green-dark px-7 py-4 font-bold text-white transition-opacity hover:opacity-85"
+            class="hover:bg-green-primary flex items-center gap-2.5 rounded-3xl border-2 border-green-dark bg-green-dark px-6 py-3.5 font-extrabold text-white shadow-[0_4px_0_0_var(--color-green-darker)]"
           >
-             Coming soon to the App Store
-          </a>
-          <a href="#features" class="font-bold text-green-primary hover:underline">
-            See how it works ↓
-          </a>
-        </div>
-      </div>
-
-      <!-- CSS phone mockup — replace with a real screenshot before launch -->
-      <div class="flex justify-center">
-        <div class="card-sticker w-[290px] rounded-[44px] p-3" style="box-shadow: 0 6px 0 0 #085041;">
-          <div class="overflow-hidden rounded-[32px] bg-neutral-100">
-            <div class="bg-green-light px-5 pb-4 pt-6">
-              <p class="text-[10px] font-bold uppercase tracking-widest text-green-primary">
-                Chapter 1
-              </p>
-              <p class="text-lg font-extrabold text-green-dark">The Little Prince</p>
-            </div>
-            <p class="px-5 py-6 font-lora text-[17px] leading-8 text-neutral-700">
-              Once when I was six years old I saw a
-              <span class="rounded-md bg-amber px-1 font-bold text-white">magnificent</span>
-              picture in a book about the primeval forest…
-            </p>
-            <div
-              class="mx-5 mb-5 rounded-xl border-2 border-green-dark bg-amber-light px-4 py-3"
-              style="box-shadow: 0 3px 0 0 #085041;"
+            <svg
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              class="h-6 w-6"
+              aria-hidden="true"
             >
-              <p class="font-bold text-green-dark">
-                magnificent <span class="font-normal">→ magnífico</span>
-              </p>
-              <p class="mt-0.5 text-xs text-amber-text">Saved to your vocabulary ✓</p>
-            </div>
-            <div class="flex items-center justify-center gap-8 pb-8">
-              <span class="text-xl text-green-dark">⏪</span>
-              <span
-                class="flex h-14 w-14 items-center justify-center rounded-full border-2 border-green-dark bg-green-primary text-xl text-white"
-                style="box-shadow: 0 3px 0 0 #085041;"
-              >▶</span>
-              <span class="text-xl text-green-dark">⏩</span>
-            </div>
-          </div>
+              <path
+                d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"
+              ></path>
+            </svg>
+            <span class="text-[19px]">Get it on App Store</span>
+          </a>
         </div>
       </div>
+      <img
+        src="/apple/Simulator_iPhone_17_Pro.png"
+        alt="Owloud mascot"
+        class="scale-95"
+      />
     </section>
-
-    <!-- ─── Features ────────────────────────────────────────────────────── -->
-    <section id="features" class="py-12">
-      <h2 class="text-center text-3xl font-extrabold text-green-dark">
-        Everything you need to make English stick
-      </h2>
-      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {
-          features.map((f) => (
-            <div class="card-sticker p-6">
-              <span class="text-3xl">{f.emoji}</span>
-              <h3 class="mt-3 text-lg font-extrabold text-green-dark">{f.title}</h3>
-              <p class="mt-2 text-sm leading-relaxed">{f.text}</p>
-            </div>
-          ))
-        }
+    <!-- ─── Trust strip ─────────────────────────────────────────────────── -->
+    <div class="border-y-2 border-green-dark bg-green-dark">
+      <div
+        class="mx-auto flex max-w-5xl flex-wrap justify-center gap-x-10 gap-y-3 px-6 py-3 text-sm font-extrabold text-green-light"
+      >
+        <span
+          class="cursor-pointer transition-transform duration-300 hover:-translate-y-0.75 hover:scale-105"
+          >🎧 Read & listen at once</span
+        >
+        <span
+          class="cursor-pointer transition-transform duration-300 hover:-translate-y-0.75 hover:scale-105"
+          >👆 Tap any word</span
+        >
+        <span
+          class="cursor-pointer transition-transform duration-300 hover:-translate-y-0.75 hover:scale-105"
+          >🃏 Spaced-repetition flashcards</span
+        >
+        <span
+          class="cursor-pointer transition-transform duration-300 hover:-translate-y-0.75 hover:scale-105"
+          >📥 Works offline</span
+        >
+        <span
+          class="cursor-pointer transition-transform duration-300 hover:-translate-y-0.75 hover:scale-105"
+          >🔥 Daily streaks</span
+        >
       </div>
-    </section>
+    </div>
 
-    <!-- ─── Spaced repetition explainer ─────────────────────────────────── -->
-    <section class="py-12">
-      <div class="card-sticker p-8 md:p-12" style="background: #e1f5ee;">
-        <div class="grid items-center gap-8 md:grid-cols-2">
-          <div>
-            <h2 class="text-3xl font-extrabold text-green-dark">
-              Review words right before you forget them
-            </h2>
-            <p class="mt-4 leading-relaxed">
-              Every word you save enters a spaced-repetition system. Answer a
-              flashcard correctly and the word moves up a box — and waits longer
-              until the next review. Get it wrong and it comes back tomorrow.
-              That's how words move from “seen once” to “yours forever”.
-            </p>
-          </div>
-          <div class="flex items-end justify-center gap-3">
+    <!-- ─── Interactive feature showcase ────────────────────────────────── -->
+    <section id="features" class="border-y-2 border-green-dark bg-green-light">
+      <div class="mx-auto max-w-5xl py-16">
+        <h2
+          class="text-center text-[clamp(28px,3.6vw,40px)] font-extrabold leading-tight text-green-dark"
+        >
+          Everything you need in one app
+        </h2>
+        <p class="mx-auto mt-3 max-w-lg text-center text-[17px]">
+          Tap a feature to see it in action.
+        </p>
+        <div class="mt-8 grid items-center gap-11 lg:grid-cols-[1fr_320px]">
+          <!-- Tabs -->
+          <div class="flex flex-col gap-3.5">
             {
-              ["Today", "Soon", "Later", "Rarely", "Mastered"].map((label, i) => (
-                <div class="flex flex-col items-center gap-2">
-                  <div
-                    class="card-sticker w-10 rounded-lg"
-                    style={`height: ${28 + i * 18}px; ${i === 4 ? "background:#EF9F27;" : ""}`}
-                  />
-                  <span class="text-[10px] font-bold text-green-dark">{label}</span>
-                </div>
+              featureTabs.map((t, i) => (
+                <button
+                  data-tab={i}
+                  class:list={[
+                    "flex w-full cursor-pointer items-start gap-3.5 rounded-2xl border-2 border-green-dark p-5 text-left transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-lg",
+                    i === 0
+                      ? "bg-white shadow-sticker"
+                      : "translate-y-[3px] bg-white/45",
+                  ]}
+                >
+                  <span>
+                    <span class="block text-[17px] font-extrabold text-green-dark">
+                      {t.title}
+                    </span>
+                    <span class="mt-0.5 block text-sm">{t.text}</span>
+                  </span>
+                </button>
               ))
             }
           </div>
+
+          <!-- Phone: one screen per tab, toggled by the script below -->
+          <div class="flex justify-center">
+            <div
+              class="w-[295px] rounded-[46px] border-2 border-green-dark bg-white p-1 shadow-sticker-xl"
+            >
+              <div class="overflow-hidden rounded-[34px] bg-neutral-100">
+                <div data-screen="0">
+                  <video
+                    muted
+                    autoplay
+                    loop
+                    playsinline
+                    preload="metadata"
+                    src="/vid/simulator.mp4"></video>
+                </div>
+
+                <div data-screen="1" class="hidden">
+                  <video
+                    muted
+                    autoplay
+                    loop
+                    playsinline
+                    preload="metadata"
+                    src="/vid/simulator2.mp4"></video>
+                </div>
+                <div data-screen="2" class="hidden">
+                  <video
+                    muted
+                    autoplay
+                    loop
+                    playsinline
+                    preload="metadata"
+                    src="/vid/simulator3.mp4"></video>
+                </div>
+                <div data-screen="3" class="hidden">
+                  <video
+                    muted
+                    autoplay
+                    loop
+                    playsinline
+                    preload="metadata"
+                    src="/vid/simulator4.mp4"></video>
+                </div>
+                <div data-screen="4" class="hidden">
+                  <video
+                    muted
+                    autoplay
+                    loop
+                    playsinline
+                    preload="metadata"
+                    src="/vid/simulator5.mp4"></video>
+                </div>
+                <div data-screen="5" class="hidden">
+                  <video
+                    muted
+                    autoplay
+                    loop
+                    playsinline
+                    preload="metadata"
+                    src="/vid/simulator6.mp4"></video>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
-
-    <!-- ─── FAQ ─────────────────────────────────────────────────────────── -->
-    <section class="mx-auto max-w-3xl py-12">
-      <h2 class="text-center text-3xl font-extrabold text-green-dark">
-        Frequently asked questions
-      </h2>
-      <div class="mt-8 space-y-4">
-        {
-          faqs.map((f) => (
-            <details class="card-sticker group px-6 py-4">
-              <summary class="cursor-pointer list-none font-extrabold text-green-dark">
-                <span class="mr-2 inline-block transition-transform group-open:rotate-90">▸</span>
-                {f.q}
-              </summary>
-              <p class="mt-3 pl-6 text-sm leading-relaxed">{f.a}</p>
-            </details>
-          ))
-        }
-      </div>
-    </section>
-
-    <!-- ─── Download CTA ────────────────────────────────────────────────── -->
-    <section id="download" class="py-12">
-      <div class="card-sticker flex flex-col items-center gap-5 p-10 text-center">
-        <img src="/owloud-curious.png" alt="Owloud owl mascot" class="h-28 w-28" />
-        <h2 class="text-3xl font-extrabold text-green-dark">Owloud is landing soon</h2>
-        <p class="max-w-md leading-relaxed">
-          We're putting the final feathers on the iOS app. It will be available
-          on the App Store very soon.
-        </p>
-        <!-- Swap for the official App Store badge + link once the app is live -->
-        <span class="rounded-3xl bg-green-dark px-7 py-4 font-bold text-white">
-           App Store — coming soon
-        </span>
-      </div>
-    </section>
   </main>
+
+  <!-- ─── Spaced repetition + flip card ───────────────────────────────── -->
+  <section class="mx-auto max-w-5xl px-6 py-20">
+    <div
+      class="grid items-center gap-10 rounded-3xl border-2 border-green-dark bg-green-light px-8 py-6 shadow-sticker-lg md:grid-cols-2 md:p-10"
+    >
+      <div>
+        <p
+          class="text-[13px] font-extrabold uppercase tracking-[.14em] text-green-primary"
+        >
+          The science behind
+        </p>
+        <h2
+          class="mt-2 text-[clamp(26px,3.2vw,36px)] font-extrabold leading-tight text-green-dark"
+        >
+          Review words right before you forget them
+        </h2>
+        <p class="mt-4 leading-relaxed">
+          Every saved word enters a spaced-repetition system. Answer a flashcard
+          correctly and it climbs to the next box, waiting longer each time.
+          Miss it and it comes back tomorrow — that's how words go from "seen
+          once" to yours forever.
+        </p>
+        <div class="mt-7 flex items-end gap-3.5">
+          {
+            ["Today", "Soon", "Later", "Rarely", "Mastered"].map((label, i) => (
+              <div class="flex flex-col items-center gap-2">
+                <div
+                  class:list={[
+                    "w-10  rounded-lg border-2 border-green-dark shadow-sticker-sm",
+                    i === 4 ? "bg-amber" : "bg-white",
+                  ]}
+                  style={`height: ${34 + i * 20}px`}
+                />
+                <span class="text-[12px] font-extrabold text-green-dark">
+                  {label}
+                </span>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Interactive challenge card — like the app's challenge mode: the Spanish
+           word is blanked out, a tap reveals it in place, a swipe answers.
+           Content is filled by the script below. -->
+      <div class="flex flex-col relative items-center gap-5">
+        <!-- The deck: sized wrapper anchors two decorative cards that peek
+             out from under the draggable top card -->
+        <div class="relative h-[325px] w-full max-w-[288px]">
+          <div
+            aria-hidden="true"
+            class="absolute inset-0 -rotate-3 translate-y-2.5 rounded-2xl border-2 border-green-dark bg-green-light shadow-sticker"
+          >
+          </div>
+          <div
+            aria-hidden="true"
+            class="absolute inset-0 rotate-2 translate-y-1 rounded-2xl border-2 border-green-dark bg-white shadow-sticker"
+          >
+          </div>
+          <div
+            data-flip
+            class="relative h-full w-full cursor-grab touch-none select-none animate-[card-sway_3.5s_ease-in-out_1.2s_infinite]"
+          >
+            <div
+              data-card-face
+              class="relative flex h-full w-full flex-col items-center justify-center rounded-2xl border-2 border-green-dark bg-white p-5 text-center shadow-sticker-lg transition-colors duration-150"
+            >
+              <!-- Verdict badges — faded in by the drag handler below -->
+              <span
+                data-verdict-yes
+                aria-hidden="true"
+                class="absolute left-3 top-3 -rotate-12 text-3xl opacity-0"
+                >✅</span
+              >
+              <span
+                data-verdict-no
+                aria-hidden="true"
+                class="absolute right-3 top-3 rotate-12 text-3xl opacity-0"
+                >❌</span
+              >
+              <p>
+                <span
+                  data-card-front
+                  class="mr-1 font-lora text-2xl font-bold text-green-dark"
+                  >glimmering</span
+                >
+                <span
+                  data-card-pos
+                  class="text-xs font-extrabold text-amber-text"
+                >
+                  (adj.)</span
+                >
+              </p>
+              <div class="mt-1.5 h-[2px] w-24 rounded-full bg-amber/70"></div>
+              <p
+                data-card-example
+                class="mt-5 font-lora text-[14px] leading-relaxed"
+              >
+              </p>
+              <p class="mt-2.5 font-lora text-[14px] leading-relaxed">
+                <span data-cloze-before></span><span
+                  data-cloze-answer
+                  class="font-bold text-amber-text">_____</span
+                ><span data-cloze-after></span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <p class="text-[13px] font-extrabold text-green-dark">
+          👆 Tap to reveal
+        </p>
+        <!-- Swipe hint: shown after the first reveal, hidden after the first
+             swipe. pointer-events-none so it never blocks the card's drag. -->
+        <div
+          data-hand
+          class="pointer-events-none absolute inset-x-0 top-15 hidden flex flex-col items-center"
+        >
+          <div
+            class="flex flex-col items-center gap-1 animate-[swipe-hint_2.2s_ease-in-out_infinite]"
+          >
+            <img
+              src="/hand-emoji-removebg-preview.png"
+              alt=""
+              class="w-16 [filter:drop-shadow(0_6px_6px_rgba(6,60,49,.3))]"
+            />
+            <span
+              class="rounded-full border-2 border-green-dark bg-white px-3 py-1 text-[13px] font-extrabold text-green-dark shadow-sticker-sm"
+              >Swipe to continue</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Reviews marquee ─────────────────────────────────────────────── -->
+  <section id="reviews" class="border-b-2 border-green-darker bg-green-dark">
+    <div class="py-16">
+      <div class="mx-auto max-w-5xl px-6 text-center">
+        <p class="text-xl tracking-[3px] text-amber">★★★★★</p>
+        <h2
+          class="mt-2.5 text-[clamp(26px,3.4vw,38px)] font-extrabold leading-tight text-white"
+        >
+          What early users are saying
+        </h2>
+      </div>
+      <div class="marquee mt-9">
+        <div class="marquee-track px-2">
+          {
+            [...reviews, ...reviews].map((r) => (
+              <div class="w-[300px] flex-none rounded-2xl border-2 border-green-darker bg-neutral-100 p-5 shadow-[0_4px_0_0_var(--color-green-darker)]">
+                <p class="text-sm tracking-[2px] text-amber">★★★★★</p>
+                <p class="mt-2.5 text-[15px] leading-relaxed">{r.text}</p>
+                <p class="mt-3.5 text-sm font-extrabold text-green-dark">
+                  {r.name}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FAQ ─────────────────────────────────────────────────────────── -->
+  <section id="faq" class="mx-auto max-w-3xl px-6 py-16">
+    <h2
+      class="text-center text-[clamp(26px,3.4vw,38px)] font-extrabold leading-tight text-green-dark"
+    >
+      Frequently asked questions
+    </h2>
+    <div class="mt-8 space-y-4">
+      {
+        faqs.map((f) => (
+          <details class="card-sticker group px-6 py-4">
+            <summary class="cursor-pointer list-none text-[17px] font-extrabold text-green-dark">
+              <span class="mr-2 inline-block text-amber transition-transform group-open:rotate-90">
+                ▸
+              </span>
+              {f.q}
+            </summary>
+            <p class="mt-3 pl-6 text-[15px] leading-relaxed">{f.a}</p>
+          </details>
+        ))
+      }
+    </div>
+  </section>
 </Base>
+
+<script>
+  // ─── Feature flip cards: play the video while hovered, rewind on leave ───
+  document.querySelectorAll<HTMLElement>("[data-flip-card]").forEach((card) => {
+    const video = card.querySelector("video");
+    if (!video) return;
+    card.addEventListener("mouseenter", () => video.play());
+    card.addEventListener("mouseleave", () => {
+      video.pause();
+      video.currentTime = 0;
+    });
+  });
+
+  // ─── Feature showcase tabs ───
+  const tabButtons = [...document.querySelectorAll<HTMLElement>("[data-tab]")];
+  const tabScreens = [
+    ...document.querySelectorAll<HTMLElement>("[data-screen]"),
+  ];
+  const TAB_ON = ["bg-white", "shadow-sticker"];
+  const TAB_OFF = ["bg-white/45", "translate-y-[3px]"];
+
+  tabButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      tabButtons.forEach((b) => {
+        const on = b === btn;
+        b.classList.remove(...(on ? TAB_OFF : TAB_ON));
+        b.classList.add(...(on ? TAB_ON : TAB_OFF));
+      });
+      tabScreens.forEach((s) =>
+        s.classList.toggle("hidden", s.dataset.screen !== btn.dataset.tab),
+      );
+    });
+  });
+
+  // ─── Tap-a-word demo ───
+  const wordButtons = [
+    ...document.querySelectorAll<HTMLElement>("[data-word]"),
+  ];
+  const defCards = [...document.querySelectorAll<HTMLElement>("[data-def]")];
+  const WORD_ON = [
+    "bg-green-primary",
+    "text-white",
+    "border-transparent",
+    "shadow-sticker-sm",
+  ];
+  const WORD_OFF = ["bg-amber-light", "text-amber-text", "border-amber"];
+
+  wordButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      wordButtons.forEach((b) => {
+        const on = b === btn;
+        b.classList.remove(...(on ? WORD_OFF : WORD_ON));
+        b.classList.add(...(on ? WORD_ON : WORD_OFF));
+      });
+      defCards.forEach((c) =>
+        c.classList.toggle("hidden", c.dataset.def !== btn.dataset.word),
+      );
+    });
+  });
+
+  // ─── Challenge card (cloze) — mirrors the app's challenge flashcards ───
+  const challengeCards = [
+    {
+      word: "castle",
+      pos: "(n.)",
+      es: "castillo",
+      exampleEn: '"The old castle stands on a hill."',
+      exampleEs: '"El viejo castillo se alza sobre una colina."',
+    },
+    {
+      word: "burglars",
+      pos: "(n.)",
+      es: "ladrones",
+      exampleEn: '"The burglars broke into the house at night."',
+      exampleEs: '"Los ladrones entráron en la casa por la noche."',
+    },
+    {
+      word: "hill",
+      pos: "(n.)",
+      es: "colina",
+      exampleEn: '"Our house is on a small hill."',
+      exampleEs: '"Nuestra casa está en una pequeña colina."',
+    },
+    {
+      word: "serene",
+      pos: "(adj.)",
+      es: "sereno",
+      exampleEn: '"A serene morning by the lake"',
+      exampleEs: '"Un amanecer sereno junto al lago"',
+    },
+  ];
+  const flipBox = document.querySelector<HTMLElement>("[data-flip]");
+  const clozeAnswer = document.querySelector<HTMLElement>(
+    "[data-cloze-answer]",
+  );
+  const handEl = document.querySelector<HTMLElement>("[data-hand]");
+  const cardFace = document.querySelector<HTMLElement>("[data-card-face]");
+  const verdictYes = document.querySelector<HTMLElement>("[data-verdict-yes]");
+  const verdictNo = document.querySelector<HTMLElement>("[data-verdict-no]");
+  let cardIdx = 0;
+  let revealed = false;
+
+  const setText = (sel: string, text: string) => {
+    const el = document.querySelector(sel);
+    if (el) el.textContent = text;
+  };
+  const showCard = () => {
+    const c = challengeCards[cardIdx % challengeCards.length];
+    setText("[data-card-front]", c.word);
+    setText("[data-card-pos]", c.pos);
+    // Bold the target word inside the English example (our own strings, safe)
+    const ex = document.querySelector("[data-card-example]");
+    if (ex) ex.innerHTML = c.exampleEn.replace(c.word, `<b>${c.word}</b>`);
+    // ponytail: exact-form split; the app's makeCloze handles word boundaries
+    // and inflected forms — our 4 curated sentences don't need that.
+    const [before, after] = c.exampleEs.split(c.es);
+    setText("[data-cloze-before]", before);
+    setText("[data-cloze-after]", after);
+    if (clozeAnswer) {
+      clozeAnswer.textContent = "_____";
+      clozeAnswer.classList.remove("text-green-primary");
+      clozeAnswer.classList.add("text-amber-text");
+    }
+  };
+
+  // Tap fills the blank in place — the challenge card has no back face
+  const reveal = () => {
+    if (revealed || !clozeAnswer) return;
+    revealed = true;
+    clozeAnswer.textContent =
+      challengeCards[cardIdx % challengeCards.length].es;
+    clozeAnswer.classList.remove("text-amber-text");
+    clozeAnswer.classList.add("text-green-primary");
+    clozeAnswer.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 260 });
+    // Blank filled — swiping is the next step; fade the hint in (once)
+    if (handEl?.classList.contains("hidden")) {
+      handEl.classList.remove("hidden");
+      handEl.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 300 });
+    }
+  };
+
+  // ─── Drag to answer — ported from the app's flashcards.tsx pan gesture ───
+  // Follow the pointer while dragging (with a slight rotation), then on release:
+  // past ±80px → fly out and advance to the next card; a small move → treat as a
+  // tap and reveal the blank; anything else → spring back to center.
+  const SWIPE_THRESHOLD = 80;
+  const TAP_SLOP = 6;
+  let startX = 0;
+  let dragX = 0;
+  let dragging = false;
+  let animating = false;
+
+  const resetVerdict = () => {
+    if (verdictYes) verdictYes.style.opacity = "0";
+    if (verdictNo) verdictNo.style.opacity = "0";
+    if (cardFace) cardFace.style.borderColor = "";
+  };
+
+  const advanceCard = () => {
+    if (!flipBox) return;
+    cardIdx++;
+    revealed = false;
+    resetVerdict();
+    // Teleport the new card below center with transitions off…
+    flipBox.style.transition = "none";
+    showCard();
+    flipBox.style.transform = "translateY(26px)";
+    flipBox.style.opacity = "0";
+    void flipBox.offsetHeight; // force reflow so the jump isn't animated
+    // …then animate it in.
+    flipBox.style.transition = "transform .3s ease-out, opacity .3s ease-out";
+    flipBox.style.transform = "";
+    flipBox.style.opacity = "1";
+    setTimeout(() => {
+      if (flipBox) flipBox.style.transition = "";
+      animating = false;
+    }, 300);
+  };
+
+  flipBox?.addEventListener("pointerdown", (e) => {
+    if (animating) return;
+    dragging = true;
+    startX = e.clientX;
+    dragX = 0;
+    flipBox.setPointerCapture(e.pointerId);
+    flipBox.style.transition = "none";
+    // Kill the idle swipe-hint sway — a running CSS animation would override
+    // the inline drag transform.
+    flipBox.style.animation = "none";
+  });
+
+  flipBox?.addEventListener("pointermove", (e) => {
+    if (!dragging) return;
+    dragX = e.clientX - startX;
+    flipBox.style.transform = `translateX(${dragX}px) rotate(${dragX / 18}deg)`;
+    // Verdict preview: ✅ fades in dragging right, ❌ dragging left; the
+    // border tints once the drag reaches the commit threshold.
+    const p = Math.max(-1, Math.min(1, dragX / SWIPE_THRESHOLD));
+    if (verdictYes) verdictYes.style.opacity = String(Math.max(0, p));
+    if (verdictNo) verdictNo.style.opacity = String(Math.max(0, -p));
+    if (cardFace)
+      cardFace.style.borderColor =
+        p === 1
+          ? "var(--color-green-primary)"
+          : p === -1
+            ? "var(--color-amber)"
+            : "";
+  });
+
+  const release = () => {
+    if (!dragging || !flipBox) return;
+    dragging = false;
+    // Resume the idle sway (killed on pointerdown); its 1.2s delay restarts,
+    // so it won't fight the tap / spring-back / fly-out animations below.
+    flipBox.style.animation = "";
+
+    if (Math.abs(dragX) <= TAP_SLOP) {
+      // Barely moved → it was a tap: fill in the blank
+      flipBox.style.transition = "";
+      flipBox.style.transform = "";
+      resetVerdict();
+      reveal();
+    } else if (Math.abs(dragX) > SWIPE_THRESHOLD) {
+      // Committed swipe → fly out, then bring in the next card
+      handEl?.classList.add("hidden"); // gesture learned — retire the hint
+      animating = true;
+      const dir = Math.sign(dragX);
+      flipBox.style.transition = "transform .24s ease-in, opacity .24s ease-in";
+      flipBox.style.transform = `translateX(${dir * 600}px) rotate(${dir * 32}deg)`;
+      flipBox.style.opacity = "0";
+      setTimeout(advanceCard, 240);
+    } else {
+      // Not far enough → spring back (overshooting bezier ≈ withSpring)
+      flipBox.style.transition = "transform .35s cubic-bezier(.2,1.6,.4,1)";
+      flipBox.style.transform = "";
+      resetVerdict();
+    }
+  };
+
+  flipBox?.addEventListener("pointerup", release);
+  flipBox?.addEventListener("pointercancel", release);
+
+  showCard(); // fill the first card (the markup ships with empty cloze spans)
+</script>
