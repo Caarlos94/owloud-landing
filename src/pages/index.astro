@@ -272,195 +272,197 @@ const faqSchema = {
         </div>
       </div>
     </section>
-  </main>
 
-  <!-- ─── Spaced repetition + flip card ───────────────────────────────── -->
-  <section class="mx-auto max-w-5xl px-6 py-20">
-    <div
-      class="grid items-center gap-10 rounded-3xl border-2 border-green-dark bg-green-light px-5 py-6 shadow-sticker-lg sm:px-8 md:grid-cols-2 md:p-10"
-    >
-      <div>
-        <p
-          class="text-[13px] font-extrabold uppercase tracking-[.14em] text-green-primary"
-        >
-          The science behind
-        </p>
-        <h2
-          class="mt-2 text-[clamp(26px,3.2vw,36px)] font-extrabold leading-tight text-green-dark"
-        >
-          Review words right before you forget them
-        </h2>
-        <p class="mt-4 leading-relaxed">
-          Every saved word enters a spaced-repetition system. Answer a flashcard
-          correctly and it climbs to the next box, waiting longer each time.
-          Miss it and it comes back tomorrow — that's how words go from "seen
-          once" to yours forever.
-        </p>
-        <div class="mt-7 flex items-end gap-2.5 sm:gap-3.5">
-          {
-            ["Today", "Soon", "Later", "Rarely", "Mastered"].map((label, i) => (
-              <div class="flex flex-col items-center gap-2">
-                <div
-                  class:list={[
-                    "w-8 rounded-lg border-2 border-green-dark shadow-sticker-sm sm:w-10",
-                    i === 4 ? "bg-amber" : "bg-white",
-                  ]}
-                  style={`height: ${34 + i * 20}px`}
-                />
-                <span class="text-[12px] font-extrabold text-green-dark">
-                  {label}
-                </span>
-              </div>
-            ))
-          }
+    <!-- ─── Spaced repetition + flip card ───────────────────────────────── -->
+    <section class="mx-auto max-w-5xl px-6 py-20">
+      <div
+        class="grid items-center gap-10 rounded-3xl border-2 border-green-dark bg-green-light px-5 py-6 shadow-sticker-lg sm:px-8 md:grid-cols-2 md:p-10"
+      >
+        <div>
+          <p
+            class="text-[13px] font-extrabold uppercase tracking-[.14em] text-green-primary"
+          >
+            The science behind
+          </p>
+          <h2
+            class="mt-2 text-[clamp(26px,3.2vw,36px)] font-extrabold leading-tight text-green-dark"
+          >
+            Review words right before you forget them
+          </h2>
+          <p class="mt-4 leading-relaxed">
+            Every saved word enters a spaced-repetition system. Answer a
+            flashcard correctly and it climbs to the next box, waiting longer
+            each time. Miss it and it comes back tomorrow — that's how words go
+            from "seen once" to yours forever.
+          </p>
+          <div class="mt-7 flex items-end gap-2.5 sm:gap-3.5">
+            {
+              ["Today", "Soon", "Later", "Rarely", "Mastered"].map(
+                (label, i) => (
+                  <div class="flex flex-col items-center gap-2">
+                    <div
+                      class:list={[
+                        "w-8 rounded-lg border-2 border-green-dark shadow-sticker-sm sm:w-10",
+                        i === 4 ? "bg-amber" : "bg-white",
+                      ]}
+                      style={`height: ${34 + i * 20}px`}
+                    />
+                    <span class="text-[12px] font-extrabold text-green-dark">
+                      {label}
+                    </span>
+                  </div>
+                ),
+              )
+            }
+          </div>
         </div>
-      </div>
 
-      <!-- Interactive challenge card — like the app's challenge mode: the Spanish
+        <!-- Interactive challenge card — like the app's challenge mode: the Spanish
            word is blanked out, a tap reveals it in place, a swipe answers.
            Content is filled by the script below. -->
-      <div class="flex flex-col relative items-center gap-5">
-        <!-- The deck: sized wrapper anchors two decorative cards that peek
+        <div class="flex flex-col relative items-center gap-5">
+          <!-- The deck: sized wrapper anchors two decorative cards that peek
              out from under the draggable top card -->
-        <div class="relative h-[325px] w-full max-w-[288px]">
-          <div
-            aria-hidden="true"
-            class="absolute inset-0 -rotate-3 translate-y-2.5 rounded-2xl border-2 border-green-dark bg-green-light shadow-sticker"
-          >
+          <div class="relative h-[325px] w-full max-w-[288px]">
+            <div
+              aria-hidden="true"
+              class="absolute inset-0 -rotate-3 translate-y-2.5 rounded-2xl border-2 border-green-dark bg-green-light shadow-sticker"
+            >
+            </div>
+            <div
+              aria-hidden="true"
+              class="absolute inset-0 rotate-2 translate-y-1 rounded-2xl border-2 border-green-dark bg-white shadow-sticker"
+            >
+            </div>
+            <div
+              data-flip
+              class="relative h-full w-full cursor-grab touch-none select-none animate-[card-sway_3.5s_ease-in-out_1.2s_infinite]"
+            >
+              <div
+                data-card-face
+                class="relative flex h-full w-full flex-col items-center justify-center rounded-2xl border-2 border-green-dark bg-white p-5 text-center shadow-sticker-lg transition-colors duration-150"
+              >
+                <!-- Verdict badges — faded in by the drag handler below -->
+                <span
+                  data-verdict-yes
+                  aria-hidden="true"
+                  class="absolute left-3 top-3 -rotate-12 text-3xl opacity-0"
+                  >✅</span
+                >
+                <span
+                  data-verdict-no
+                  aria-hidden="true"
+                  class="absolute right-3 top-3 rotate-12 text-3xl opacity-0"
+                  >❌</span
+                >
+                <p>
+                  <span
+                    data-card-front
+                    class="mr-1 font-lora text-2xl font-bold text-green-dark"
+                    >glimmering</span
+                  >
+                  <span
+                    data-card-pos
+                    class="text-xs font-extrabold text-amber-text"
+                  >
+                    (adj.)</span
+                  >
+                </p>
+                <div class="mt-1.5 h-[2px] w-24 rounded-full bg-amber/70"></div>
+                <p
+                  data-card-example
+                  class="mt-5 font-lora text-[14px] leading-relaxed"
+                >
+                </p>
+                <p class="mt-2.5 font-lora text-[14px] leading-relaxed">
+                  <span data-cloze-before></span><span
+                    data-cloze-answer
+                    class="font-bold text-amber-text">_____</span
+                  ><span data-cloze-after></span>
+                </p>
+              </div>
+            </div>
           </div>
+          <p class="text-[13px] font-extrabold text-green-dark">
+            👆 Tap to reveal
+          </p>
+          <!-- Swipe hint: shown after the first reveal, hidden after the first
+             swipe. pointer-events-none so it never blocks the card's drag. -->
           <div
-            aria-hidden="true"
-            class="absolute inset-0 rotate-2 translate-y-1 rounded-2xl border-2 border-green-dark bg-white shadow-sticker"
-          >
-          </div>
-          <div
-            data-flip
-            class="relative h-full w-full cursor-grab touch-none select-none animate-[card-sway_3.5s_ease-in-out_1.2s_infinite]"
+            data-hand
+            class="pointer-events-none absolute inset-x-0 top-15 hidden flex flex-col items-center"
           >
             <div
-              data-card-face
-              class="relative flex h-full w-full flex-col items-center justify-center rounded-2xl border-2 border-green-dark bg-white p-5 text-center shadow-sticker-lg transition-colors duration-150"
+              class="flex flex-col items-center gap-1 animate-[swipe-hint_2.2s_ease-in-out_infinite]"
             >
-              <!-- Verdict badges — faded in by the drag handler below -->
+              <img
+                src="/hand-emoji-removebg-preview.png"
+                alt=""
+                class="w-16 [filter:drop-shadow(0_6px_6px_rgba(6,60,49,.3))]"
+              />
               <span
-                data-verdict-yes
-                aria-hidden="true"
-                class="absolute left-3 top-3 -rotate-12 text-3xl opacity-0"
-                >✅</span
+                class="rounded-full border-2 border-green-dark bg-white px-3 py-1 text-[13px] font-extrabold text-green-dark shadow-sticker-sm"
+                >Swipe to continue</span
               >
-              <span
-                data-verdict-no
-                aria-hidden="true"
-                class="absolute right-3 top-3 rotate-12 text-3xl opacity-0"
-                >❌</span
-              >
-              <p>
-                <span
-                  data-card-front
-                  class="mr-1 font-lora text-2xl font-bold text-green-dark"
-                  >glimmering</span
-                >
-                <span
-                  data-card-pos
-                  class="text-xs font-extrabold text-amber-text"
-                >
-                  (adj.)</span
-                >
-              </p>
-              <div class="mt-1.5 h-[2px] w-24 rounded-full bg-amber/70"></div>
-              <p
-                data-card-example
-                class="mt-5 font-lora text-[14px] leading-relaxed"
-              >
-              </p>
-              <p class="mt-2.5 font-lora text-[14px] leading-relaxed">
-                <span data-cloze-before></span><span
-                  data-cloze-answer
-                  class="font-bold text-amber-text">_____</span
-                ><span data-cloze-after></span>
-              </p>
             </div>
           </div>
         </div>
-        <p class="text-[13px] font-extrabold text-green-dark">
-          👆 Tap to reveal
-        </p>
-        <!-- Swipe hint: shown after the first reveal, hidden after the first
-             swipe. pointer-events-none so it never blocks the card's drag. -->
-        <div
-          data-hand
-          class="pointer-events-none absolute inset-x-0 top-15 hidden flex flex-col items-center"
-        >
-          <div
-            class="flex flex-col items-center gap-1 animate-[swipe-hint_2.2s_ease-in-out_infinite]"
+      </div>
+    </section>
+
+    <!-- ─── Reviews marquee ─────────────────────────────────────────────── -->
+    <section id="reviews" class="border-b-2 border-green-darker bg-green-dark">
+      <div class="py-16">
+        <div class="mx-auto max-w-5xl px-6 text-center">
+          <p class="text-xl tracking-[3px] text-amber">★★★★★</p>
+          <h2
+            class="mt-2.5 text-[clamp(26px,3.4vw,38px)] font-extrabold leading-tight text-white"
           >
-            <img
-              src="/hand-emoji-removebg-preview.png"
-              alt=""
-              class="w-16 [filter:drop-shadow(0_6px_6px_rgba(6,60,49,.3))]"
-            />
-            <span
-              class="rounded-full border-2 border-green-dark bg-white px-3 py-1 text-[13px] font-extrabold text-green-dark shadow-sticker-sm"
-              >Swipe to continue</span
-            >
+            What early users are saying
+          </h2>
+        </div>
+        <div class="marquee mt-9">
+          <div class="marquee-track px-2">
+            {
+              [...reviews, ...reviews].map((r) => (
+                <div class="w-[300px] flex-none rounded-2xl border-2 border-green-darker bg-neutral-100 p-5 shadow-[0_4px_0_0_var(--color-green-darker)]">
+                  <p class="text-sm tracking-[2px] text-amber">★★★★★</p>
+                  <p class="mt-2.5 text-[15px] leading-relaxed">{r.text}</p>
+                  <p class="mt-3.5 text-sm font-extrabold text-green-dark">
+                    {r.name}
+                  </p>
+                </div>
+              ))
+            }
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ─── Reviews marquee ─────────────────────────────────────────────── -->
-  <section id="reviews" class="border-b-2 border-green-darker bg-green-dark">
-    <div class="py-16">
-      <div class="mx-auto max-w-5xl px-6 text-center">
-        <p class="text-xl tracking-[3px] text-amber">★★★★★</p>
-        <h2
-          class="mt-2.5 text-[clamp(26px,3.4vw,38px)] font-extrabold leading-tight text-white"
-        >
-          What early users are saying
-        </h2>
+    <!-- ─── FAQ ─────────────────────────────────────────────────────────── -->
+    <section id="faq" class="mx-auto max-w-3xl px-6 py-16">
+      <h2
+        class="text-center text-[clamp(26px,3.4vw,38px)] font-extrabold leading-tight text-green-dark"
+      >
+        Frequently asked questions
+      </h2>
+      <div class="mt-8 space-y-4">
+        {
+          faqs.map((f) => (
+            <details class="card-sticker group px-6 py-4">
+              <summary class="cursor-pointer list-none text-[17px] font-extrabold text-green-dark">
+                <span class="mr-2 inline-block text-amber transition-transform group-open:rotate-90">
+                  ▸
+                </span>
+                {f.q}
+              </summary>
+              <p class="mt-3 pl-6 text-[15px] leading-relaxed">{f.a}</p>
+            </details>
+          ))
+        }
       </div>
-      <div class="marquee mt-9">
-        <div class="marquee-track px-2">
-          {
-            [...reviews, ...reviews].map((r) => (
-              <div class="w-[300px] flex-none rounded-2xl border-2 border-green-darker bg-neutral-100 p-5 shadow-[0_4px_0_0_var(--color-green-darker)]">
-                <p class="text-sm tracking-[2px] text-amber">★★★★★</p>
-                <p class="mt-2.5 text-[15px] leading-relaxed">{r.text}</p>
-                <p class="mt-3.5 text-sm font-extrabold text-green-dark">
-                  {r.name}
-                </p>
-              </div>
-            ))
-          }
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── FAQ ─────────────────────────────────────────────────────────── -->
-  <section id="faq" class="mx-auto max-w-3xl px-6 py-16">
-    <h2
-      class="text-center text-[clamp(26px,3.4vw,38px)] font-extrabold leading-tight text-green-dark"
-    >
-      Frequently asked questions
-    </h2>
-    <div class="mt-8 space-y-4">
-      {
-        faqs.map((f) => (
-          <details class="card-sticker group px-6 py-4">
-            <summary class="cursor-pointer list-none text-[17px] font-extrabold text-green-dark">
-              <span class="mr-2 inline-block text-amber transition-transform group-open:rotate-90">
-                ▸
-              </span>
-              {f.q}
-            </summary>
-            <p class="mt-3 pl-6 text-[15px] leading-relaxed">{f.a}</p>
-          </details>
-        ))
-      }
-    </div>
-  </section>
+    </section>
+  </main>
 </Base>
 
 <script>
