@@ -103,9 +103,10 @@ const faqSchema = {
   <main class="overflow-x-hidden">
     <!-- ─── Hero ────────────────────────────────────────────────────────── -->
     <section
+      id="download"
       class="mx-auto grid max-w-5xl items-center gap-12 px-6 pb-7 pt-28 md:grid-cols-2"
     >
-      <div class="w-125">
+      <div class="max-w-125">
         <h1
           class="mt-5 text-[clamp(38px,5vw,58px)] font-extrabold leading-[1.05] tracking-tight text-green-dark"
         >
@@ -170,7 +171,7 @@ const faqSchema = {
 
     <!-- ─── Interactive feature showcase ────────────────────────────────── -->
     <section id="features" class="border-y-2 border-green-dark bg-green-light">
-      <div class="mx-auto max-w-5xl py-16">
+      <div class="mx-auto max-w-5xl px-6 py-16">
         <h2
           class="text-center text-[clamp(28px,3.6vw,40px)] font-extrabold leading-tight text-green-dark"
         >
@@ -276,7 +277,7 @@ const faqSchema = {
   <!-- ─── Spaced repetition + flip card ───────────────────────────────── -->
   <section class="mx-auto max-w-5xl px-6 py-20">
     <div
-      class="grid items-center gap-10 rounded-3xl border-2 border-green-dark bg-green-light px-8 py-6 shadow-sticker-lg md:grid-cols-2 md:p-10"
+      class="grid items-center gap-10 rounded-3xl border-2 border-green-dark bg-green-light px-5 py-6 shadow-sticker-lg sm:px-8 md:grid-cols-2 md:p-10"
     >
       <div>
         <p
@@ -295,13 +296,13 @@ const faqSchema = {
           Miss it and it comes back tomorrow — that's how words go from "seen
           once" to yours forever.
         </p>
-        <div class="mt-7 flex items-end gap-3.5">
+        <div class="mt-7 flex items-end gap-2.5 sm:gap-3.5">
           {
             ["Today", "Soon", "Later", "Rarely", "Mastered"].map((label, i) => (
               <div class="flex flex-col items-center gap-2">
                 <div
                   class:list={[
-                    "w-10  rounded-lg border-2 border-green-dark shadow-sticker-sm",
+                    "w-8 rounded-lg border-2 border-green-dark shadow-sticker-sm sm:w-10",
                     i === 4 ? "bg-amber" : "bg-white",
                   ]}
                   style={`height: ${34 + i * 20}px`}
