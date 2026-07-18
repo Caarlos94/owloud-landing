@@ -109,10 +109,15 @@ content you create. We do not claim ownership of your saved words.
 
 ## 8. Intellectual Property
 
-The App, its design, the owl mascot, logos, software, and all books, audio, text,
-and other content (except your own saved content) are owned by us or our
-licensors and are protected by copyright and other laws. Nothing in these Terms
-gives you any ownership of them.
+The App, its design, the owl mascot, logos, software, synchronized text timing,
+translations, quizzes, and other original content (except your own saved
+content) are owned by us or our licensors and are protected by copyright and
+other laws. Nothing in these Terms gives you any ownership of them.
+
+Some books and audio recordings in the App are in the **public domain**,
+including audio recordings made by volunteers at
+[LibriVox.org](https://librivox.org). We do not claim ownership of
+public-domain works.
 
 ---
 
