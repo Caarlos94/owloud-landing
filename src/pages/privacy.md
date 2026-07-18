@@ -5,16 +5,9 @@ title: Privacy Policy
 
 # Privacy Policy for Owloud
 
-**Last updated: July 2, 2026**
+**Last updated: July 17, 2026**
 
-> **Note for the publisher:** This document is a plain-language template based on how
-> the Owloud app currently works. Before you publish it, replace every value in
-> `[square brackets]` with your real details, and have it reviewed by a qualified
-> lawyer in your country. Laws such as the GDPR (Europe), CCPA/CPRA (California),
-> and Apple's App Store rules have specific requirements that a template cannot
-> guarantee on its own.
-
-This Privacy Policy explains how **[Your Company / Developer Name]** ("we", "us",
+This Privacy Policy explains how **Carlos Islas** ("we", "us",
 or "our") collects, uses, and protects your information when you use the
 **Owloud** mobile application (the "App"). Owloud is an English-learning app where
 you listen to audiobooks with synchronized text, tap words to see definitions,
@@ -120,16 +113,17 @@ We do **not** sell your personal information.
 The App relies on the following third parties. Each has its own privacy policy
 that governs how it handles data:
 
-| Service | Purpose | What it may receive |
-|---|---|---|
-| **Supabase** | Authentication, content backend, and reports | Your email, hashed password, login session, and submitted reports |
-| **Apple (Sign in with Apple)** | Optional login | Your name and email (or a private relay email) |
-| **Google (Google Sign-In)** | Optional login | Your name and email |
-| **Apple App Store / RevenueCat** | Subscription billing and management | Purchase receipt and subscription status (no card details) |
-| **PostHog** | Usage analytics | Usage events, linked to your account ID when signed in |
-| **Sentry** | Crash and error reporting | Crash traces, device model, OS and App version |
-| **Free Dictionary API** (`api.dictionaryapi.dev`) | Word definitions | The individual word you tap |
-| **DeepL** (via our translation service) | Word translations | The individual word you translate |
+| Service                                           | Purpose                                      | What it may receive                                               |
+| ------------------------------------------------- | -------------------------------------------- | ----------------------------------------------------------------- |
+| **Supabase**                                      | Authentication, content backend, and reports | Your email, hashed password, login session, and submitted reports |
+| **Resend**                                        | Sending account emails (verification codes)  | Your email address                                                |
+| **Apple (Sign in with Apple)**                    | Optional login                               | Your name and email (or a private relay email)                    |
+| **Google (Google Sign-In)**                       | Optional login                               | Your name and email                                               |
+| **Apple App Store / RevenueCat**                  | Subscription billing and management          | Purchase receipt and subscription status (no card details)        |
+| **PostHog**                                       | Usage analytics                              | Usage events, linked to your account ID when signed in            |
+| **Sentry**                                        | Crash and error reporting                    | Crash traces, device model, OS and App version                    |
+| **Free Dictionary API** (`api.dictionaryapi.dev`) | Word definitions                             | The individual word you tap                                       |
+| **DeepL** (via our translation service)           | Word translations                            | The individual word you translate                                 |
 
 We encourage you to review the privacy policies of these providers. We are not
 responsible for the privacy practices of third-party services.
@@ -183,7 +177,7 @@ Depending on where you live, you may have the right to:
 - Withdraw consent for notifications.
 - Request a copy of your data (data portability).
 
-To exercise any of these rights, contact us at **[your-privacy-email@example.com]**.
+To exercise any of these rights, contact us at **support@owloud.app**.
 You can also remove most of your data yourself by clearing it in the App or
 uninstalling it.
 
@@ -191,7 +185,7 @@ uninstalling it.
 
 ## 9. Children's Privacy
 
-The App is not directed to children under **[13 / 16, depending on your region]**,
+The App is not directed to children under **13**,
 and we do not knowingly collect personal data from them. If you believe a child
 has provided us personal data, please contact us and we will delete it.
 
@@ -227,6 +221,5 @@ you accept the updated policy.
 
 If you have questions about this Privacy Policy or your data, contact us at:
 
-- **[Your Company / Developer Name]**
-- **Email:** [your-privacy-email@example.com]
-- **Address:** [Your business address, if required in your region]
+- **Carlos Islas**
+- **Email:** support@owloud.app

@@ -5,16 +5,10 @@ title: Terms of Service
 
 # Terms of Service for Owloud
 
-**Last updated: July 2, 2026**
-
-> **Note for the publisher:** This document is a plain-language template based on how
-> the Owloud app currently works. Before you publish it, replace every value in
-> `[square brackets]` with your real details, and have it reviewed by a qualified
-> lawyer. App Store subscription rules and consumer-protection laws vary by
-> country and a template cannot guarantee compliance on its own.
+**Last updated: July 17, 2026**
 
 These Terms of Service ("Terms") are an agreement between you and
-**[Your Company / Developer Name]** ("we", "us", or "our") for your use of the
+**Carlos Islas** ("we", "us", or "our") for your use of the
 **Owloud** mobile application (the "App"). By creating an account or using the
 App, you agree to these Terms. If you do not agree, do not use the App.
 
@@ -36,7 +30,7 @@ removes these limits (see Section 5).
 
 ## 2. Eligibility
 
-You must be at least **[13 / 16 / 18, depending on your region]** years old, or
+You must be at least **13** years old, or
 the minimum age of digital consent in your country, to use the App. If you are
 under the age of majority, you confirm that a parent or legal guardian agrees to
 these Terms on your behalf.
@@ -149,7 +143,7 @@ To the maximum extent permitted by law, we will not be liable for any indirect,
 incidental, special, consequential, or punitive damages, or any loss of data,
 arising out of or related to your use of the App. Our total liability for any
 claim relating to the App will not exceed the amount you paid us in the **12
-months** before the claim, or **[your local minimum, e.g. USD 50]** if you paid
+months** before the claim, or **USD 50** if you paid
 nothing.
 
 Some jurisdictions do not allow certain limitations, so some of the above may not
@@ -178,9 +172,9 @@ updated Terms.
 
 ## 14. Governing Law
 
-These Terms are governed by the laws of **[Your Country / State]**, without regard
+These Terms are governed by the laws of **Mexico**, without regard
 to its conflict-of-laws rules. Any dispute will be handled in the courts of
-**[Your jurisdiction]**, unless mandatory local consumer law gives you other
+**Mexico City, Mexico**, unless mandatory local consumer law gives you other
 rights.
 
 ---
@@ -189,6 +183,5 @@ rights.
 
 If you have questions about these Terms, contact us at:
 
-- **[Your Company / Developer Name]**
-- **Email:** [your-support-email@example.com]
-- **Address:** [Your business address, if required in your region]
+- **Carlos Islas**
+- **Email:** support@owloud.app
