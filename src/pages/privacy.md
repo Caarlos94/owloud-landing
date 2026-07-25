@@ -5,7 +5,7 @@ title: Privacy Policy
 
 # Privacy Policy for Owloud
 
-**Last updated: July 17, 2026**
+**Last updated: July 24, 2026**
 
 This Privacy Policy explains how **Carlos Islas** ("we", "us",
 or "our") collects, uses, and protects your information when you use the
@@ -84,8 +84,12 @@ We do **not** collect your precise location, your contacts, or your photos.
   servers. If you delete the App, this local data is removed with it.
 - **On our backend (Supabase).** Your **account credentials and login session**
   are managed by Supabase so you can sign in, and **reports you submit** are
-  stored there. The books, chapters, audio, and quiz content you access are
-  also delivered from this backend.
+  stored there. Book, chapter, and quiz information also comes from this
+  backend.
+- **On our content delivery network (Cloudflare).** The audiobook audio,
+  synchronized transcripts, and cover images are delivered through
+  **Cloudflare**. Like any web server, Cloudflare receives your device's IP
+  address and standard request information when it serves these files.
 - **With our analytics and crash-reporting providers.** Usage events are
   processed by PostHog and crash reports by Sentry (see Section 4).
 
@@ -116,6 +120,7 @@ that governs how it handles data:
 | Service                                           | Purpose                                      | What it may receive                                               |
 | ------------------------------------------------- | -------------------------------------------- | ----------------------------------------------------------------- |
 | **Supabase**                                      | Authentication, content backend, and reports | Your email, hashed password, login session, and submitted reports |
+| **Cloudflare**                                    | Delivering audio, transcripts, and cover images (CDN) | Your IP address and standard request data when content loads      |
 | **Resend**                                        | Sending account emails (verification codes)  | Your email address                                                |
 | **Apple (Sign in with Apple)**                    | Optional login                               | Your name and email (or a private relay email)                    |
 | **Google (Google Sign-In)**                       | Optional login                               | Your name and email                                               |
