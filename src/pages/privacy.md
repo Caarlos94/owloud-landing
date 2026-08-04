@@ -5,7 +5,7 @@ title: Privacy Policy
 
 # Privacy Policy for Owloud
 
-**Last updated: July 24, 2026**
+**Last updated: August 4, 2026**
 
 This Privacy Policy explains how **Carlos Islas** ("we", "us",
 or "our") collects, uses, and protects your information when you use the
@@ -32,15 +32,17 @@ do not use the App.
 - **Sign in with Google.** If you sign in with Google, Google shares basic
   profile information such as your **name** and **email address**.
 - **Profile and onboarding details.** During onboarding you may give us your
-  **name**, your **English level**, your **learning goals**, and the **topics**
-  you are interested in.
+  **name**, your **native language** (which also sets the App's language), your
+  **English level**, and your **learning goals**.
 
 ### b) Information created as you use the App
 
 - **Learning activity.** Words you save to your vocabulary, your flashcard
-  practice and mastery progress, chapters you complete, books you mark as
-  favorites, quiz results, and your reading/listening time, daily streaks, and
-  activity dates.
+  practice and mastery progress, your answers to practice exercises, chapters
+  you complete, books you mark as favorites, your best quiz score for each
+  chapter, and your reading/listening time, daily streaks, and activity dates.
+  To draw the progress charts we also keep a short per-day history (roughly the
+  last 60 days) of how long you listened and how many flashcards you reviewed.
 - **Playback and downloads.** Your current playback position and the list of
   chapters you have downloaded for offline use.
 - **Preferences.** Your daily goal, reminder settings, and theme (light/dark).
@@ -54,10 +56,14 @@ do not use the App.
 - **Dictionary and translation lookups.** When you tap a word to see its
   definition, that single word may be sent to a third-party dictionary service
   (see Section 4) to fetch the definition, pronunciation, and example. When you
-  request a Spanish translation, the word is sent to our translation service,
-  which uses **DeepL** and stores the result in a shared translation table so
-  the same word does not need to be translated twice. Only the word itself is
+  request a Spanish translation — of a word, or of a sentence from the book you
+  are reading — that text is sent to our translation service, which uses
+  **DeepL** and stores the result in a shared translation table so the same text
+  does not need to be translated twice. Only the word or sentence itself is
   sent — never your name or account details.
+- **Pronunciation.** When a recording is not available for a word, the App uses
+  your device's built-in text-to-speech to pronounce it. This happens on your
+  device and sends nothing to us.
 - **Usage analytics (PostHog).** We collect a small set of usage events — such
   as opening the App, starting or completing a chapter, viewing the paywall,
   and completing a purchase — to understand how the App is used and to improve
@@ -101,9 +107,10 @@ We use your information to:
 
 - Create and secure your account and keep you signed in.
 - Provide the core features: audio playback, synchronized text, word
-  definitions, saved vocabulary, flashcards, quizzes, and progress tracking.
+  definitions, saved vocabulary, flashcards, practice exercises, quizzes, and
+  progress tracking.
 - Remember your preferences and personalize content recommendations based on
-  your level, goals, and topics.
+  your English level and learning goals.
 - Send you optional **reminder notifications** if you enable them (see Section 6).
 - Process your subscription and unlock premium features.
 - Understand how the App is used (analytics), fix crashes, and improve the App.
@@ -128,7 +135,7 @@ that governs how it handles data:
 | **PostHog**                                       | Usage analytics                              | Usage events, linked to your account ID when signed in            |
 | **Sentry**                                        | Crash and error reporting                    | Crash traces, device model, OS and App version                    |
 | **Free Dictionary API** (`api.dictionaryapi.dev`) | Word definitions                             | The individual word you tap                                       |
-| **DeepL** (via our translation service)           | Word translations                            | The individual word you translate                                 |
+| **DeepL** (via our translation service)           | Word and sentence translations               | The word or sentence you ask to translate                         |
 
 We encourage you to review the privacy policies of these providers. We are not
 responsible for the privacy practices of third-party services.

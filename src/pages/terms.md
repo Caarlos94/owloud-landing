@@ -5,7 +5,7 @@ title: Terms of Service
 
 # Terms of Service for Owloud
 
-**Last updated: July 24, 2026**
+**Last updated: August 4, 2026**
 
 These Terms of Service ("Terms") are an agreement between you and
 **Carlos Islas** ("we", "us", or "our") for your use of the
@@ -17,10 +17,15 @@ App, you agree to these Terms. If you do not agree, do not use the App.
 ## 1. The Service
 
 Owloud is an English-learning app. You can listen to audiobooks with
-synchronized ("karaoke-style") text, tap any word to see its definition, save
-words to a personal vocabulary, practice with flashcards, take comprehension
-quizzes, download chapters for offline listening, and track your progress and
-streaks.
+synchronized ("karaoke-style") text, tap any word to see its definition or
+Spanish translation, save words to a personal vocabulary, and practice with
+flashcards.
+
+Each chapter also has a **practice session** built from what you just listened
+to — word matching, multiple-choice comprehension, listening exercises, typed
+translation, word-bank and sentence-reorder exercises — and the App records your
+best score for each chapter. You can also download chapters for offline
+listening and track your progress, statistics, and streaks.
 
 Some content is free. Other content is unlocked using **"Feathers,"** a virtual,
 time-based item that refills over time, or through a **premium subscription** that
@@ -101,18 +106,20 @@ the App.
 
 ## 7. Your Content
 
-The App lets you save words and create a personal vocabulary and flashcard deck.
-This content is mainly stored **on your device**. You are responsible for the
-content you create. We do not claim ownership of your saved words.
+The App lets you save words, create a personal vocabulary and flashcard deck,
+and organize words into your own lists. This content, along with your practice
+answers and scores, is mainly stored **on your device**. You are responsible for
+the content you create. We do not claim ownership of your saved words.
 
 ---
 
 ## 8. Intellectual Property
 
 The App, its design, the owl mascot, logos, software, synchronized text timing,
-translations, quizzes, and other original content (except your own saved
-content) are owned by us or our licensors and are protected by copyright and
-other laws. Nothing in these Terms gives you any ownership of them.
+translations, curated example sentences, quizzes, practice exercises, and other
+original content (except your own saved content) are owned by us or our
+licensors and are protected by copyright and other laws. Nothing in these Terms
+gives you any ownership of them.
 
 Some books and audio recordings in the App are in the **public domain**,
 including audio recordings made by volunteers at
