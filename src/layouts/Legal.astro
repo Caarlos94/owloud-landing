@@ -43,6 +43,12 @@ const { frontmatter } = Astro.props;
     padding-left: 1.25rem;
     list-style: disc;
   }
+  /* Numbered steps rendered as bare paragraphs before this existed — the
+     reset strips list-style and only ul had a rule to put it back. */
+  .legal ol {
+    padding-left: 1.25rem;
+    list-style: decimal;
+  }
   .legal a {
     color: #178160;
     text-decoration: underline;
