@@ -5,7 +5,7 @@ title: Terms of Service
 
 # Terms of Service for Owloud
 
-**Last updated: August 4, 2026**
+**Last updated: September 3, 2026**
 
 These Terms of Service ("Terms") are an agreement between you and
 **Carlos Islas** ("we", "us", or "our") for your use of the
@@ -134,9 +134,9 @@ The App uses third-party services, including Supabase (backend and login),
 Cloudflare (content delivery), Apple and Google (optional sign-in), the Apple
 App Store and RevenueCat (subscription
 billing and management), PostHog (usage analytics), Sentry (crash reporting),
-and third-party dictionary and translation services (word definitions and
-translations). Your use of those features may also be subject to the third
-party's terms. We are not responsible for third-party services.
+Tatoeba (example sentences), and DeepL (translations). Your use of those
+features may also be subject to the third party's terms. We are not
+responsible for third-party services.
 
 ---
 

@@ -28,32 +28,33 @@ const featureTabs = [
   },
 ];
 
-const reviews = [
-  {
-    text: "I finally finished my first book in English. Reading and listening at the same time made it so much easier to follow.",
-    name: "María, Madrid",
-  },
-  {
-    text: "Being able to tap a word without leaving the story is my favorite feature. I'm noticing words I learned popping up everywhere now.",
-    name: "Léa, Lyon",
-  },
-  {
-    text: "The flashcards seem to come back right before I would've forgotten the word. Kind of spooky, but it really works.",
-    name: "Tomás, Bogotá",
-  },
-  {
-    text: "I usually spend about ten minutes with it on my commute. The daily streak is surprisingly good at keeping me consistent.",
-    name: "Ana, Lisbon",
-  },
-  {
-    text: "Reading real classic stories is so much more fun than textbook exercises. I actually look forward to practicing now.",
-    name: "Yuki, Osaka",
-  },
-  {
-    text: "Offline mode was a lifesaver on a long flight. I ended up getting through way more than I expected.",
-    name: "Karim, Cairo",
-  },
-];
+// Disabled until we have real reviews — see the commented-out marquee section below.
+// const reviews = [
+//   {
+//     text: "I finally finished my first book in English. Reading and listening at the same time made it so much easier to follow.",
+//     name: "María, Madrid",
+//   },
+//   {
+//     text: "Being able to tap a word without leaving the story is my favorite feature. I'm noticing words I learned popping up everywhere now.",
+//     name: "Léa, Lyon",
+//   },
+//   {
+//     text: "The flashcards seem to come back right before I would've forgotten the word. Kind of spooky, but it really works.",
+//     name: "Tomás, Bogotá",
+//   },
+//   {
+//     text: "I usually spend about ten minutes with it on my commute. The daily streak is surprisingly good at keeping me consistent.",
+//     name: "Ana, Lisbon",
+//   },
+//   {
+//     text: "Reading real classic stories is so much more fun than textbook exercises. I actually look forward to practicing now.",
+//     name: "Yuki, Osaka",
+//   },
+//   {
+//     text: "Offline mode was a lifesaver on a long flight. I ended up getting through way more than I expected.",
+//     name: "Karim, Cairo",
+//   },
+// ];
 
 const faqs = [
   {
@@ -118,7 +119,9 @@ const faqSchema = {
         </h1>
         <div class="mt-8 flex flex-wrap items-center gap-3.5">
           <a
-            href="#download"
+            href="https://apps.apple.com/us/app/owloud-learn-english/id6793253654"
+            target="_blank"
+            rel="noopener noreferrer"
             class="hover:bg-green-primary flex items-center gap-2.5 rounded-3xl border-2 border-green-dark bg-green-dark px-6 py-3.5 font-extrabold text-white shadow-[0_4px_0_0_var(--color-green-darker)]"
           >
             <svg
@@ -411,6 +414,7 @@ const faqSchema = {
     </section>
 
     <!-- ─── Reviews marquee ─────────────────────────────────────────────── -->
+    <!-- Disabled until we have real reviews — these were placeholder testimonials.
     <section id="reviews" class="border-b-2 border-green-darker bg-green-dark">
       <div class="py-16">
         <div class="mx-auto max-w-5xl px-6 text-center">
@@ -438,6 +442,7 @@ const faqSchema = {
         </div>
       </div>
     </section>
+    -->
 
     <!-- ─── FAQ ─────────────────────────────────────────────────────────── -->
     <section id="faq" class="mx-auto max-w-3xl px-6 py-16">

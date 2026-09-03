@@ -5,7 +5,7 @@ title: Privacy Policy
 
 # Privacy Policy for Owloud
 
-**Last updated: August 4, 2026**
+**Last updated: September 3, 2026**
 
 This Privacy Policy explains how **Carlos Islas** ("we", "us",
 or "our") collects, uses, and protects your information when you use the
@@ -53,14 +53,17 @@ do not use the App.
 
 ### c) Information collected automatically
 
-- **Dictionary and translation lookups.** When you tap a word to see its
-  definition, that single word may be sent to a third-party dictionary service
-  (see Section 4) to fetch the definition, pronunciation, and example. When you
-  request a Spanish translation — of a word, or of a sentence from the book you
-  are reading — that text is sent to our translation service, which uses
-  **DeepL** and stores the result in a shared translation table so the same text
-  does not need to be translated twice. Only the word or sentence itself is
-  sent — never your name or account details.
+- **Word lookups.** When you tap a word, its translation, pronunciation, part
+  of speech, and (when available) a pronunciation audio clip are served from
+  our own backend, which was built in bulk from public dictionary data — no
+  word is sent live to a third-party dictionary service. When you request a
+  Spanish translation that isn't already in our backend — of a word, or of a
+  sentence from the book you are reading — that text is sent to our
+  translation service, which uses **DeepL** and stores the result so the same
+  text does not need to be translated twice. When no curated example sentence
+  is available for a word, the App searches **Tatoeba** (see Section 4) for
+  one in real time. In all cases, only the word or sentence itself is sent —
+  never your name or account details.
 - **Pronunciation.** When a recording is not available for a word, the App uses
   your device's built-in text-to-speech to pronounce it. This happens on your
   device and sends nothing to us.
@@ -134,7 +137,7 @@ that governs how it handles data:
 | **Apple App Store / RevenueCat**                  | Subscription billing and management          | Purchase receipt and subscription status (no card details)        |
 | **PostHog**                                       | Usage analytics                              | Usage events, linked to your account ID when signed in            |
 | **Sentry**                                        | Crash and error reporting                    | Crash traces, device model, OS and App version                    |
-| **Free Dictionary API** (`api.dictionaryapi.dev`) | Word definitions                             | The individual word you tap                                       |
+| **Tatoeba**                                       | Example sentences (when no curated example exists) | The individual word you tap                                       |
 | **DeepL** (via our translation service)           | Word and sentence translations               | The word or sentence you ask to translate                         |
 
 We encourage you to review the privacy policies of these providers. We are not
