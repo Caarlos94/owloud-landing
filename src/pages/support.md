@@ -20,9 +20,9 @@ the same details automatically.
 
 ## Frequently asked questions
 
-### I paid for Premium but the app still shows limits
+### I paid for Owloud Pro but the app still shows limits
 
-Open the app, go to the Premium screen and tap **Restore purchases**. That
+Open the app, tap the **Pro** button on Home and then **Restore**. That
 re-checks your Apple Account and re-applies the subscription. If it still
 doesn't work, email us from the address linked to your Apple Account so we can
 look it up.
@@ -35,26 +35,31 @@ Subscriptions are managed by Apple, not by us:
 2. Tap your name at the top, then **Subscriptions**
 3. Select **Owloud** and tap **Cancel Subscription**
 
-You keep Premium until the end of the period you've already paid for. Cancel at
+You keep Owloud Pro until the end of the period you've already paid for. Cancel at
 least 24 hours before it ends to avoid the next renewal.
 
-### What are feathers?
+### What can I use for free?
 
-Feathers are how free accounts unlock chapters. You hold up to **30** at a
-time, a chapter costs up to **20** depending on its length, and you earn one
-back every **30 minutes**. Premium removes the limit entirely — every chapter,
-any time.
+Chapter 1 of the books you picked when you started, a selection of full short
+stories, flashcards and quizzes. Every other chapter and story needs **Owloud
+Pro**.
+
+### What happened to feathers?
+
+Feathers are gone: chapters are no longer unlocked with them. The chapters you
+already unlocked with feathers stay unlocked.
 
 ### Why can't I save more words?
 
 Free accounts can save **50** words of their own. The built-in word lists don't
-count toward that. Premium removes the cap.
+count toward that. Owloud Pro removes the cap.
 
 ### Can I listen without internet?
 
-Yes. Open a book, then tap the download icon next to any chapter. Downloaded
-chapters keep their audio and synced text on your phone, so they work on a
-plane or on the metro. They stay until you delete them.
+Yes, with Owloud Pro. Open a book, then tap the download icon next to any
+chapter. Downloaded chapters keep their audio and synced text on your phone, so
+they work on a plane or on the metro. They stay until you delete them or your
+Pro subscription ends.
 
 ### A word has the wrong translation
 
@@ -72,7 +77,7 @@ using the steps above.
 
 Check that your phone isn't in silent mode and that the volume is up, then
 close and reopen the app. If a specific chapter won't load, try downloading it
-for offline use. Still stuck? Email us and name the book and chapter.
+for offline use (Owloud Pro). Still stuck? Email us and name the book and chapter.
 
 ---
 
@@ -93,10 +98,10 @@ nos envía esos datos automáticamente.
 
 ## Preguntas frecuentes
 
-### Pagué Premium pero la app sigue con límites
+### Pagué Owloud Pro pero la app sigue con límites
 
-Abre la app, ve a la pantalla de Premium y toca **Restaurar compras**. Eso
-vuelve a consultar tu cuenta de Apple y reactiva la suscripción. Si aun así no
+Abre la app, toca el botón **Pro** en Inicio y luego **Restaurar**. Eso vuelve a
+consultar tu cuenta de Apple y reactiva la suscripción. Si aun así no
 funciona, escríbenos desde el correo ligado a tu cuenta de Apple para poder
 buscarla.
 
@@ -108,26 +113,31 @@ Las suscripciones las administra Apple, no nosotros:
 2. Toca tu nombre arriba y luego **Suscripciones**
 3. Selecciona **Owloud** y toca **Cancelar suscripción**
 
-Conservas Premium hasta que termine el periodo que ya pagaste. Cancela al menos
+Conservas Owloud Pro hasta que termine el periodo que ya pagaste. Cancela al menos
 24 horas antes de que termine para evitar la siguiente renovación.
 
-### ¿Qué son las plumas?
+### ¿Qué puedo usar gratis?
 
-Las plumas son la forma en que las cuentas gratuitas desbloquean capítulos.
-Puedes tener hasta **30**, un capítulo cuesta hasta **20** según su duración, y
-recuperas una cada **30 minutos**. Premium quita el límite por completo: todos
-los capítulos, cuando quieras.
+El capítulo 1 de los libros que elegiste al empezar, una selección de historias
+cortas completas, las flashcards y los quizzes. Los demás capítulos e historias
+necesitan **Owloud Pro**.
+
+### ¿Qué pasó con las plumas?
+
+Ya no existen: los capítulos ya no se desbloquean con plumas. Los capítulos que
+ya habías desbloqueado con plumas siguen desbloqueados.
 
 ### ¿Por qué no puedo guardar más palabras?
 
 Las cuentas gratuitas pueden guardar **50** palabras propias. Las listas
-incluidas no cuentan para ese límite. Premium lo quita.
+incluidas no cuentan para ese límite. Owloud Pro lo quita.
 
 ### ¿Puedo escuchar sin internet?
 
-Sí. Abre un libro y toca el ícono de descarga junto a cualquier capítulo. Los
-capítulos descargados guardan el audio y el texto sincronizado en tu teléfono,
-así que funcionan en un avión o en el metro. Se quedan hasta que los borres.
+Sí, con Owloud Pro. Abre un libro y toca el ícono de descarga junto a cualquier
+capítulo. Los capítulos descargados guardan el audio y el texto sincronizado en
+tu teléfono, así que funcionan en un avión o en el metro. Se quedan hasta que
+los borres o termine tu suscripción Pro.
 
 ### Una palabra tiene la traducción equivocada
 
@@ -146,5 +156,5 @@ pasos de arriba.
 
 Revisa que tu teléfono no esté en silencio y que el volumen esté arriba, luego
 cierra y vuelve a abrir la app. Si un capítulo en particular no carga, intenta
-descargarlo para escucharlo sin internet. ¿Sigue sin funcionar? Escríbenos y
+descargarlo para escucharlo sin internet (Owloud Pro). ¿Sigue sin funcionar? Escríbenos y
 dinos el libro y el capítulo.

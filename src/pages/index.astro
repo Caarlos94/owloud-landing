@@ -1,28 +1,37 @@
 ---
+import { Image } from "astro:assets";
 import Base from "../layouts/Base.astro";
+import owlReading from "../assets/mascot-curious-book.png";
 
+// `short` is the pill label on phones/tablets; `title` + `text` show from lg: up
 const featureTabs = [
   {
+    short: "Karaoke",
     title: "Karaoke-style audiobooks",
     text: "The text lights up word by word as you listen — train your ears and eyes at the same time.",
   },
   {
+    short: "Tap a word",
     title: "Tap any word",
     text: "Definition, Spanish translation and an example — without ever leaving the story.",
   },
   {
+    short: "Flashcards",
     title: "Smart flashcards",
     text: "Saved words come back with spaced repetition, right before you'd forget them.",
   },
   {
+    short: "Vocabulary",
     title: "Your personal vocabulary",
     text: "Save the words that matter to you and watch your list grow, story by story.",
   },
   {
+    short: "Library",
     title: "A library of classic stories",
     text: "Browse beautiful books chapter by chapter and keep your favorites one tap away.",
   },
   {
+    short: "Streaks",
     title: "Streaks that keep you going",
     text: "A few minutes a day and a growing streak — learning becomes a habit that sticks.",
   },
@@ -59,11 +68,11 @@ const featureTabs = [
 const faqs = [
   {
     q: "Is Owloud free?",
-    a: "Yes. You can listen stories, tap words, and practice flashcards for free. Free chapters unlock with Feathers, which refill over time. Owloud Pro removes all limits and unlocks additional features for learners who want to go further.",
+    a: "Yes, you can start for free. You get chapter 1 of three books you pick, a selection of full short stories, flashcards, quizzes, and up to 50 saved words. Owloud Pro unlocks everything else.",
   },
   {
-    q: "What are Feathers?",
-    a: "Feathers are Owloud's free currency. Unlocking a chapter costs a few Feathers, and they refill automatically as time passes — so patient learners can use the whole app for free.",
+    q: "What do I get with Owloud Pro?",
+    a: "Every chapter of every book and every short story, unlimited saved words and sentence translations, chapter downloads for offline listening, and extra flashcard tools like adjustable audio speed and personal notes. New subscribers can try it free for 3 days and cancel anytime before the trial ends.",
   },
   {
     q: "What languages can I learn with Owloud?",
@@ -117,58 +126,56 @@ const faqSchema = {
             ></span></span
           > at a time.
         </h1>
-        <div class="mt-8 flex flex-wrap items-center gap-3.5">
-          <a
-            href="https://apps.apple.com/us/app/owloud-learn-english/id6793253654"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="hover:bg-green-primary flex items-center gap-2.5 rounded-3xl border-2 border-green-dark bg-green-dark px-6 py-3.5 font-extrabold text-white shadow-[0_4px_0_0_var(--color-green-darker)]"
-          >
-            <svg
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              class="h-6 w-6"
-              aria-hidden="true"
-            >
-              <path
-                d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"
-              ></path>
-            </svg>
-            <span class="text-[19px]">Get it on App Store</span>
-          </a>
-        </div>
+        <p class="mt-5 max-w-md text-[19px] leading-relaxed">
+          Audiobooks in English with synced text. Tap any word to see its
+          Spanish translation.
+        </p>
+        <!-- Apple's official badge (App Store Marketing Tools), used unaltered as
+             their marketing guidelines require -->
+        <a
+          href="https://apps.apple.com/us/app/owloud-learn-english/id6793253654"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-8 inline-block transition-transform duration-200 hover:-translate-y-0.5"
+        >
+          <img
+            src="/app-store-badge.svg"
+            alt="Download on the App Store"
+            width="180"
+            height="60"
+            class="h-[60px] w-auto"
+          />
+        </a>
+        <p class="mt-4 text-sm font-bold text-green-dark/75">
+          Free to start · 3-day free trial of Pro · iPhone
+        </p>
       </div>
-      <img
-        src="/apple/Simulator_iPhone_17_Pro.png"
-        alt="Owloud mascot"
-        class="scale-95"
-      />
+      <div class="relative">
+        <img
+          src="/apple/Simulator_iPhone_17_Pro.png"
+          alt="Owloud's home screen on an iPhone"
+          class="scale-95"
+        />
+        <!-- Reading owl tucked against the phone's lower-left corner -->
+        <Image
+          src={owlReading}
+          alt=""
+          width={190}
+          densities={[1, 2]}
+          class="absolute -left-2 bottom-[6%] w-[36%] max-w-[190px] animate-[bob_4s_ease-in-out_infinite]"
+        />
+      </div>
     </section>
     <!-- ─── Trust strip ─────────────────────────────────────────────────── -->
     <div class="border-y-2 border-green-dark bg-green-dark">
       <div
         class="mx-auto flex max-w-5xl flex-wrap justify-center gap-x-10 gap-y-3 px-6 py-3 text-sm font-extrabold text-green-light"
       >
-        <span
-          class="cursor-pointer transition-transform duration-300 hover:-translate-y-0.75 hover:scale-105"
-          >🎧 Read & listen at once</span
-        >
-        <span
-          class="cursor-pointer transition-transform duration-300 hover:-translate-y-0.75 hover:scale-105"
-          >👆 Tap any word</span
-        >
-        <span
-          class="cursor-pointer transition-transform duration-300 hover:-translate-y-0.75 hover:scale-105"
-          >🃏 Spaced-repetition flashcards</span
-        >
-        <span
-          class="cursor-pointer transition-transform duration-300 hover:-translate-y-0.75 hover:scale-105"
-          >📥 Works offline</span
-        >
-        <span
-          class="cursor-pointer transition-transform duration-300 hover:-translate-y-0.75 hover:scale-105"
-          >🔥 Daily streaks</span
-        >
+        <span>🎧 Read & listen at once</span>
+        <span>👆 Tap any word</span>
+        <span>🃏 Spaced-repetition flashcards</span>
+        <span>📥 Works offline</span>
+        <span>🔥 Daily streaks</span>
       </div>
     </div>
 
@@ -183,35 +190,57 @@ const faqSchema = {
         <p class="mx-auto mt-3 max-w-lg text-center text-[17px]">
           Tap a feature to see it in action.
         </p>
-        <div class="mt-8 grid items-center gap-11 lg:grid-cols-[1fr_320px]">
-          <!-- Tabs -->
-          <div class="flex flex-col gap-3.5">
+        <div
+          class="mt-8 grid items-center gap-5 lg:grid-cols-[1fr_320px] lg:gap-11"
+        >
+          <!-- Tabs: short pills above the phone below lg: (so a tap changes the
+               video in view), full cards beside it from lg: up -->
+          <div
+            class="flex flex-wrap justify-center gap-2 lg:flex-col lg:flex-nowrap lg:gap-3.5"
+          >
             {
               featureTabs.map((t, i) => (
                 <button
+                  type="button"
                   data-tab={i}
+                  aria-pressed={i === 0 ? "true" : "false"}
                   class:list={[
-                    "flex w-full cursor-pointer items-start gap-3.5 rounded-2xl border-2 border-green-dark p-5 text-left transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-lg",
+                    "flex cursor-pointer items-start rounded-full border-2 border-green-dark px-3.5 py-2 text-left transition-transform duration-300 hover:-translate-y-0.5 lg:w-full lg:rounded-2xl lg:p-5 lg:hover:shadow-lg",
                     i === 0
                       ? "bg-white shadow-sticker"
                       : "translate-y-[3px] bg-white/45",
                   ]}
                 >
                   <span>
-                    <span class="block text-[17px] font-extrabold text-green-dark">
+                    <span class="block text-sm font-extrabold text-green-dark lg:hidden">
+                      {t.short}
+                    </span>
+                    <span class="hidden text-[17px] font-extrabold text-green-dark lg:block">
                       {t.title}
                     </span>
-                    <span class="mt-0.5 block text-sm">{t.text}</span>
+                    <span data-tab-text class="mt-0.5 hidden text-sm lg:block">
+                      {t.text}
+                    </span>
                   </span>
                 </button>
               ))
             }
           </div>
 
+          <!-- Below lg: the pills only carry a short label, so the active
+               feature's description sits between them and the phone -->
+          <p
+            data-tab-caption
+            aria-live="polite"
+            class="mx-auto max-w-sm text-center text-[15px] leading-snug lg:hidden"
+          >
+            {featureTabs[0].text}
+          </p>
+
           <!-- Phone: one screen per tab, toggled by the script below -->
           <div class="flex justify-center">
             <div
-              class="w-[295px] rounded-[46px] border-2 border-green-dark bg-white p-1 shadow-sticker-xl"
+              class="w-[250px] rounded-[42px] border-2 border-green-dark bg-white p-1 shadow-sticker-xl lg:w-[295px] lg:rounded-[46px]"
             >
               <div class="overflow-hidden rounded-[34px] bg-neutral-100">
                 <div data-screen="0">
@@ -487,6 +516,7 @@ const faqSchema = {
   const tabScreens = [
     ...document.querySelectorAll<HTMLElement>("[data-screen]"),
   ];
+  const tabCaption = document.querySelector<HTMLElement>("[data-tab-caption]");
   const TAB_ON = ["bg-white", "shadow-sticker"];
   const TAB_OFF = ["bg-white/45", "translate-y-[3px]"];
 
@@ -496,10 +526,21 @@ const faqSchema = {
         const on = b === btn;
         b.classList.remove(...(on ? TAB_OFF : TAB_ON));
         b.classList.add(...(on ? TAB_ON : TAB_OFF));
+        b.setAttribute("aria-pressed", String(on));
       });
-      tabScreens.forEach((s) =>
-        s.classList.toggle("hidden", s.dataset.screen !== btn.dataset.tab),
-      );
+      tabScreens.forEach((s) => {
+        const on = s.dataset.screen === btn.dataset.tab;
+        s.classList.toggle("hidden", !on);
+        // Start the newly shown demo from the beginning
+        const video = s.querySelector("video");
+        if (on && video) {
+          video.currentTime = 0;
+          video.play().catch(() => {});
+        }
+      });
+      // The pill's full description (hidden in the pill below lg:)
+      const text = btn.querySelector("[data-tab-text]")?.textContent;
+      if (tabCaption && text) tabCaption.textContent = text.trim();
     });
   });
 
