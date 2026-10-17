@@ -1,0 +1,29 @@
+---
+// owloud.app/get — the link in the app's share captions. GitHub Pages can't
+// send a server redirect, so this page forwards to the App Store right away
+// with a meta refresh (plus a script for browsers that ignore it). The Open
+// Graph tags are for the link preview chat apps draw before anyone taps.
+const appStore = "https://apps.apple.com/us/app/owloud-learn-english/id6793253654";
+const ogImage = new URL("/owloud-curious.png", Astro.site);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <meta http-equiv="refresh" content={`0; url=${appStore}`} />
+    <title>Owloud — Learn English with audiobooks</title>
+    <meta property="og:title" content="Owloud — Learn English with audiobooks" />
+    <meta property="og:description" content="Audiobooks and short stories in English with synced text. Tap any word to see what it means." />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content={new URL("/get", Astro.site)} />
+    <script is:inline define:vars={{ appStore }}>
+      window.location.replace(appStore);
+    </script>
+  </head>
+  <body>
+    <p><a href={appStore}>Download Owloud on the App Store</a></p>
+  </body>
+</html>
