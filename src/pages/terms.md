@@ -5,7 +5,7 @@ title: Terms of Service
 
 # Terms of Service for Owloud
 
-**Last updated: October 13, 2026**
+**Last updated: October 18, 2026**
 
 These Terms of Service ("Terms") are an agreement between you and
 **Carlos Islas** ("we", "us", or "our") for your use of the
@@ -81,7 +81,7 @@ The App offers an optional subscription, **Owloud Pro**, which includes:
 
 - Every chapter of every book, including books marked as Pro, and every short
   story.
-- Unlimited saved words and unlimited sentence translations.
+- Unlimited saved words.
 - Chapter downloads for offline listening.
 - Extra flashcard features, such as adjustable audio speed and personal notes.
 
@@ -120,8 +120,7 @@ Without Owloud Pro, you can use:
 - A selection of **free short stories**.
 - Up to **50** words of your own in your vocabulary. Words added from the
   App's built-in word lists do not count toward this limit.
-- A daily allowance of **sentence translations** once you have finished your
-  first chapter. Single-word lookups are not limited.
+- Word lookups and **sentence translations**, with no daily limit.
 - Flashcards, quizzes for the content available to you, progress statistics,
   and streaks.
 

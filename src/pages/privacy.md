@@ -5,7 +5,7 @@ title: Privacy Policy
 
 # Privacy Policy for Owloud
 
-**Last updated: October 13, 2026**
+**Last updated: October 18, 2026**
 
 This Privacy Policy explains how **Carlos Islas** ("we", "us",
 or "our") collects, uses, and protects your information when you use the
@@ -53,9 +53,8 @@ do not use the App.
   flashcards you reviewed, which the progress charts use.
 - **Playback and downloads.** Your playback position in each chapter and the
   list of chapters you have downloaded for offline use.
-- **Plan usage.** Whether you have Owloud Pro, how many sentence translations
-  you have used today, and any chapters you unlocked with Feathers in earlier
-  versions of the App.
+- **Plan usage.** Whether you have Owloud Pro and any chapters you unlocked
+  with Feathers in earlier versions of the App.
 - **Preferences.** Your daily goal, reminder settings, App language, theme
   (light/dark), and flashcard settings.
 - **Reports and feedback you send us.** If you report a problem, send
@@ -142,8 +141,8 @@ We use your information to:
   definitions, saved vocabulary, flashcards, practice exercises, quizzes, and
   progress tracking.
 - Remember your preferences and suggest books that match your English level.
-- Apply the free plan (for example, the free chapters and the daily sentence
-  translations) and unlock Owloud Pro features when you subscribe.
+- Apply the free plan (for example, the free chapters and the saved-word
+  limit) and unlock Owloud Pro features when you subscribe.
 - Send you optional **reminder notifications** if you enable them (see Section 6).
 - Answer and act on the reports and feedback you send us.
 - Understand how the App is used (analytics), fix crashes, and improve the App.
