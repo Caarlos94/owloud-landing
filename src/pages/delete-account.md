@@ -51,6 +51,9 @@ and never later than 30 days.
 - **Usage statistics and crash reports** (PostHog and Sentry) are not linked to
   your email or name, and are deleted according to those providers' retention
   policies.
+- **Ad measurement data** that Meta received (see the
+  [Privacy Policy](/privacy)) doesn't include your email or name, and Meta
+  keeps it according to its own policies.
 
 ## Deleting your account doesn't cancel your subscription
 
@@ -111,6 +114,9 @@ dos días hábiles y nunca después de 30 días.
 - **Estadísticas de uso y reportes de errores** (PostHog y Sentry) no están
   ligados a tu correo ni a tu nombre, y se borran según las políticas de
   conservación de esos proveedores.
+- **Los datos de medición de anuncios** que recibió Meta (ver la
+  [Política de privacidad](/privacy)) no incluyen tu correo ni tu nombre, y
+  Meta los conserva según sus propias políticas.
 
 ## Eliminar tu cuenta no cancela tu suscripción
 

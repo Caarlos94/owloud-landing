@@ -5,11 +5,11 @@ title: Terms of Service
 
 # Terms of Service for Owloud
 
-**Last updated: October 18, 2026**
+**Last updated: October 27, 2026**
 
 These Terms of Service ("Terms") are an agreement between you and
 **Carlos Islas** ("we", "us", or "our") for your use of the
-**Owloud** mobile application (the "App"). By creating an account or using the
+**Owloud** mobile application for iPhone and Android (the "App"). By creating an account or using the
 App, you agree to these Terms. If you do not agree, do not use the App.
 
 ---
@@ -46,8 +46,8 @@ these Terms on your behalf.
 
 - **An account is optional.** You can use the App without one. If you want an
   account, you can create one with your **email and password** (confirmed with
-  a code we send to your email), or by using **Sign in with Apple** or **Google
-  Sign-In**.
+  a code we send to your email), or by using **Sign in with Apple** (on
+  iPhone) or **Google Sign-In**.
 - **An account does not back up your progress.** Your saved words, flashcards,
   and progress are stored on your device (see Section 7), so signing in on
   another device or after reinstalling does not bring them back.
@@ -86,28 +86,36 @@ The App offers an optional subscription, **Owloud Pro**, which includes:
 - Extra flashcard features, such as adjustable audio speed and personal notes.
 
 The available plans (for example monthly, 6-month, and yearly) and their prices
-are shown in the App before you confirm a purchase.
+are shown in the App before you confirm a purchase. The App may also offer a
+plan at a reduced price for a limited time; unless the App says otherwise, that
+price also applies when the plan renews.
 
-- **Payment.** Subscriptions are sold through the Apple App Store and billed to
-  your Apple ID. Our subscriptions are managed through RevenueCat.
+- **Payment.** Subscriptions are sold through the Apple App Store (on iPhone)
+  or Google Play (on Android) and billed to your Apple ID or Google account.
+  Our subscriptions are managed through RevenueCat.
 - **Free trial.** If a free trial is offered, your subscription begins
   automatically at the end of the trial unless you cancel before it ends.
-  Apple decides whether your Apple ID is eligible for a trial.
+  Apple or Google decides whether your account is eligible for a trial.
 - **Auto-renewal.** Subscriptions renew automatically at the end of each period
-  unless you turn off auto-renewal at least **24 hours** before the period ends.
-  Your Apple ID is charged for renewal within 24 hours before the period ends.
-- **Managing and canceling.** You can manage, cancel, or turn off auto-renewal in
-  your device's **App Store account settings** at any time. Apple, not us,
-  controls these settings. Canceling keeps Owloud Pro active until the end of
-  the period you already paid for. Deleting your Owloud account does not cancel
-  your subscription.
+  unless you cancel. On iPhone, turn off auto-renewal at least **24 hours**
+  before the period ends; your Apple ID is charged for renewal within the 24
+  hours before the period ends. On Android, cancel before your renewal date;
+  Google charges your Google account when the new period begins.
+- **Managing and canceling.** You can manage or cancel your subscription at any
+  time: on iPhone, in your device's **App Store account settings**; on Android,
+  in **Google Play → Payments & subscriptions → Subscriptions**. Apple and
+  Google, not us, control these settings. Canceling keeps Owloud Pro active
+  until the end of the period you already paid for. Deleting your Owloud
+  account does not cancel your subscription.
 - **When Owloud Pro ends.** The App returns to the free plan, and chapters you
   downloaded for offline use are removed from your device. Your saved words and
   progress are kept.
 - **Restoring purchases.** You can restore an active subscription on a new device
   or after reinstalling, using the "Restore" option in the App.
-- **Refunds.** Purchases are handled by Apple and are subject to Apple's refund
-  policy. We generally cannot issue refunds directly.
+- **Refunds.** On iPhone, purchases are handled by Apple and are subject to
+  Apple's refund policy; we cannot issue refunds directly. On Android,
+  purchases are subject to Google Play's refund policies: you can request a
+  refund through Google Play or write to us at support@owloud.app.
 
 ---
 
@@ -115,9 +123,11 @@ are shown in the App before you confirm a purchase.
 
 Without Owloud Pro, you can use:
 
-- **Chapter 1** of the books you pick during onboarding (or of a default
-  selection of books, if you did not pick any).
-- A selection of **free short stories**.
+- **Chapter 1** of the books you pick or are given during onboarding (or of a
+  default selection of books).
+- **Every chapter** of the books the App marks as free, such as some Classic
+  Adaptations.
+- A weekly selection of **free short stories**.
 - Up to **50** words of your own in your vocabulary. Words added from the
   App's built-in word lists do not count toward this limit.
 - Word lookups and **sentence translations**, with no daily limit.
@@ -168,9 +178,10 @@ public-domain works.
 
 The App uses third-party services, including Supabase (backend and login),
 Resend (account emails), Cloudflare (content delivery), Expo (app updates),
-Apple and Google (optional sign-in), the Apple App Store and RevenueCat
-(subscription billing and management), PostHog (usage analytics), Sentry
-(crash reporting), Tatoeba (example sentences), and DeepL (translations). Your
+Apple and Google (optional sign-in), the Apple App Store, Google Play, and
+RevenueCat (subscription billing and management), PostHog (usage analytics),
+Sentry (crash reporting), Meta (measuring our ads), Tatoeba (example
+sentences), and DeepL (translations). Your
 use of those features may also be subject to the third party's terms. We are
 not responsible for third-party services.
 
@@ -203,7 +214,8 @@ apply to you.
 ## 12. Termination
 
 You may stop using the App at any time, and you can delete your account from
-**Profile → Delete account**. We may suspend or terminate your access if you
+**Profile → Delete account** or by email (see
+[Delete your account](/delete-account)). We may suspend or terminate your access if you
 breach these Terms or use the App in a way that could harm us, other users, or
 third parties. Sections that by their nature should survive termination (such as
 Intellectual Property, Disclaimers, and Limitation of Liability) will continue
