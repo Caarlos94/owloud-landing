@@ -1,0 +1,300 @@
+---
+// One blog article, in either language: src/pages/blog/[slug].astro (Spanish)
+// and src/pages/en/blog/[slug].astro (English) render it from its Markdown
+// file in src/content/blog/. Around the text it adds what helps the article
+// get found and quoted: the summary up front, a table of contents, the FAQ,
+// and BlogPosting / FAQPage / BreadcrumbList structured data.
+import { Image, getImage } from "astro:assets";
+import { render } from "astro:content";
+import Base from "../layouts/Base.astro";
+import ClosingCta from "./ClosingCta.astro";
+import {
+  formatDate,
+  postLang,
+  postPath,
+  readingMinutes,
+  translationOf,
+  type Post,
+} from "../data/blog";
+import { libraryItem } from "../data/library";
+import { blog } from "../i18n/blog";
+import { blogPath, homePath, libraryPath, type Lang } from "../i18n/ui";
+
+interface Props {
+  post: Post;
+}
+
+const { post } = Astro.props;
+const { data } = post;
+const lang = postLang(post);
+const t = blog[lang];
+const { Content, headings } = await render(post);
+
+// The same article in the other language, for the language menu and hreflang
+const translation = await translationOf(post);
+const alternates = translation && {
+  ...({ [lang]: postPath(post) } as Record<Lang, string>),
+  [postLang(translation)]: postPath(translation),
+};
+
+// The table of contents: the article's sections, then the FAQ
+const contents = [
+  ...headings
+    .filter((h) => h.depth === 2)
+    .map((h) => ({ slug: h.slug, text: h.text })),
+  ...(data.faq.length ? [{ slug: "faq", text: t.faq }] : []),
+];
+const books = data.books.map(libraryItem);
+const hero = libraryItem(data.image).hero;
+const updatedAt = data.updatedAt ?? data.publishedAt;
+
+// The picture link previews show, at the size chats and social apps expect
+const preview = await getImage({
+  src: hero,
+  width: 1200,
+  height: 630,
+  format: "jpg",
+});
+const previewUrl = new URL(preview.src, Astro.site).href;
+const url = new URL(postPath(post), Astro.site).href;
+
+const owloud = {
+  "@type": "Organization",
+  name: "Owloud",
+  url: Astro.site!.href,
+  logo: new URL("/owloud-mascot.png", Astro.site).href,
+};
+const schemas = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: data.title,
+    description: data.description,
+    image: previewUrl,
+    datePublished: data.publishedAt.toISOString(),
+    dateModified: updatedAt.toISOString(),
+    inLanguage: lang,
+    author: owloud,
+    publisher: owloud,
+    mainEntityOfPage: url,
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { name: t.breadcrumbHome, path: homePath[lang] },
+      { name: t.breadcrumb, path: blogPath[lang] },
+      { name: data.title, path: postPath(post) },
+    ].map((crumb, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: crumb.name,
+      item: new URL(crumb.path, Astro.site).href,
+    })),
+  },
+  ...(data.faq.length
+    ? [
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: data.faq.map((item) => ({
+            "@type": "Question",
+            name: item.q,
+            acceptedAnswer: { "@type": "Answer", text: item.a },
+          })),
+        },
+      ]
+    : []),
+];
+---
+
+<Base
+  lang={lang}
+  title={`${data.title} · Owloud`}
+  description={data.description}
+  alternates={alternates}
+  image={previewUrl}
+  article={{ publishedAt: data.publishedAt, updatedAt: data.updatedAt }}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schemas)} />
+  <!-- clip, not hidden: overflow-x-hidden would make <main> a scroll box and
+       the sticky table of contents would scroll away with the page -->
+  <main class="overflow-x-clip">
+    <article class="mx-auto max-w-5xl px-6 pt-32 lg:pt-40">
+      <!-- ─── Header ──────────────────────────────────────────────────────── -->
+      <header class="max-w-3xl">
+        <nav aria-label={t.breadcrumb}>
+          <ol class="flex items-center gap-2 text-[14px] font-bold text-green-dark/65">
+            <li>
+              <a href={homePath[lang]} class="hover:text-green-primary"
+                >{t.breadcrumbHome}</a
+              >
+            </li>
+            <li aria-hidden="true">/</li>
+            <li>
+              <a href={blogPath[lang]} class="hover:text-green-primary"
+                >{t.breadcrumb}</a
+              >
+            </li>
+          </ol>
+        </nav>
+        <h1
+          class="mt-5 text-[clamp(34px,4.6vw,54px)] font-black leading-[1.06] tracking-[-0.025em] text-green-dark"
+        >
+          {data.title}
+        </h1>
+        <p
+          class="mt-5 text-[18px] font-semibold leading-[1.45] text-green-dark md:text-[20px]"
+        >
+          {data.description}
+        </p>
+        <p class="mt-5 text-[14px] font-bold text-green-dark/65">
+          {t.author} ·
+          {data.updatedAt && `${t.updated} `}<time
+            datetime={updatedAt.toISOString()}>{formatDate(updatedAt, lang)}</time
+          > · {t.readingTime(readingMinutes(post))}
+        </p>
+      </header>
+
+      <Image
+        src={hero}
+        alt=""
+        width={1024}
+        height={512}
+        widths={[640, 1024]}
+        sizes="(min-width: 1072px) 1024px, calc(100vw - 48px)"
+        loading="eager"
+        fetchpriority="high"
+        class="mt-10 aspect-[2/1] w-full rounded-[28px] border-2 border-green-dark object-cover shadow-sticker-lg"
+      />
+
+      <!-- ─── Body: the text, with the table of contents beside it from lg: up ── -->
+      <div class="mt-12 grid gap-12 lg:grid-cols-[minmax(0,1fr)_240px]">
+        <div class="min-w-0 max-w-[680px]">
+          <!-- The answer first, for readers in a hurry and for the search
+               engines and AI assistants that quote a page -->
+          <section
+            aria-labelledby="summary"
+            class="rounded-2xl border-2 border-green-dark bg-green-light p-6 shadow-sticker md:p-7"
+          >
+            <h2
+              id="summary"
+              class="text-[14px] font-black uppercase tracking-[0.08em] text-green-primary"
+            >
+              {t.summary}
+            </h2>
+            <ul class="mt-4 space-y-3">
+              {
+                data.summary.map((line) => (
+                  <li class="flex gap-3 text-[17px] font-semibold leading-snug text-green-dark">
+                    <span
+                      aria-hidden="true"
+                      class="mt-[7px] h-2 w-2 shrink-0 rounded-full bg-green-primary"
+                    />
+                    {line}
+                  </li>
+                ))
+              }
+            </ul>
+          </section>
+
+          <div class="prose-blog mt-10">
+            <Content />
+          </div>
+
+          {
+            data.faq.length > 0 && (
+              <section aria-labelledby="faq" class="mt-16">
+                <h2
+                  id="faq"
+                  class="scroll-mt-28 text-[clamp(26px,3vw,32px)] font-extrabold leading-tight text-green-dark"
+                >
+                  {t.faq}
+                </h2>
+                <div class="mt-6 space-y-4">
+                  {data.faq.map((item) => (
+                    <div class="card-sticker p-5 md:p-6">
+                      <h3 class="text-[19px] font-extrabold leading-snug text-green-dark">
+                        {item.q}
+                      </h3>
+                      <p class="mt-2 text-[17px] leading-[1.6]">{item.a}</p>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )
+          }
+        </div>
+
+        <aside class="hidden lg:block">
+          <nav aria-labelledby="contents" class="sticky top-28">
+            <p
+              id="contents"
+              class="text-[13px] font-black uppercase tracking-[0.08em] text-green-dark/65"
+            >
+              {t.contents}
+            </p>
+            <ol class="mt-3 border-l-2 border-green-dark/15">
+              {
+                contents.map((section) => (
+                  <li>
+                    <a
+                      href={`#${section.slug}`}
+                      class="-ml-[2px] block border-l-2 border-transparent py-1.5 pl-4 text-[15px] font-bold leading-snug text-green-dark/75 hover:border-green-primary hover:text-green-primary"
+                    >
+                      {section.text}
+                    </a>
+                  </li>
+                ))
+              }
+            </ol>
+          </nav>
+        </aside>
+      </div>
+
+      <!-- ─── Titles from the catalog the article talks about ────────────── -->
+      {
+        books.length > 0 && (
+          <section aria-labelledby="books" class="mt-16 max-w-[680px]">
+            <h2
+              id="books"
+              class="text-[clamp(26px,3vw,32px)] font-extrabold leading-tight text-green-dark"
+            >
+              {t.books}
+            </h2>
+            <ul class="mt-6 grid grid-cols-2 gap-x-4 gap-y-6 sm:grid-cols-4">
+              {books.map((book) => (
+                <li>
+                  <a href={libraryPath[lang]} class="group block">
+                    <Image
+                      src={book.cover}
+                      alt=""
+                      width={160}
+                      height={240}
+                      densities={[1, 2]}
+                      class="hover-lift aspect-[2/3] w-full rounded-lg border-2 border-green-dark object-cover shadow-sticker"
+                    />
+                    <p class="mt-3 text-[15px] font-extrabold leading-snug text-green-dark group-hover:text-green-primary">
+                      {book.title}
+                    </p>
+                    <p class="mt-0.5 text-[13px] font-bold text-green-dark/65">
+                      {book.level} · {book.author}
+                    </p>
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <a
+              href={libraryPath[lang]}
+              class="mt-8 inline-flex text-[16px] font-extrabold text-green-primary underline underline-offset-4"
+            >
+              {t.booksAll}
+            </a>
+          </section>
+        )
+      }
+    </article>
+
+    <ClosingCta lang={lang} title={t.ctaTitle} text={t.ctaText} />
+  </main>
+</Base>

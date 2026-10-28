@@ -24,3 +24,6 @@ pnpm-debug.log*
 .idea/
 
 ToDo.txt
+# Claude Code skills and hooks (impeccable), kept local
+.claude/
+.impeccable/hook.cache.json

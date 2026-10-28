@@ -1,0 +1,1002 @@
+---
+// The home page, shared by src/pages/index.astro (Spanish, the main version)
+// and src/pages/en/index.astro (English). All copy lives in i18n/home.ts.
+import { Image } from "astro:assets";
+import Base from "../layouts/Base.astro";
+import ClosingCta from "./ClosingCta.astro";
+import StoreButtons from "./StoreButtons.astro";
+import heroPlayer from "../assets/hero-player.png";
+import { catalogLevels } from "../data/library";
+import { shelfBooks, shelfLevels } from "../data/shelf";
+import { home } from "../i18n/home";
+import {
+  appStoreUrl,
+  homePath,
+  libraryPath,
+  ui,
+  type Lang,
+} from "../i18n/ui";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = home[lang];
+const { featureTabs, faqs } = t;
+
+// The swoosh sits under the accent's last word only, so it stays on one line
+// however the accent wraps
+const accentWords = t.heroAccent.split(" ");
+const swooshWord = accentWords.pop();
+
+// The picture next to the hero text: the player on a phone, with book covers
+// and small cards floating around it. Sizes are in cqw (% of the picture's
+// width), so it all scales together like one image.
+const coverUrl = (bookId: string) =>
+  `https://cdn.owloud.app/${bookId}/cover/cover.jpg`;
+const heroCover =
+  "absolute z-10 aspect-[2/3] w-[25cqw] rounded-[2.5cqw] object-cover shadow-[0_14px_28px_-10px_rgba(6,60,49,0.55)]";
+// Cards in the app's sticker look: dark border and a hard shadow
+const heroCard =
+  "absolute z-20 rounded-[3.5cqw] border-2 border-green-dark bg-white shadow-[3px_3px_0_var(--color-green-dark)]";
+
+// The feature showcase's simulator screenshots, one per tab and UI language
+const featureShots = import.meta.glob<{ default: ImageMetadata }>(
+  "../assets/features/*.png",
+  { eager: true },
+);
+const featureShot = (shot: string) =>
+  featureShots[`../assets/features/${shot}-${lang}.png`].default;
+
+// The "why" section's karaoke card lights up the opening of Alice one word at
+// a time. kw (global.css) lights a word for 14% of its cycle, so starting each
+// word 14% of a cycle after the last chains the seven into a loop.
+// listenCycle must match the seconds in the words' animate-[kw_4.9s_…] class.
+const listenWords = "Alice was beginning to get very tired".split(" ");
+const listenCycle = 4.9;
+
+// Icons for the feature showcase and the "why" cards (Lucide, ISC): the SVG
+// paths of each, by the name home.ts uses
+const icons: Record<string, string[]> = {
+  headphones: [
+    "M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3",
+  ],
+  pointer: [
+    "M22 14a8 8 0 0 1-8 8",
+    "M18 11v-1a2 2 0 0 0-2-2a2 2 0 0 0-2 2",
+    "M14 10V9a2 2 0 0 0-2-2a2 2 0 0 0-2 2v1",
+    "M10 9.5V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v10",
+    "M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15",
+  ],
+  cards: [
+    "M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z",
+    "M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12",
+    "M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17",
+  ],
+  flame: [
+    "M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z",
+  ],
+  bookmark: ["m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"],
+};
+
+// Disabled until we have real reviews — see the commented-out marquee section below.
+// const reviews = [
+//   {
+//     text: "I finally finished my first book in English. Reading and listening at the same time made it so much easier to follow.",
+//     name: "María, Madrid",
+//   },
+//   {
+//     text: "Being able to tap a word without leaving the story is my favorite feature. I'm noticing words I learned popping up everywhere now.",
+//     name: "Léa, Lyon",
+//   },
+//   {
+//     text: "The flashcards seem to come back right before I would've forgotten the word. Kind of spooky, but it really works.",
+//     name: "Tomás, Bogotá",
+//   },
+//   {
+//     text: "I usually spend about ten minutes with it on my commute. The daily streak is surprisingly good at keeping me consistent.",
+//     name: "Ana, Lisbon",
+//   },
+//   {
+//     text: "Reading real classic stories is so much more fun than textbook exercises. I actually look forward to practicing now.",
+//     name: "Yuki, Osaka",
+//   },
+//   {
+//     text: "Offline mode was a lifesaver on a long flight. I ended up getting through way more than I expected.",
+//     name: "Karim, Cairo",
+//   },
+// ];
+
+// Structured data: the app itself (what it is, where it runs, free to
+// download; no rating, which lives on the App Store listing) and the FAQ,
+// which makes the answers eligible for rich results in Google search
+const schemas = [
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    name: "Owloud",
+    description: ui[lang].description,
+    url: new URL(homePath[lang], Astro.site).href,
+    installUrl: appStoreUrl,
+    operatingSystem: "iOS",
+    applicationCategory: "EducationalApplication",
+    offers: { "@type": "Offer", price: 0, priceCurrency: "USD" },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  },
+];
+---
+
+<Base lang={lang} alternates={homePath}>
+  <script type="application/ld+json" set:html={JSON.stringify(schemas)} />
+  <main class="overflow-x-hidden">
+    <!-- ─── Hero ────────────────────────────────────────────────────────── -->
+    <!-- Wider than the other sections (6xl, like the nav) so the big title has
+         room; from lg: up the text gets 3/5 of it and the phone picture 2/5
+         (on tablets the picture would shrink too much, so it goes below) -->
+    <section
+      id="download"
+      class="mx-auto grid max-w-6xl items-center gap-10 px-6 pb-20 pt-40 lg:grid-cols-[3fr_2fr]"
+    >
+      <div>
+        <h1
+          class="mt-5 text-[clamp(42px,5.6vw,64px)] font-black leading-[1.02] tracking-[-0.03em] text-green-dark"
+        >
+          <!-- The space keeps the title's words apart for crawlers, which
+               ignore the line break that `block` draws -->
+          {t.heroTitle}{" "}<span class="block text-green-primary">
+            <!-- Explicit trailing space: Astro drops the line break before the span -->
+            {accentWords.map((word) => `${word} `)}<span
+              class="relative whitespace-nowrap"
+              >{swooshWord}<svg
+                aria-hidden="true"
+                viewBox="0 0 200 16"
+                preserveAspectRatio="none"
+                fill="none"
+                class="absolute -bottom-2.5 left-0 h-3.5 w-full text-amber"
+              >
+                <!-- non-scaling-stroke keeps the line's thickness when the
+                     viewBox stretches to the word's width -->
+                <path
+                  d="M3 11 C 55 4, 135 2, 197 7"
+                  stroke="currentColor"
+                  stroke-width="5"
+                  stroke-linecap="round"
+                  vector-effect="non-scaling-stroke"></path>
+              </svg></span
+            >
+          </span>
+        </h1>
+        <p
+          class="mt-6 max-w-xl text-[19px] font-semibold leading-[1.45] text-green-dark md:text-[22px]"
+        >
+          {t.heroText}
+        </p>
+        <StoreButtons lang={lang} class="mt-8" />
+        <p class="mt-4 text-sm font-bold text-green-dark/80">
+          {t.heroNote}
+        </p>
+      </div>
+      <!-- From xl: up the picture spills 48px past its column into the page's
+           side margin, so it grows without squeezing the title -->
+      <div
+        class="@container mx-auto w-full max-w-[460px] xl:w-[calc(100%+3rem)] xl:max-w-none"
+      >
+        <div class="relative h-[116cqw]">
+          <!-- Soft green glow behind the phone -->
+          <div
+            class="absolute inset-0 bg-[radial-gradient(closest-side,var(--color-green-light),transparent)]"
+          >
+          </div>
+
+          <!-- Phone: a simulator screenshot of the player (a word tapped while
+               the karaoke line is lit) inside a drawn frame -->
+          <div
+            class="absolute left-[24cqw] top-[3cqw] w-[52cqw] rounded-[8cqw] bg-[#1c1c1e] p-[1.5cqw] shadow-[0_30px_60px_-20px_rgba(6,60,49,0.5)]"
+          >
+            <div class="relative overflow-hidden rounded-[6.6cqw]">
+              <Image
+                src={heroPlayer}
+                alt={t.phoneAlt}
+                width={520}
+                widths={[260, 520, 780]}
+                sizes="(min-width: 1024px) 210px, 50vw"
+                quality={90}
+                loading="eager"
+                class="block w-full"
+              />
+              <!-- Dynamic Island -->
+              <div
+                class="absolute left-1/2 top-[1.4%] h-[4.1%] w-[32%] -translate-x-1/2 rounded-full bg-black"
+              >
+              </div>
+            </div>
+          </div>
+
+          <!-- Covers -->
+          <Image
+            src={coverUrl("speckled-band-a2")}
+            alt=""
+            width={130}
+            height={195}
+            densities={[1, 2]}
+            class={`${heroCover} left-[1cqw] top-[8cqw] -rotate-8`}
+          />
+          <Image
+            src={coverUrl("dracula-b1")}
+            alt=""
+            width={130}
+            height={195}
+            densities={[1, 2]}
+            class={`${heroCover} left-[3cqw] top-[72cqw] -rotate-6`}
+          />
+          <Image
+            src={coverUrl("peter-pan-a2")}
+            alt=""
+            width={130}
+            height={195}
+            densities={[1, 2]}
+            class={`${heroCover} right-[1cqw] top-[30cqw] rotate-8`}
+          />
+
+          <!-- Synced text: speaker + a moving waveform -->
+          <div
+            class={`${heroCard} right-0 top-[5cqw] flex items-center gap-[2.4cqw] px-[3cqw] py-[2.4cqw] motion-safe:animate-[bob_5s_ease-in-out_infinite]`}
+          >
+            <span
+              class="grid size-[8cqw] place-items-center rounded-full bg-amber text-white"
+            >
+              <!-- Volume icon (Lucide, ISC) -->
+              <svg
+                viewBox="0 0 24 24"
+                class="size-[4.6cqw]"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path
+                  d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"
+                ></path>
+                <path d="M16 9a5 5 0 0 1 0 6"></path>
+                <path d="M19.364 18.364a9 9 0 0 0 0-12.728"></path>
+              </svg>
+            </span>
+            <span>
+              <span
+                class="block text-[3.3cqw] font-extrabold leading-tight text-green-dark"
+                >{t.heroSync}</span
+              >
+              <span class="mt-[1.2cqw] flex h-[3.6cqw] items-end gap-[0.8cqw]">
+                {
+                  [0, 0.35, 0.7, 0.2, 0.5, 0.1].map((delay) => (
+                    <span
+                      class="h-full w-[0.9cqw] origin-bottom rounded-full bg-amber motion-safe:animate-[wv_1.1s_ease-in-out_infinite]"
+                      style={`animation-delay: ${delay}s`}
+                    />
+                  ))
+                }
+              </span>
+            </span>
+          </div>
+
+          <!-- Level range -->
+          <div
+            class={`${heroCard} left-0 top-[50cqw] px-[3.4cqw] py-[2.4cqw] motion-safe:animate-[bob_6s_ease-in-out_1s_infinite]`}
+          >
+            <p class="text-[6.2cqw] font-black leading-none text-green-primary">
+              {catalogLevels[0]} → {catalogLevels[catalogLevels.length - 1]}
+            </p>
+            <p class="mt-[1.2cqw] text-[3.1cqw] font-bold text-green-dark">
+              {t.heroLevel}
+            </p>
+          </div>
+
+          <!-- A word saved from the story -->
+          <div
+            class={`${heroCard} right-0 top-[80cqw] w-[36cqw] px-[3.4cqw] py-[2.6cqw] motion-safe:animate-[bob_5.5s_ease-in-out_0.5s_infinite]`}
+          >
+            <p
+              class="flex items-center justify-between text-[2.6cqw] font-extrabold uppercase tracking-wider text-green-primary"
+            >
+              {t.heroNewWord}
+              <!-- Check icon (Lucide, ISC) -->
+              <svg
+                viewBox="0 0 24 24"
+                class="size-[3.6cqw]"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M20 6 9 17l-5-5"></path>
+              </svg>
+            </p>
+            <p
+              class="mt-[1cqw] text-[4.8cqw] font-extrabold leading-tight text-green-dark"
+            >
+              rabbit
+            </p>
+            <p class="text-[3cqw] font-semibold text-neutral-700">
+              conejo · {t.heroNewWordPos}
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ─── Catalog band ────────────────────────────────────────────────── -->
+    <!-- The catalog in four figures, still and in plain text so search
+         engines and AI assistants can quote them: two by two on phones,
+         one row from sm: up -->
+    <div class="bg-green-dark px-6 py-5">
+      <ul
+        class="mx-auto grid max-w-4xl grid-cols-2 gap-x-6 gap-y-3 text-center sm:flex sm:flex-wrap sm:justify-center sm:gap-x-12"
+      >
+        {
+          t.facts.map(({ value, label }) => (
+            <li class="text-[15px] font-bold leading-snug text-green-light">
+              <span class="text-[22px] font-black text-amber">{value}</span>{" "}
+              {label}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <!-- ─── Level shelf ─────────────────────────────────────────────────── -->
+    <!-- The level pills filter the covers (script below). The row scrolls
+         sideways with snap, and where the browser supports scroll-driven
+         animations the cover in the middle grows (.shelf-cover in global.css). -->
+    <section class="pb-16 pt-20">
+      <div class="mx-auto max-w-3xl px-6 text-center">
+        <h2
+          class="text-[clamp(30px,4vw,48px)] font-black leading-tight tracking-[-0.02em] text-green-dark"
+        >
+          {t.shelfTitle}
+        </h2>
+        <p class="mt-4 text-[17px] md:text-[19px]">{t.shelfText}</p>
+      </div>
+
+      <div class="mt-8 flex flex-wrap justify-center gap-2.5 px-6">
+        {
+          shelfLevels.map((level, i) => (
+            <button
+              type="button"
+              data-level-pill={level}
+              aria-pressed={i === 0 ? "true" : "false"}
+              class="flex h-11 cursor-pointer items-center gap-1.5 rounded-full border-2 border-green-dark bg-white px-4 text-[15px] text-green-dark shadow-sticker-sm transition-colors hover:bg-green-light aria-pressed:bg-green-primary aria-pressed:text-white"
+            >
+              <span class="font-black">{level}</span>
+              <!-- Phones get the codes only, so the four pills fit on one line -->
+              <span class="hidden font-semibold sm:inline">
+                {t.shelfLevelNames[level]}
+              </span>
+            </button>
+          ))
+        }
+      </div>
+
+      <div class="relative">
+        <div
+          data-shelf
+          class="relative flex snap-x snap-mandatory items-center gap-7 overflow-x-auto px-[calc(50%-var(--cover)/2)] py-14 [--cover:150px] [scrollbar-width:none] md:[--cover:190px]"
+        >
+          <!-- Every book is drawn three times in a row so it can loop; the
+               copies around the middle one are hidden from screen readers -->
+          {
+            [0, 1, 2].map((copy) =>
+              shelfBooks.map((book) => (
+                <div
+                  data-level={book.level}
+                  hidden={book.level !== shelfLevels[0]}
+                  aria-hidden={copy === 1 ? undefined : "true"}
+                  class="shelf-cover w-(--cover) shrink-0 snap-center"
+                >
+                  <Image
+                    src={book.cover}
+                    alt={copy === 1 ? book.title : ""}
+                    width={190}
+                    height={285}
+                    densities={[1, 2]}
+                    class="aspect-[2/3] w-full rounded-xl object-cover shadow-[0_18px_30px_-14px_rgba(6,60,49,0.6)]"
+                  />
+                </div>
+              )),
+            )
+          }
+        </div>
+
+        <!-- Arrows (from md: up; phones swipe), at the page's content edges -->
+        <div
+          class="pointer-events-none absolute inset-0 mx-auto hidden max-w-6xl items-center justify-between px-6 md:flex"
+        >
+          <button
+            type="button"
+            data-shelf-step="-1"
+            aria-label={t.shelfPrev}
+            class="pointer-events-auto grid size-12 cursor-pointer place-items-center rounded-full border-2 border-green-dark bg-white text-green-dark shadow-sticker-sm hover:bg-green-light"
+          >
+            <!-- Chevron (Lucide, ISC) -->
+            <svg
+              viewBox="0 0 24 24"
+              class="size-6"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="m15 18-6-6 6-6"></path>
+            </svg>
+          </button>
+          <button
+            type="button"
+            data-shelf-step="1"
+            aria-label={t.shelfNext}
+            class="pointer-events-auto grid size-12 cursor-pointer place-items-center rounded-full border-2 border-green-dark bg-white text-green-dark shadow-sticker-sm hover:bg-green-light"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              class="size-6"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="m9 18 6-6-6-6"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="mt-2 flex flex-wrap justify-center gap-4 px-6">
+        <a
+          href={appStoreUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex h-14 items-center justify-center rounded-[12px] bg-green-primary px-10 text-[17px] font-bold text-white shadow-[0_10px_28px_-8px_rgba(23,129,96,0.6)] transition-transform duration-200 hover:-translate-y-0.5"
+        >
+          {t.shelfCta}
+        </a>
+        <a
+          href={libraryPath[lang]}
+          class="flex h-14 items-center justify-center rounded-[12px] border-2 border-green-dark bg-white px-8 text-[17px] font-bold text-green-dark shadow-sticker transition-[background-color,translate] duration-200 hover:-translate-y-0.5 hover:bg-green-light"
+        >
+          {t.shelfAll}
+        </a>
+      </div>
+    </section>
+
+    <!-- ─── Interactive feature showcase ────────────────────────────────── -->
+    <section id="features" class="border-y-2 border-green-dark bg-green-light">
+      <div class="mx-auto max-w-5xl px-6 py-16">
+        <h2
+          class="text-center text-[clamp(28px,3.6vw,40px)] font-extrabold leading-tight text-green-dark"
+        >
+          {t.featuresTitle}
+        </h2>
+        <p class="mx-auto mt-3 max-w-lg text-center text-[17px]">
+          {t.featuresHint}
+        </p>
+        <div
+          class="mt-8 grid items-center gap-5 lg:grid-cols-[1fr_320px] lg:gap-11"
+        >
+          <!-- Tabs: short pills above the phone below lg: (so a tap changes the
+               screen in view); from lg: up an accordion beside it, where only
+               the active feature opens into a card with its description and
+               a bar that fills while its screenshot is shown. All of it
+               follows aria-pressed, which the script below sets. -->
+          <div
+            class="flex flex-wrap justify-center gap-2 lg:flex-col lg:flex-nowrap lg:gap-1.5"
+          >
+            {
+              featureTabs.map((tab, i) => (
+                <button
+                  type="button"
+                  data-tab={i}
+                  aria-pressed={i === 0 ? "true" : "false"}
+                  class="group/tab flex cursor-pointer items-center gap-2 rounded-full border-2 border-green-dark bg-white/45 py-1.5 pl-1.5 pr-3.5 text-left transition-[background-color,border-color,box-shadow] duration-300 aria-pressed:bg-white aria-pressed:shadow-sticker lg:w-full lg:items-start lg:gap-4 lg:rounded-2xl lg:border-transparent lg:bg-transparent lg:p-4 lg:hover:bg-white/50 lg:aria-pressed:border-green-dark lg:aria-pressed:bg-white"
+                >
+                  <span class="grid size-7 shrink-0 place-items-center rounded-full bg-white text-green-dark transition-colors duration-300 group-aria-pressed/tab:bg-amber group-aria-pressed/tab:text-white lg:size-10">
+                    <svg
+                      viewBox="0 0 24 24"
+                      class="size-4 lg:size-5"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      {icons[tab.icon].map((d) => (
+                        <path d={d} />
+                      ))}
+                    </svg>
+                  </span>
+                  <span class="min-w-0 flex-1">
+                    <span class="block text-sm font-extrabold text-green-dark lg:hidden">
+                      {tab.short}
+                    </span>
+                    <span class="hidden text-[17px] font-extrabold leading-10 text-green-dark lg:block">
+                      {tab.title}
+                    </span>
+                    <!-- Opens with a height transition (grid rows 0fr → 1fr) -->
+                    <span class="hidden grid-rows-[0fr] transition-[grid-template-rows] duration-300 group-aria-pressed/tab:grid-rows-[1fr] lg:grid">
+                      <span class="overflow-hidden">
+                        <span data-tab-text class="block text-[15px] leading-snug">
+                          {tab.text}
+                        </span>
+                        <span
+                          data-tab-track
+                          class="mb-1 mt-3.5 block h-1.5 overflow-hidden rounded-full bg-green-dark/10"
+                        >
+                          <span
+                            data-tab-progress
+                            class="block h-full origin-left scale-x-0 rounded-full bg-amber"
+                          />
+                        </span>
+                      </span>
+                    </span>
+                  </span>
+                </button>
+              ))
+            }
+          </div>
+
+          <!-- Below lg: the pills only carry a short label, so the active
+               feature's description sits between them and the phone, with
+               the progress bar under it -->
+          <div class="lg:hidden">
+            <p
+              data-tab-caption
+              aria-live="polite"
+              class="mx-auto max-w-sm text-center text-[15px] leading-snug"
+            >
+              {featureTabs[0].text}
+            </p>
+            <span
+              data-tab-track
+              class="mx-auto mt-3 block h-1.5 w-32 overflow-hidden rounded-full bg-green-dark/10"
+            >
+              <span
+                data-tab-progress
+                class="block h-full origin-left scale-x-0 rounded-full bg-amber"
+              ></span>
+            </span>
+          </div>
+
+          <!-- Phone: one simulator screenshot per tab, stacked; the script
+               below fades in the active one. Same dark frame and Dynamic
+               Island as the hero's. -->
+          <div class="relative flex justify-center">
+            <!-- Soft white glow behind the phone -->
+            <div
+              class="absolute -inset-10 bg-[radial-gradient(closest-side,white,transparent)]"
+            >
+            </div>
+            <div
+              class="relative w-[250px] rounded-[40px] bg-[#1c1c1e] p-[7px] shadow-[0_30px_60px_-20px_rgba(6,60,49,0.5)] lg:w-[295px] lg:rounded-[46px] lg:p-2"
+            >
+              <div
+                class="relative aspect-[1125/2436] overflow-hidden rounded-[33px] bg-neutral-100 lg:rounded-[38px]"
+              >
+                {
+                  featureTabs.map((tab, i) => (
+                    <Image
+                      data-screen={i}
+                      src={featureShot(tab.shot)}
+                      alt={tab.alt}
+                      aria-hidden={i > 0 ? "true" : undefined}
+                      widths={[280, 560, 840]}
+                      sizes="(min-width: 1024px) 279px, 236px"
+                      quality={90}
+                      class:list={[
+                        "absolute inset-0 size-full transition-opacity duration-500 motion-reduce:transition-none",
+                        i > 0 && "opacity-0",
+                      ]}
+                    />
+                  ))
+                }
+                <!-- Dynamic Island -->
+                <div
+                  class="absolute left-1/2 top-[1.4%] h-[4.1%] w-[32%] -translate-x-1/2 rounded-full bg-black"
+                >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Why stories work ────────────────────────────────────────────── -->
+    <!-- Four reasons, each card topped by a small live piece of the app
+         (decoration only, hidden from screen readers): karaoke over Alice's
+         opening line, a tapped word with its translation, the review steps
+         (amber is mastered) and a chapter that leaves you wanting the next -->
+    <section class="mx-auto max-w-6xl px-6 py-20">
+      <div class="mx-auto max-w-3xl text-center">
+        <h2
+          class="text-[clamp(30px,4vw,48px)] font-black leading-tight tracking-[-0.02em] text-green-dark"
+        >
+          {t.whyTitle}
+        </h2>
+        <p class="mt-4 text-[17px] md:text-[19px]">{t.whyText}</p>
+      </div>
+
+      <div class="mt-12 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+        {
+          t.whyCards.map((card) => (
+            <article class="card-sticker overflow-hidden">
+              <div
+                aria-hidden="true"
+                class="grid h-36 place-items-center border-b-2 border-green-dark bg-green-light px-4"
+              >
+                {card.art === "listen" && (
+                  <div class="w-[210px] rounded-xl border-2 border-green-dark bg-white px-3.5 py-3 shadow-sticker-sm">
+                    <div class="flex h-4 items-center gap-[3px]">
+                      {[0, 0.35, 0.7, 0.2, 0.5, 0.1, 0.6, 0.25, 0.45].map(
+                        (delay) => (
+                          <span
+                            class="h-full w-[3px] rounded-full bg-green-primary motion-safe:animate-[wv_1.1s_ease-in-out_infinite]"
+                            style={`animation-delay: ${delay}s`}
+                          />
+                        ),
+                      )}
+                    </div>
+                    <p class="mt-2 font-lora text-[15px] leading-snug">
+                      {listenWords.map((word, i) => (
+                        <>
+                          <span
+                            class:list={[
+                              "rounded px-0.5",
+                              "motion-safe:animate-[kw_4.9s_linear_infinite]",
+                              i === 2 && "motion-reduce:bg-amber motion-reduce:text-white",
+                            ]}
+                            style={`animation-delay: ${(i * 0.14 * listenCycle).toFixed(2)}s`}
+                          >
+                            {word}
+                          </span>{" "}
+                        </>
+                      ))}
+                    </p>
+                  </div>
+                )}
+
+                {card.art === "word" && (
+                  <p class="w-[210px] rounded-xl border-2 border-green-dark bg-white px-3 pb-8 pt-11 text-center font-lora text-[15px] shadow-sticker-sm">
+                    The
+                    <span class="relative inline-block rounded-md border-2 border-amber bg-amber-light px-1 font-bold leading-snug text-amber-text">
+                      castle
+                      <span class="absolute bottom-[calc(100%+7px)] left-1/2 -translate-x-1/2 whitespace-nowrap rounded-lg bg-green-primary px-2.5 py-0.5 font-nunito text-[13px] font-extrabold text-white shadow-sticker-sm">
+                        castillo
+                      </span>
+                      <svg
+                        viewBox="0 0 24 24"
+                        class="absolute left-1/2 top-[calc(100%+2px)] size-6 text-green-dark motion-safe:animate-[bob_2s_ease-in-out_infinite]"
+                        fill="white"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        {icons.pointer.map((d) => (
+                          <path d={d} />
+                        ))}
+                      </svg>
+                    </span>
+                    was dark.
+                  </p>
+                )}
+
+                {card.art === "review" && (
+                  <div class="flex items-end gap-3">
+                    {t.whyIntervals.map((label, i, all) => (
+                      <div class="flex flex-col items-center gap-1.5">
+                        <div
+                          class:list={[
+                            "w-10 rounded-lg border-2 border-green-dark shadow-sticker-sm",
+                            i === all.length - 1 ? "bg-amber" : "bg-white",
+                          ]}
+                          style={`height: ${18 + i * 16}px`}
+                        />
+                        <span class="text-[12px] font-extrabold text-green-dark">
+                          {label}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {card.art === "plot" && (
+                  <div class="relative flex w-[220px] items-center gap-3 rounded-xl border-2 border-green-dark bg-white p-2.5 shadow-sticker-sm">
+                    <span class="absolute -top-3.5 right-3 rotate-3 rounded-full border-2 border-green-dark bg-amber px-2.5 py-0.5 text-[12px] font-extrabold text-white">
+                      {t.whyContinued}
+                    </span>
+                    <Image
+                      src={coverUrl("speckled-band-a2")}
+                      alt=""
+                      width={40}
+                      height={60}
+                      densities={[1, 2]}
+                      class="aspect-[2/3] w-10 shrink-0 rounded-md object-cover"
+                    />
+                    <div class="min-w-0 flex-1">
+                      <p class="text-[14px] font-extrabold text-green-dark">
+                        {t.whyChapter}
+                      </p>
+                      <div class="mt-2 h-1.5 overflow-hidden rounded-full bg-neutral-300/60">
+                        <div class="h-full w-[84%] rounded-full bg-amber motion-safe:animate-[prog_7s_ease-out_infinite]" />
+                      </div>
+                    </div>
+                    <span class="grid size-9 shrink-0 place-items-center rounded-full bg-green-primary text-white">
+                      <svg viewBox="0 0 24 24" class="ml-0.5 size-4" fill="currentColor">
+                        <path d="M6 4.5v15l13-7.5z" />
+                      </svg>
+                    </span>
+                  </div>
+                )}
+              </div>
+              <div class="p-5">
+                <h3 class="text-[19px] font-extrabold leading-snug text-green-dark">
+                  {card.title}
+                </h3>
+                <p class="mt-2 text-[15px] leading-relaxed">{card.text}</p>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+
+      <div class="mt-12 flex justify-center">
+        <a
+          href={appStoreUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex h-14 items-center justify-center rounded-[12px] bg-green-primary px-10 text-[17px] font-bold text-white shadow-[0_10px_28px_-8px_rgba(23,129,96,0.6)] transition-transform duration-200 hover:-translate-y-0.5"
+        >
+          {t.whyCta}
+        </a>
+      </div>
+    </section>
+
+    <!-- ─── Reviews marquee ─────────────────────────────────────────────── -->
+    <!-- Disabled until we have real reviews — these were placeholder testimonials.
+    <section id="reviews" class="border-b-2 border-green-darker bg-green-dark">
+      <div class="py-16">
+        <div class="mx-auto max-w-5xl px-6 text-center">
+          <p class="text-xl tracking-[3px] text-amber">★★★★★</p>
+          <h2
+            class="mt-2.5 text-[clamp(26px,3.4vw,38px)] font-extrabold leading-tight text-white"
+          >
+            What early users are saying
+          </h2>
+        </div>
+        <div class="marquee mt-9">
+          <div class="marquee-track px-2">
+            {
+              [...reviews, ...reviews].map((r) => (
+                <div class="w-[300px] flex-none rounded-2xl border-2 border-green-darker bg-neutral-100 p-5 shadow-[0_4px_0_0_var(--color-green-darker)]">
+                  <p class="text-sm tracking-[2px] text-amber">★★★★★</p>
+                  <p class="mt-2.5 text-[15px] leading-relaxed">{r.text}</p>
+                  <p class="mt-3.5 text-sm font-extrabold text-green-dark">
+                    {r.name}
+                  </p>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+    -->
+
+    <!-- ─── Closing call to action ──────────────────────────────────────── -->
+    <ClosingCta lang={lang} title={t.ctaTitle} text={t.ctaText} />
+
+    <!-- ─── FAQ ─────────────────────────────────────────────────────────── -->
+    <section id="faq" class="mx-auto max-w-3xl px-6 py-16">
+      <h2
+        class="text-center text-[clamp(26px,3.4vw,38px)] font-extrabold leading-tight text-green-dark"
+      >
+        {t.faqTitle}
+      </h2>
+      <div class="mt-8 space-y-4">
+        {
+          faqs.map((f) => (
+            <details class="card-sticker group px-6 py-4">
+              <summary class="cursor-pointer list-none text-[17px] font-extrabold text-green-dark">
+                <span class="mr-2 inline-block text-amber transition-transform group-open:rotate-90">
+                  ▸
+                </span>
+                {f.q}
+              </summary>
+              <p class="mt-3 pl-6 text-[15px] leading-relaxed">{f.a}</p>
+            </details>
+          ))
+        }
+      </div>
+    </section>
+  </main>
+</Base>
+
+<script>
+  // ─── Level shelf: a pill shows its level's covers in a looping row ───
+  // Each book is drawn three times in a row. The row rests on the middle
+  // copy; when a scroll settles on an outer copy, it jumps one copy's width
+  // back to the same spot in the middle one, which looks identical, so the
+  // row never runs out of books.
+  const shelf = document.querySelector<HTMLElement>("[data-shelf]");
+  const levelPills = [
+    ...document.querySelectorAll<HTMLElement>("[data-level-pill]"),
+  ];
+  const shelfCovers = [
+    ...document.querySelectorAll<HTMLElement>("[data-shelf] [data-level]"),
+  ];
+  let shownCovers: HTMLElement[] = [];
+
+  const centerOn = (cover: HTMLElement) =>
+    shelf?.scrollTo({
+      left: cover.offsetLeft + cover.offsetWidth / 2 - shelf.clientWidth / 2,
+      behavior: "instant",
+    });
+
+  const showLevel = (level: string) => {
+    levelPills.forEach((p) =>
+      p.setAttribute("aria-pressed", String(p.dataset.levelPill === level)),
+    );
+    shelfCovers.forEach((c) => (c.hidden = c.dataset.level !== level));
+    shownCovers = shelfCovers.filter((c) => !c.hidden);
+    // Start on the middle book of the middle copy
+    const perCopy = shownCovers.length / 3;
+    centerOn(shownCovers[perCopy + Math.floor(perCopy / 2)]);
+  };
+
+  // Shift a whole copy's width once a scroll (a swipe's momentum included) settles
+  let settleTimer: number | undefined;
+  shelf?.addEventListener("scroll", () => {
+    clearTimeout(settleTimer);
+    settleTimer = window.setTimeout(() => {
+      if (!shelf || !shownCovers.length) return;
+      const perCopy = shownCovers.length / 3;
+      const copyStart = shownCovers[perCopy].offsetLeft;
+      const copyWidth = shownCovers[perCopy * 2].offsetLeft - copyStart;
+      const center = shelf.scrollLeft + shelf.clientWidth / 2;
+      if (center < copyStart) {
+        shelf.scrollBy({ left: copyWidth, behavior: "instant" });
+      } else if (center > copyStart + copyWidth) {
+        shelf.scrollBy({ left: -copyWidth, behavior: "instant" });
+      }
+    }, 150);
+  });
+
+  // One cover plus the row's gap; snap then settles it in the middle
+  const stepShelf = (direction: number) => {
+    if (!shelf || !shownCovers[0]) return;
+    const gap = parseFloat(getComputedStyle(shelf).columnGap);
+    shelf.scrollBy({
+      left: direction * (shownCovers[0].offsetWidth + gap),
+      behavior: "smooth",
+    });
+  };
+
+  levelPills.forEach((p) =>
+    p.addEventListener("click", () => showLevel(p.dataset.levelPill ?? "")),
+  );
+  document
+    .querySelectorAll<HTMLElement>("[data-shelf-step]")
+    .forEach((btn) =>
+      btn.addEventListener("click", () =>
+        stepShelf(Number(btn.dataset.shelfStep)),
+      ),
+    );
+  if (levelPills[0]) showLevel(levelPills[0].dataset.levelPill ?? "");
+
+  // Autoplay: one book every 3 s, paused while the pointer is over the row
+  // or a pill/arrow has focus, and off for people who prefer reduced motion
+  const shelfArea = shelf?.closest("section");
+  let shelfPaused = false;
+  shelfArea?.addEventListener("pointerenter", () => (shelfPaused = true));
+  shelfArea?.addEventListener("pointerleave", () => (shelfPaused = false));
+  shelfArea?.addEventListener("focusin", () => (shelfPaused = true));
+  shelfArea?.addEventListener("focusout", () => (shelfPaused = false));
+  if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    setInterval(() => {
+      if (!shelfPaused && !document.hidden) stepShelf(1);
+    }, 3000);
+  }
+
+  // ─── Feature showcase tabs ───
+  // A tour: each feature's screenshot stays on for SHOT_MS while the bar under
+  // its description fills, then hands over to the next. Tapping a feature ends
+  // the tour there. The clock only runs while the section is on screen; with
+  // reduced motion there's no tour, just the screenshot of the tapped feature.
+  const SHOT_MS = 6000;
+  const showcase = document.querySelector<HTMLElement>("#features");
+  const tabButtons = [...document.querySelectorAll<HTMLElement>("[data-tab]")];
+  const tabScreens = [
+    ...document.querySelectorAll<HTMLElement>("[data-screen]"),
+  ];
+  const tabCaption = document.querySelector<HTMLElement>("[data-tab-caption]");
+  const tabTracks = [
+    ...document.querySelectorAll<HTMLElement>("[data-tab-track]"),
+  ];
+  let activeTab = 0;
+  let touring = !matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let showcaseInView = false;
+  let shownFor = 0; // ms the active screenshot has been on screen
+  let lastFrame = 0;
+  let frame = 0;
+
+  const showTab = (i: number) => {
+    activeTab = i;
+    shownFor = 0;
+    tabButtons.forEach((b, j) => b.setAttribute("aria-pressed", String(j === i)));
+    tabScreens.forEach((s, j) => {
+      s.classList.toggle("opacity-0", j !== i);
+      s.toggleAttribute("aria-hidden", j !== i);
+    });
+    // The progress bars only mean something while the tour runs
+    tabTracks.forEach((track) => (track.hidden = !touring));
+    // The pill's full description (hidden in the pill below lg:)
+    const text = tabButtons[i].querySelector("[data-tab-text]")?.textContent;
+    if (tabCaption && text) tabCaption.textContent = text.trim();
+  };
+
+  tabButtons.forEach((btn, i) =>
+    btn.addEventListener("click", () => {
+      touring = false;
+      showTab(i);
+    }),
+  );
+
+  // Every frame while touring on screen: advance the clock, and fill the
+  // active feature's bars (its card's and the one under the phone's caption);
+  // the rest sit empty. A frame gap is capped, so coming back to the tab
+  // after a while doesn't skip a feature.
+  const tick = (now: number) => {
+    if (!showcaseInView || !touring) return;
+    shownFor += Math.min(now - lastFrame, 100);
+    lastFrame = now;
+    if (shownFor >= SHOT_MS) showTab((activeTab + 1) % tabButtons.length);
+    const done = shownFor / SHOT_MS;
+    document.querySelectorAll<HTMLElement>("[data-tab-progress]").forEach((bar) => {
+      const tab = bar.closest<HTMLElement>("[data-tab]");
+      const mine = !tab || tab === tabButtons[activeTab];
+      // `scale`, not `transform`: the bar's scale-x-0 class sets `scale`,
+      // and the two multiply
+      bar.style.scale = `${mine ? done : 0} 1`;
+    });
+    frame = requestAnimationFrame(tick);
+  };
+
+  if (showcase) {
+    new IntersectionObserver(
+      ([entry]) => {
+        showcaseInView = entry.isIntersecting;
+        cancelAnimationFrame(frame);
+        if (showcaseInView) {
+          lastFrame = performance.now();
+          frame = requestAnimationFrame(tick);
+        }
+      },
+      { threshold: 0.3 },
+    ).observe(showcase);
+  }
+  showTab(0);
+</script>

@@ -1,0 +1,53 @@
+---
+// The App Store button, plus a plain note that Android is on its way, shared
+// by the home page's hero, the closing section and the library. Drawn here
+// instead of the official badge image, so its size matches the site's.
+// Logos: Ionicons logo-apple / logo-google-playstore (MIT).
+//
+// Android is plain text, not a button, until the Play listing is live: then
+// turn it into a second button like the App Store one, linking to
+// https://play.google.com/store/apps/details?id=com.owloud.app
+import { home } from "../i18n/home";
+import { appStoreUrl, type Lang } from "../i18n/ui";
+
+interface Props {
+  lang: Lang;
+  class?: string;
+}
+
+const { lang, class: className } = Astro.props;
+const t = home[lang];
+
+// Logo + a small line over the store name
+const storeButton =
+  "flex h-[60px] w-[180px] items-center justify-center gap-2.5 rounded-[12px] bg-black text-white";
+const storeButtonSmall = "text-[11px] font-semibold leading-none";
+const storeButtonBig = "text-[21px] font-bold leading-tight tracking-tight";
+---
+
+<div class:list={["flex flex-wrap items-center gap-x-5 gap-y-3", className]}>
+  <a
+    href={appStoreUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+    class={`${storeButton} transition-transform duration-200 hover:-translate-y-0.5`}
+  >
+    <svg viewBox="0 0 384 448" class="h-[26px] w-auto" fill="currentColor" aria-hidden="true">
+      <path
+        d="M262.4 3Q270.4 1 273.4 0H276.4L277.4 6Q279.4 27 268.4 51Q257.4 75 236.4 90.5Q215.4 106 192.4 108H185.4V104Q184.4 95 186.4 84Q191.4 55 212.4 32.5Q233.4 10 262.4 3ZM97.4 107Q97.4 107 97.4 107Q104.4 105 117.4 106Q134.4 106 162.4 116Q187.4 124 199.9 124Q212.4 124 235.4 116Q249.4 111 258.4 108.5Q267.4 106 284.4 106Q301.4 106 307.4 108Q329.4 114 348.4 128Q352.4 131 361.4 140Q370.4 149 370.4 150Q370.4 150 363.4 155Q326.4 180 321.4 225Q318.4 254 331.4 281Q346.4 312 377.4 326Q377.4 326 384.4 329L381.4 336Q368.4 364 349.4 392Q313.4 444 282.4 447Q266.4 449 243.4 439Q217.4 427 191.4 430Q176.4 431 156.4 439Q136.4 448 124.4 448Q91.4 448 58.4 404Q21.4 355 7.4 298Q-10.6 222 15.4 171Q27.4 147 50.4 129Q73.4 111 97.4 107Z"
+      ></path>
+    </svg>
+    <span class="flex flex-col">
+      <span class={storeButtonSmall}>{t.appStoreSmall}</span>
+      <span class={storeButtonBig}>App Store</span>
+    </span>
+  </a>
+  <p class="flex items-center gap-2 text-[15px] font-bold text-green-dark/80">
+    <svg viewBox="0 0 416 447" class="h-4 w-auto" fill="currentColor" aria-hidden="true">
+      <path
+        d="M39 0Q40 0 167.5 70Q295 140 296 142Q297 142 295.5 143.5Q294 145 290.5 148.5Q287 152 281.5 157.5Q276 163 267 171L237 200L136 103Q35 6 35 4Q35 2 36 1Q37 0 39 0ZM0 224Q0 26 1 24.5Q2 23 4 23Q6 23 108.5 123Q211 223 211 224Q211 225 108.5 325Q6 425 4 425Q2 425 1 423.5Q0 422 0 224ZM408 204Q416 212 416 224Q416 236 408 244Q403 248 367 268Q331 288 330 288Q330 288 296.5 256.5Q263 225 263 224Q263 223 296 191.5Q329 160 330.5 160.5Q332 161 367.5 180.5Q403 200 408 204ZM136 345Q136 345 136 345L237 248L267 277Q297 305 297 306Q298 308 47 444Q39 448 37 447Q35 446 35 444Q35 442 52 425.5Q69 409 136 345Z"
+      ></path>
+    </svg>
+    {t.androidSoon}
+  </p>
+</div>

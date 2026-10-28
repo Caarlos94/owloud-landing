@@ -2,10 +2,11 @@
 import Base from "./Base.astro";
 
 const { frontmatter } = Astro.props;
+// The legal texts are in English only, so their nav and footer are too
 ---
 
-<Base title={`${frontmatter.title} — Owloud`}>
-  <!-- pt clears the fixed pill nav (top-8 + ~56px tall) -->
+<Base lang="en" title={`${frontmatter.title} — Owloud`}>
+  <!-- pt clears the fixed nav (16px from the top + 70px tall) -->
   <main class="mx-auto max-w-3xl px-6 pt-32 pb-10">
     <article class="legal card-sticker p-8 md:p-12">
       <slot />

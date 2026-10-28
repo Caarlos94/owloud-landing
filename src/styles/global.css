@@ -84,26 +84,6 @@
     transform: translateY(-10px);
   }
 }
-/* Swipe hint: sweep side to side like a finger dragging a card */
-@keyframes swipe-hint {
-  0%,
-  100% {
-    transform: translateX(-22px) rotate(-10deg);
-  }
-  50% {
-    transform: translateX(22px) rotate(10deg);
-  }
-}
-/* Idle nudge: the challenge card asks to be touched */
-@keyframes card-sway {
-  0%,
-  100% {
-    transform: rotate(0);
-  }
-  50% {
-    transform: translateX(7px) rotate(1.3deg);
-  }
-}
 /* Floating emoji decorations */
 @keyframes floaty {
   0%,
@@ -134,7 +114,8 @@
     width: 84%;
   }
 }
-/* Reviews marquee scroll (list is duplicated, so -50% loops seamlessly) */
+/* Marquee scroll for the trust strip and the reviews (each list is drawn
+   twice, so -50% loops seamlessly) */
 @keyframes marquee {
   from {
     transform: translateX(0);
@@ -163,6 +144,144 @@
 }
 .marquee:hover .marquee-track {
   animation-play-state: paused;
+}
+
+/* ─── Level shelf: the cover in the middle of the row grows ────────────────── */
+/* A scroll-driven animation: its progress is the cover's trip across the row
+   (view(inline)), so 50% is dead center. Browsers without support show every
+   cover at one size. */
+@supports (animation-timeline: view()) {
+  .shelf-cover {
+    animation: shelf-focus linear both;
+    animation-timeline: view(inline); /* after the shorthand, which resets it */
+  }
+}
+@keyframes shelf-focus {
+  0%,
+  38%,
+  62%,
+  100% {
+    scale: 0.88;
+  }
+  50% {
+    scale: 1.12;
+  }
+}
+
+/* ─── Library detail card: pops in, and the page stops scrolling under it ── */
+@media (prefers-reduced-motion: no-preference) {
+  dialog[open] {
+    animation: dialog-in 0.22s ease-out;
+  }
+}
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    scale: 0.96;
+  }
+}
+html:has(dialog[open]) {
+  overflow: hidden;
+}
+
+/* ─── Blog article body: the HTML Markdown turns into ──────────────────────── */
+/* Markdown output carries no classes, so it's styled through its tags here.
+   Unlayered, so it wins over the preflight reset (lists, headings, tables). */
+.prose-blog {
+  font-size: 18px;
+  line-height: 1.7;
+}
+.prose-blog > * + * {
+  margin-top: 1.25em;
+}
+.prose-blog h2 {
+  margin-top: 2.2em;
+  font-size: clamp(26px, 3vw, 32px);
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--color-green-dark);
+  scroll-margin-top: 7rem; /* clears the fixed nav when a contents link jumps here */
+}
+.prose-blog h3 {
+  margin-top: 1.8em;
+  font-size: 21px;
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--color-green-dark);
+  scroll-margin-top: 7rem;
+}
+.prose-blog :is(h2, h3) + * {
+  margin-top: 0.6em;
+}
+.prose-blog a {
+  font-weight: 700;
+  color: var(--color-green-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.prose-blog strong {
+  font-weight: 800;
+  color: var(--color-green-dark);
+}
+.prose-blog ul,
+.prose-blog ol {
+  padding-left: 1.3em;
+}
+.prose-blog ul {
+  list-style: disc;
+}
+.prose-blog ol {
+  list-style: decimal;
+}
+.prose-blog li + li {
+  margin-top: 0.5em;
+}
+.prose-blog li::marker {
+  font-weight: 800;
+  color: var(--color-green-primary);
+}
+.prose-blog blockquote {
+  border-left: 4px solid var(--color-amber);
+  border-radius: 0 1rem 1rem 0;
+  background: var(--color-amber-light);
+  padding: 1em 1.25em;
+  font-weight: 600;
+  color: var(--color-green-dark);
+}
+.prose-blog table {
+  width: 100%;
+  border: 2px solid var(--color-green-dark);
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 1rem;
+  overflow: hidden;
+  font-size: 16px;
+  line-height: 1.4;
+}
+.prose-blog th {
+  background: var(--color-green-light);
+  font-weight: 800;
+  text-align: left;
+  color: var(--color-green-dark);
+}
+.prose-blog :is(th, td) {
+  padding: 0.7em 1em;
+}
+/* Phones: tighter cells, so a four-column table still fits */
+@media (max-width: 639px) {
+  .prose-blog table {
+    font-size: 14px;
+  }
+  .prose-blog :is(th, td) {
+    padding: 0.6em 0.55em;
+  }
+}
+.prose-blog tr + tr td,
+.prose-blog tbody tr:first-child td {
+  border-top: 1px solid rgb(8 80 65 / 0.15);
+}
+.prose-blog hr {
+  border-top: 2px solid rgb(8 80 65 / 0.15);
 }
 
 html {

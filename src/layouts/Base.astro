@@ -5,40 +5,92 @@ import "@fontsource/nunito/400.css";
 import "@fontsource/nunito/600.css";
 import "@fontsource/nunito/700.css";
 import "@fontsource/nunito/800.css";
+import "@fontsource/nunito/900.css"; // only the hero title (display type)
 import "@fontsource/lora/400.css";
 import "@fontsource/lora/400-italic.css";
+import {
+  appStoreUrl,
+  blogPath,
+  homePath,
+  languageNames,
+  libraryPath,
+  ui,
+  type Lang,
+} from "../i18n/ui";
+import { blog } from "../i18n/blog";
 
 interface Props {
+  lang?: Lang;
   title?: string;
   description?: string;
+  // This page's path in each language. Pages that exist in both get hreflang
+  // links (so Google shows each visitor their language); the rest skip them.
+  alternates?: Record<Lang, string>;
+  // The picture link previews show (an absolute URL, ideally 1200×630)
+  image?: string;
+  // A blog article: its dates go into the preview metadata
+  article?: { publishedAt: Date; updatedAt?: Date };
 }
 
-const {
-  title = "Owloud — Learn English with audiobooks",
-  description = "Listen to audiobooks with karaoke-style synced text, tap any word for its meaning, and master your vocabulary with smart flashcards.",
-} = Astro.props;
+const { lang = "es", alternates, image, article } = Astro.props;
+const t = ui[lang];
+const { title = t.title, description = t.description } = Astro.props;
+
+// The language menu leads to this page in each language, or to that
+// language's home when the page has no translation (the legal pages)
+const langs: Lang[] = ["es", "en"];
+const langHref = (l: Lang) => alternates?.[l] ?? homePath[l];
 
 const canonical = new URL(Astro.url.pathname, Astro.site);
 // ponytail: square mascot as OG image — swap for a 1200×630 branded image before launch
-const ogImage = new URL("/owloud-curious.png", Astro.site);
+const ogImage = image ?? new URL("/owloud-curious.png", Astro.site);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    {
+      alternates && (
+        <>
+          <link rel="alternate" hreflang="es" href={new URL(alternates.es, Astro.site)} />
+          <link rel="alternate" hreflang="en" href={new URL(alternates.en, Astro.site)} />
+          <link rel="alternate" hreflang="x-default" href={new URL(alternates.es, Astro.site)} />
+        </>
+      )
+    }
     <link rel="icon" type="image/png" href="/owloud-mascot.png" />
-    <meta property="og:type" content="website" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={blog[lang].feedTitle}
+      href={new URL(`${blogPath[lang]}rss.xml`, Astro.site)}
+    />
+    <meta property="og:type" content={article ? "article" : "website"} />
     <meta property="og:site_name" content="Owloud" />
     <meta property="og:url" content={canonical} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
-    <meta name="twitter:card" content="summary" />
+    {
+      article && (
+        <>
+          <meta
+            property="article:published_time"
+            content={article.publishedAt.toISOString()}
+          />
+          <meta
+            property="article:modified_time"
+            content={(article.updatedAt ?? article.publishedAt).toISOString()}
+          />
+        </>
+      )
+    }
+    <meta name="twitter:card" content={image ? "summary_large_image" : "summary"} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
@@ -48,43 +100,141 @@ const ogImage = new URL("/owloud-curious.png", Astro.site);
     class="overflow-x-clip bg-neutral-100 font-nunito text-neutral-700 antialiased"
   >
     <!-- ─── Nav ─────────────────────────────────────────────────────────── -->
-    <header class="fixed inset-x-0 top-8 z-50 flex justify-center px-4">
+    <!-- Transparent over the top of the page; once it scrolls, the script at
+         the bottom sets data-scrolled and the bar turns into a frosted card
+         (a full-width strip on phones, a floating pill from lg: up). -->
+    <header class="fixed inset-x-0 top-0 z-50 lg:px-4 lg:pt-4">
       <nav
-        class="flex w-full max-w-3xl items-center justify-between gap-6 rounded-full border-2 border-green-dark bg-neutral-100/90 px-5 py-2.5 shadow-sticker-sm backdrop-blur"
+        data-nav
+        class="mx-auto flex h-[59px] items-center justify-between border border-transparent px-4 transition-[background-color,border-color,box-shadow] duration-300 data-scrolled:border-b-green-dark/10 data-scrolled:bg-neutral-100/90 data-scrolled:backdrop-blur-md lg:h-[70px] lg:max-w-6xl lg:rounded-full lg:px-[21px] lg:data-scrolled:border-green-dark/10 lg:data-scrolled:bg-white/80 lg:data-scrolled:shadow-[0_10px_30px_-12px_rgba(6,60,49,0.18)]"
       >
-        <!-- Logo -->
-        <a href="/" class="flex items-center gap-2">
-          <img src="/owloud-mascot.png" alt="" class="h-8 w-8" />
-          <span class="text-lg font-extrabold text-green-dark">Owloud</span>
-        </a>
+        <div class="flex items-center gap-10">
+          <!-- Logo -->
+          <a href={homePath[lang]} class="flex items-center gap-2">
+            <img src="/owloud-mascot.png" alt="" class="h-9 w-9" />
+            <span class="text-[22px] font-extrabold tracking-tight text-green-dark"
+              >Owloud</span
+            >
+          </a>
 
-        <!-- Links — hidden on phones, visible from md: up -->
-        <div
-          class="hidden items-center gap-10 text-[15px] font-extrabold text-green-dark md:flex"
-        >
-          <a href="/#features" class="hover:text-green-primary text-[17px]"
-            >Features</a
+          <!-- Links — hidden on phones and tablets, visible from lg: up -->
+          <div
+            class="hidden items-center gap-8 text-[16px] font-semibold text-green-dark lg:flex"
           >
-          <!-- <a href="/#blog" class="hover:text-green-primary text-[16px]">Blog</a> -->
-          <!-- Disabled along with the reviews section in index.astro.
-          <a href="/#reviews" class="hover:text-green-primary text-[17px]"
-            >Reviews</a
-          >
-          -->
-          <a href="/#faq" class="hover:text-green-primary text-[17px]">FAQ</a>
+            <a href={`${homePath[lang]}#features`} class="hover:text-green-primary"
+              >{t.navFeatures}</a
+            >
+            <a href={libraryPath[lang]} class="hover:text-green-primary"
+              >{t.navLibrary}</a
+            >
+            <a href={blogPath[lang]} class="hover:text-green-primary"
+              >{t.navBlog}</a
+            >
+          </div>
         </div>
 
-        <!-- CTA -->
-        <a
-          href="https://apps.apple.com/us/app/owloud-learn-english/id6793253654"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="rounded-3xl border-2 border-green-dark
-        bg-green-primary px-4 py-1.5 text-sm font-extrabold text-white
-        shadow-sticker-sm transition-opacity hover:opacity-85"
-        >
-          Download
-        </a>
+        <div class="flex items-center gap-1.5">
+          <!-- Support — from lg: up, like the links -->
+          <a
+            href="/support"
+            class="hidden h-11 items-center gap-1.5 rounded-full px-3 text-[16px] font-bold text-green-dark hover:text-green-primary lg:flex"
+          >
+            <!-- Headset icon (Lucide, ISC) -->
+            <svg
+              viewBox="0 0 24 24"
+              class="h-6 w-6"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path
+                d="M3 11h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5Zm0 0a9 9 0 1 1 18 0m0 0v5a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3Z"
+              ></path>
+              <path d="M21 16v2a4 4 0 0 1-4 4h-5"></path>
+            </svg>
+            {t.support}
+          </a>
+
+          <!-- Language menu: the button shows the current language -->
+          <div class="relative">
+            <button
+              type="button"
+              data-lang-button
+              aria-expanded="false"
+              aria-controls="lang-menu"
+              aria-label={t.changeLanguage}
+              class="flex h-11 cursor-pointer items-center gap-1.5 rounded-full px-3 text-[16px] font-bold text-green-dark hover:text-green-primary"
+            >
+              <!-- Globe icon (Feather, MIT) -->
+              <svg
+                viewBox="0 0 24 24"
+                class="h-5 w-5"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="10"></circle>
+                <path
+                  d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+                ></path>
+              </svg>
+              {lang.toUpperCase()}
+              <!-- Chevron (Lucide, ISC) -->
+              <svg
+                viewBox="0 0 24 24"
+                class="h-4 w-4"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="m6 9 6 6 6-6"></path>
+              </svg>
+            </button>
+            <div
+              id="lang-menu"
+              data-lang-menu
+              class="absolute right-0 top-full mt-2 hidden w-44 rounded-2xl border border-green-dark/10 bg-white py-2 shadow-[0_10px_30px_-12px_rgba(6,60,49,0.25)]"
+            >
+              {
+                langs.map((l) => (
+                  <a
+                    href={langHref(l)}
+                    hreflang={l}
+                    lang={l}
+                    aria-current={l === lang ? "true" : undefined}
+                    class:list={[
+                      "block px-4 py-2.5 text-[16px]",
+                      l === lang
+                        ? "font-bold text-green-primary"
+                        : "text-green-dark hover:bg-green-light",
+                    ]}
+                  >
+                    {languageNames[l]}
+                  </a>
+                ))
+              }
+            </div>
+          </div>
+
+          <!-- CTA: soft rectangle with a green glow under it -->
+          <a
+            href={appStoreUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="ml-1.5 flex h-11 items-center justify-center rounded-[12px] bg-green-primary px-4 text-[15px] font-bold text-white transition-transform duration-200 hover:-translate-y-0.5 lg:h-12 lg:px-6 lg:shadow-[0_10px_28px_-8px_rgba(23,129,96,0.6)]"
+          >
+            {t.download}
+          </a>
+        </div>
       </nav>
     </header>
 
@@ -101,21 +251,52 @@ const ogImage = new URL("/owloud-curious.png", Astro.site);
             <span class="font-extrabold text-green-dark">Owloud</span>
           </div>
           <nav class="flex flex-wrap gap-x-6 gap-y-2 text-sm font-semibold">
+            <a href={libraryPath[lang]} class="text-green-dark hover:underline"
+              >{t.navLibrary}</a
+            >
+            <a href={blogPath[lang]} class="text-green-dark hover:underline"
+              >{t.navBlog}</a
+            >
             <a href="/privacy" class="text-green-dark hover:underline"
-              >Privacy Policy</a
+              >{t.privacy}</a
             >
             <a href="/terms" class="text-green-dark hover:underline"
-              >Terms of Service</a
+              >{t.terms}</a
             >
             <a href="/support" class="text-green-dark hover:underline"
-              >Support</a
+              >{t.support}</a
             >
           </nav>
         </div>
         <p class="mt-6 text-xs text-green-dark/70">
-          © 2026 Owloud. Learn English by listening.
+          © 2026 Owloud. {t.tagline}
         </p>
       </div>
     </footer>
   </body>
 </html>
+
+<script>
+  // ─── Nav: frosted background once the page leaves the top ───
+  const nav = document.querySelector<HTMLElement>("[data-nav]");
+  const onScroll = () =>
+    nav?.toggleAttribute("data-scrolled", window.scrollY > 8);
+  onScroll(); // a reload can land mid-page
+  window.addEventListener("scroll", onScroll, { passive: true });
+
+  // ─── Language menu: the button toggles it, a click anywhere else or Esc closes it ───
+  const langButton = document.querySelector<HTMLElement>("[data-lang-button]");
+  const langMenu = document.querySelector<HTMLElement>("[data-lang-menu]");
+  const setLangMenu = (open: boolean) => {
+    langMenu?.classList.toggle("hidden", !open);
+    langButton?.setAttribute("aria-expanded", String(open));
+  };
+  langButton?.addEventListener("click", (e) => {
+    e.stopPropagation(); // or the document listener below closes it right away
+    setLangMenu(langButton.getAttribute("aria-expanded") !== "true");
+  });
+  document.addEventListener("click", () => setLangMenu(false));
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") setLangMenu(false);
+  });
+</script>

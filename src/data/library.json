@@ -1,0 +1,2110 @@
+[
+  {
+    "id": "alice-a2",
+    "kind": "adaptation",
+    "title": "Alice in Wonderland",
+    "author": "Lewis Carroll",
+    "level": "A2",
+    "chapters": 4,
+    "seconds": 1211,
+    "cover": "https://cdn.owloud.app/alice-a2/cover/cover.jpg",
+    "hero": "https://cdn.owloud.app/alice-wonderland/hero/hero.jpg",
+    "summary": {
+      "es": "Cuando la curiosa Alicia sigue a un Conejo Blanco hasta su madriguera, entra en un mundo extraño donde nada obedece a las reglas de siempre. Entre personajes inolvidables, ingeniosos acertijos y divertidos disparates, cada paso la lleva a una nueva y sorprendente aventura.",
+      "en": "When curious Alice follows a White Rabbit down a rabbit hole, she enters a strange world where nothing follows ordinary rules. Filled with unforgettable characters, clever puzzles, and delightful nonsense, every step brings a new and surprising adventure."
+    },
+    "freeFull": true,
+    "order": 1
+  },
+  {
+    "id": "speckled-band-a2",
+    "kind": "adaptation",
+    "title": "Sherlock Holmes: The Speckled Band",
+    "author": "Arthur Conan Doyle",
+    "level": "A2",
+    "chapters": 4,
+    "seconds": 1249,
+    "cover": "https://cdn.owloud.app/speckled-band-a2/cover/cover.jpg",
+    "hero": "https://cdn.owloud.app/speckled-band-a2/hero/hero.jpg",
+    "summary": {
+      "es": "Una mañana temprano, una joven asustada llega a Baker Street. Su hermana murió hace dos años hablando de una extraña \"banda moteada\", y ahora ella escucha el mismo silbido por la noche. Sherlock Holmes y el doctor Watson viajan a una vieja casa oscura para resolver el misterio antes de que sea demasiado tarde.",
+      "en": "Early one morning, a frightened young woman arrives at Baker Street. Her sister died two years ago, saying strange words about a \"speckled band\", and now she hears the same whistle in the night. Sherlock Holmes and Dr. Watson travel to a dark old house to solve the mystery before it is too late."
+    },
+    "freeFull": true,
+    "order": 2
+  },
+  {
+    "id": "dracula-b1",
+    "kind": "adaptation",
+    "title": "Dracula",
+    "author": "Bram Stoker",
+    "level": "B1",
+    "chapters": 10,
+    "seconds": 4541,
+    "cover": "https://cdn.owloud.app/dracula-b1/cover/cover.jpg",
+    "hero": "https://cdn.owloud.app/dracula-b1/hero/hero.jpg",
+    "summary": {
+      "es": "El joven abogado Jonathan Harker viaja a un castillo solitario en Transilvania para hacer negocios con el conde Drácula. Pronto descubre que es su prisionero y que el Conde es un vampiro que quiere ir a Inglaterra. Contada en diarios, es la historia de unos amigos que cazan al monstruo más famoso de todos los tiempos.",
+      "en": "Young lawyer Jonathan Harker travels to a lonely castle in Transylvania to do business with Count Dracula. Soon he discovers that he is a prisoner, and that the Count is a vampire who wants to come to England. Told through diaries, this is the story of a group of friends who hunt the most famous monster of all time."
+    },
+    "freeFull": false,
+    "order": 3
+  },
+  {
+    "id": "peter-pan-a2",
+    "kind": "adaptation",
+    "title": "Peter Pan",
+    "author": "James Matthew Barrie",
+    "level": "A2",
+    "chapters": 8,
+    "seconds": 2630,
+    "cover": "https://cdn.owloud.app/peter-pan-a2/cover/cover.jpg",
+    "hero": "https://cdn.owloud.app/peter-pan/hero/hero.jpg",
+    "summary": {
+      "es": "Peter Pan es un niño mágico que nunca crece. Un día lleva a Wendy, John y Michael al País de Nunca Jamás, donde piratas, sirenas, hadas y el temible Capitán Garfio convierten la infancia en una aventura inolvidable llena de maravillas y emoción.",
+      "en": "Peter Pan is a magical boy who never grows up. He whisks Wendy, John, and Michael away to Neverland, where pirates, mermaids, fairies, and the fearsome Captain Hook turn childhood into an unforgettable adventure full of wonder and excitement."
+    },
+    "freeFull": true,
+    "order": 4
+  },
+  {
+    "id": "jungle-book-a2",
+    "kind": "adaptation",
+    "title": "The Jungle Book",
+    "author": "Rudyard Kipling",
+    "level": "A2",
+    "chapters": 4,
+    "seconds": 1139,
+    "cover": "https://cdn.owloud.app/jungle-book-a2/cover/cover.jpg",
+    "hero": "https://cdn.owloud.app/jungle-book/hero/hero.jpg",
+    "summary": {
+      "es": "En la selva de la India, una familia de lobos encuentra a un bebé humano y lo llama Mowgli. Con el oso Baloo y la pantera Bagheera como maestros, crece como uno más de la Manada. Pero el tigre Shere Khan quiere al cachorro humano para él, y un día Mowgli tendrá que elegir entre la selva y el mundo de los hombres.",
+      "en": "In the jungles of India, a family of wolves finds a little human baby and calls him Mowgli. With Baloo the bear and Bagheera the panther as his teachers, he grows up as one of the Pack. But Shere Khan, the tiger, wants the man-cub for himself, and one day Mowgli must choose between the jungle and the world of men."
+    },
+    "freeFull": false,
+    "order": 5
+  },
+  {
+    "id": "treasure-island-a2",
+    "kind": "adaptation",
+    "title": "Treasure Island",
+    "author": "Robert Louis Stevenson",
+    "level": "A2",
+    "chapters": 6,
+    "seconds": 1912,
+    "cover": "https://cdn.owloud.app/treasure-island-a2/cover/cover.jpg",
+    "hero": "https://cdn.owloud.app/treasure-island-a2/hero/hero.jpg",
+    "summary": {
+      "es": "El joven Jim Hawkins encuentra el mapa de un viejo pirata en un baúl. Muestra una isla donde el capitán Flint escondió su tesoro. Jim zarpa en la Hispaniola, pero el amable cocinero de una sola pierna, Long John Silver, tiene un plan secreto. Pronto Jim tendrá que decidir quiénes son sus verdaderos amigos.",
+      "en": "Young Jim Hawkins finds an old pirate's map in a sea chest. It shows an island where Captain Flint hid his treasure. Jim sails away on the Hispaniola, but the friendly cook with one leg, Long John Silver, has a secret plan. Soon Jim must decide who his real friends are."
+    },
+    "freeFull": true,
+    "order": 6
+  },
+  {
+    "id": "around-the-world-a2",
+    "kind": "adaptation",
+    "title": "Around the World in 80 Days",
+    "author": "Jules Verne",
+    "level": "A2",
+    "chapters": 4,
+    "seconds": 1133,
+    "cover": "https://cdn.owloud.app/around-the-world-a2/cover/cover.jpg",
+    "hero": "https://cdn.owloud.app/around-the-world-a2/hero/hero.jpg",
+    "summary": {
+      "es": "En 1872, el tranquilo y muy cuidadoso Phileas Fogg apuesta veinte mil libras a que puede dar la vuelta al mundo en ochenta días. Con su sirviente Passepartout cruza la India, salva a una joven y atraviesa océanos y llanuras nevadas, mientras un detective lo sigue. ¿Llegará a Londres a tiempo?",
+      "en": "In 1872, the calm and very careful Phileas Fogg bets twenty thousand pounds that he can travel around the world in eighty days. With his servant Passepartout, he crosses India, saves a young woman and races across oceans and snowy plains, while a detective follows him. Will he be back in London on time?"
+    },
+    "freeFull": false,
+    "order": 7
+  },
+  {
+    "id": "jekyll-hyde-b1",
+    "kind": "adaptation",
+    "title": "Dr. Jekyll and Mr. Hyde",
+    "author": "Robert Louis Stevenson",
+    "level": "B1",
+    "chapters": 5,
+    "seconds": 1541,
+    "cover": "https://cdn.owloud.app/jekyll-hyde-b1/cover/cover.jpg",
+    "hero": "https://cdn.owloud.app/jekyll-hyde-b1/hero/hero.jpg",
+    "summary": {
+      "es": "En Londres, el abogado Utterson oye hablar de Edward Hyde, un hombre pequeño y cruel. ¿Por qué su viejo amigo, el respetado doctor Jekyll, lo protege y hasta le deja todo su dinero? Cuando Hyde asesina a un anciano, Utterson descubre un secreto terrible: un hombre bueno encontró cómo liberar el lado malvado de su alma.",
+      "en": "In London, the lawyer Mr. Utterson hears about Edward Hyde, a small, cruel man. Why does his old friend, the respected Dr. Jekyll, protect him and even leave him all his money? When Hyde kills an old man, Utterson begins to discover a terrible secret: a good man has found a way to free the evil side of his soul."
+    },
+    "freeFull": false,
+    "order": 8
+  },
+  {
+    "id": "christmas-carol",
+    "kind": "classic",
+    "title": "A Christmas Carol",
+    "author": "Charles Dickens",
+    "level": "B2",
+    "chapters": 7,
+    "seconds": 9197,
+    "cover": "https://cdn.owloud.app/christmas-carol/cover/cover-v3.jpg",
+    "hero": "https://cdn.owloud.app/christmas-carol/hero/hero.jpg",
+    "summary": {
+      "es": "Ebenezer Scrooge es un avaro de corazón frío que desprecia la Navidad y apenas se preocupa por los demás. Una noche extraordinaria, unos visitantes misteriosos lo obligan a enfrentarse a su pasado, su presente y el futuro que le espera si no cambia.",
+      "en": "Ebenezer Scrooge is a cold-hearted miser who despises Christmas and cares little for anyone else. One extraordinary night, mysterious visitors force him to confront his past, present, and the future that awaits unless he changes."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "aesop-fables",
+    "kind": "classic",
+    "title": "Aesop's Fables",
+    "author": "Aesop",
+    "level": "B2",
+    "chapters": 13,
+    "seconds": 12224,
+    "cover": "https://cdn.owloud.app/aesop-fables/cover/cover-v2.jpg",
+    "hero": "https://cdn.owloud.app/aesop-fables/hero/hero.jpg",
+    "summary": {
+      "es": "Descubre relatos que nunca pasan de moda, donde zorros astutos, leones orgullosos, hormigas trabajadoras y otros animales memorables nos enseñan lecciones que siguen vigentes hoy. Estas fábulas clásicas entretienen mientras revelan verdades sobre la honestidad, la sabiduría, el valor y la naturaleza humana.",
+      "en": "Discover timeless tales where clever foxes, proud lions, hardworking ants, and other memorable animals teach lessons that still resonate today. These classic fables entertain while revealing enduring truths about honesty, wisdom, courage, and human nature."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "alice-wonderland",
+    "kind": "classic",
+    "title": "Alice's Adventures in Wonderland",
+    "author": "Lewis Carroll",
+    "level": "B1",
+    "chapters": 12,
+    "seconds": 9800,
+    "cover": "https://cdn.owloud.app/alice-wonderland/cover/cover-v3.jpg",
+    "hero": "https://cdn.owloud.app/alice-wonderland/hero/hero.jpg",
+    "summary": {
+      "es": "Cuando la curiosa Alicia sigue a un Conejo Blanco hasta su madriguera, entra en un mundo extraño donde nada obedece a las reglas de siempre. Entre personajes inolvidables, ingeniosos acertijos y divertidos disparates, cada paso la lleva a una nueva y sorprendente aventura.",
+      "en": "When curious Alice follows a White Rabbit down a rabbit hole, she enters a strange world where nothing follows ordinary rules. Filled with unforgettable characters, clever puzzles, and delightful nonsense, every step brings a new and surprising adventure."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "old-mother-west-wind",
+    "kind": "classic",
+    "title": "Old Mother West Wind",
+    "author": "Thornton W. Burgess",
+    "level": "B1",
+    "chapters": 16,
+    "seconds": 5763,
+    "cover": "https://cdn.owloud.app/old-mother-west-wind/cover/cover-v3.jpg",
+    "hero": "https://cdn.owloud.app/old-mother-west-wind/hero/hero.jpg",
+    "summary": {
+      "es": "Cada mañana, la Vieja Madre Viento del Oeste envía a sus alegres brisitas a recorrer el campo, donde nos presentan a los encantadores animales del bosque y sus aventuras. Cada relato celebra la amistad, la curiosidad y las sencillas enseñanzas que esconde la naturaleza.",
+      "en": "Every morning, Old Mother West Wind sends her Merry Little Breezes across the countryside, introducing readers to charming woodland animals and their adventures. Each delightful story celebrates friendship, curiosity, and the simple lessons hidden throughout the natural world."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "from-the-heart",
+    "kind": "classic",
+    "title": "Out from the Heart",
+    "author": "James Allen",
+    "level": "C1",
+    "chapters": 7,
+    "seconds": 3507,
+    "cover": "https://cdn.owloud.app/from-the-heart/cover/cover-v3.jpg",
+    "hero": "https://cdn.owloud.app/from-the-heart/hero/hero.jpg",
+    "summary": {
+      "es": "James Allen explora cómo nuestros pensamientos moldean silenciosamente nuestro carácter, nuestras acciones y, en última instancia, nuestro futuro. A través de reflexiones atemporales y enseñanzas prácticas, muestra que la felicidad duradera, el éxito y la paz interior comienzan con una transformación desde dentro.",
+      "en": "James Allen explores how our thoughts quietly shape our character, actions, and ultimately our future. Through timeless reflections and practical wisdom, he shows that lasting happiness, success, and inner peace begin with transforming ourselves from within."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "peter-pan",
+    "kind": "classic",
+    "title": "Peter Pan",
+    "author": "James Matthew Barrie",
+    "level": "B2",
+    "chapters": 18,
+    "seconds": 19776,
+    "cover": "https://cdn.owloud.app/peter-pan/cover/cover-v3.jpg",
+    "hero": "https://cdn.owloud.app/peter-pan/hero/hero.jpg",
+    "summary": {
+      "es": "Peter Pan es un niño mágico que nunca crece. Un día lleva a Wendy, John y Michael al País de Nunca Jamás, donde piratas, sirenas, hadas y el temible Capitán Garfio convierten la infancia en una aventura inolvidable llena de maravillas y emoción.",
+      "en": "Peter Pan is a magical boy who never grows up. He whisks Wendy, John, and Michael away to Neverland, where pirates, mermaids, fairies, and the fearsome Captain Hook turn childhood into an unforgettable adventure full of wonder and excitement."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "danny-meadow-mouse",
+    "kind": "classic",
+    "title": "The Adventures of Danny Meadow Mouse",
+    "author": "Thornton W. Burgess",
+    "level": "B1",
+    "chapters": 24,
+    "seconds": 6443,
+    "cover": "https://cdn.owloud.app/danny-meadow-mouse/cover/cover-v2.jpg",
+    "hero": "https://cdn.owloud.app/danny-meadow-mouse/hero/hero.jpg",
+    "summary": {
+      "es": "Danny Ratón de la Pradera es pequeño, tímido y le preocupa su cola corta, pero vivir en las Praderas Verdes significa burlar cada día a Reddy el Zorro, a la Abuela Zorra y a Hooty el Búho. Junto a su amigo Peter Conejo, aprende que el ingenio vale más que la apariencia.",
+      "en": "Danny Meadow Mouse is small, timid, and worried about his short tail, but living on the Green Meadows means outsmarting Reddy Fox, Granny Fox, and Hooty the Owl every day. Together with his friend Peter Rabbit, he learns that quick wits matter more than looks."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "tom-sawyer",
+    "kind": "classic",
+    "title": "The Adventures of Tom Sawyer",
+    "author": "Mark Twain",
+    "level": "C1",
+    "chapters": 36,
+    "seconds": 24084,
+    "cover": "https://cdn.owloud.app/tom-sawyer/cover/cover-v2.jpg",
+    "hero": "https://cdn.owloud.app/tom-sawyer/hero/hero.jpg",
+    "summary": {
+      "es": "Tom Sawyer prefiere explorar cuevas, buscar tesoros y meterse en problemas antes que portarse bien. Junto a sus amigos, vive aventuras llenas de misterio, peligro y descubrimientos inolvidables, mientras aprende lecciones que poco a poco lo ayudan a crecer.",
+      "en": "Tom Sawyer would rather explore caves, hunt for treasure, and get into trouble than behave himself. Alongside his friends, his adventures lead to mystery, danger, unforgettable discoveries, and lessons that slowly shape him as he grows up."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "call-of-the-wild",
+    "kind": "classic",
+    "title": "The Call of the Wild",
+    "author": "Jack London",
+    "level": "C1",
+    "chapters": 8,
+    "seconds": 13732,
+    "cover": "https://cdn.owloud.app/call-of-the-wild/cover/cover-v2.jpg",
+    "hero": "https://cdn.owloud.app/call-of-the-wild/hero/hero.jpg",
+    "summary": {
+      "es": "Buck es robado de su cómodo hogar y obligado a sobrevivir como perro de trineo en las heladas tierras del norte. Mientras lucha contra una naturaleza implacable, poderosos rivales y sus propios instintos, comienza a descubrir el espíritu salvaje que lleva dentro.",
+      "en": "Buck is stolen from his comfortable home and forced to survive as a sled dog in the frozen North. As he battles the unforgiving wilderness, powerful rivals, and his own instincts, he begins to discover the wild spirit within himself."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "the-canterville-ghost",
+    "kind": "classic",
+    "title": "The Canterville Ghost",
+    "author": "Oscar Wilde",
+    "level": "C1",
+    "chapters": 7,
+    "seconds": 4723,
+    "cover": "https://cdn.owloud.app/the-canterville-ghost/cover/cover-v2.jpg",
+    "hero": "https://cdn.owloud.app/the-canterville-ghost/hero/hero.jpg",
+    "summary": {
+      "es": "Cuando una familia estadounidense se muda a una mansión inglesa encantada, resulta ser mucho más problemática que el propio fantasma. Lo que comienza como un divertidísimo choque pronto se convierte en una conmovedora historia de compasión, perdón y amistad inesperada.",
+      "en": "When an American family moves into a haunted English mansion, they prove far more troublesome than the ghost himself. What begins as a hilarious clash soon becomes a touching story of compassion, forgiveness, and unexpected friendship."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "the-invisible-man",
+    "kind": "classic",
+    "title": "The Invisible Man",
+    "author": "H. G. Wells",
+    "level": "B2",
+    "chapters": 12,
+    "seconds": 17891,
+    "cover": "https://cdn.owloud.app/the-invisible-man/cover/cover-v2.jpg",
+    "hero": "https://cdn.owloud.app/the-invisible-man/hero/hero.jpg",
+    "summary": {
+      "es": "Un científico brillante descubre cómo hacerse invisible, convencido de que su hallazgo lo cambiará todo. Pero, a medida que crece su obsesión y el aislamiento lo consume, su extraordinario invento marca el comienzo de un aterrador descenso hacia la locura.",
+      "en": "A brilliant scientist discovers how to make himself invisible, believing his breakthrough will change everything. But as his obsession grows and isolation consumes him, his remarkable invention becomes the beginning of a terrifying descent into madness."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "jungle-book",
+    "kind": "classic",
+    "title": "The Jungle Book",
+    "author": "Rudyard Kipling",
+    "level": "B2",
+    "chapters": 12,
+    "seconds": 19306,
+    "cover": "https://cdn.owloud.app/jungle-book/cover/cover-v3.jpg",
+    "hero": "https://cdn.owloud.app/jungle-book/hero/hero.jpg",
+    "summary": {
+      "es": "Criado por lobos en las selvas de la India, Mowgli crece junto a la pantera Bagheera y el oso Baloo. Mientras descubre cuál es su verdadero lugar en el mundo, deberá enfrentarse a peligrosos enemigos, amistades inesperadas y al temible tigre Shere Khan.",
+      "en": "Raised by wolves in the jungles of India, Mowgli grows up alongside Bagheera the panther and Baloo the bear. As he discovers where he truly belongs, he must face dangerous enemies, unexpected friendships, and the fearsome tiger Shere Khan."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "the-little-prince",
+    "kind": "classic",
+    "title": "The Little Prince",
+    "author": "Antoine de Saint Exupéry",
+    "level": "B1",
+    "chapters": 27,
+    "seconds": 6667,
+    "cover": "https://cdn.owloud.app/the-little-prince/cover/cover-v4.jpg",
+    "hero": "https://cdn.owloud.app/the-little-prince/hero/hero.jpg",
+    "summary": {
+      "es": "Un pequeño príncipe viaja de planeta en planeta, conoce a personajes singulares y descubre enseñanzas sobre la vida que nunca pierden su valor. A lo largo de su extraordinario viaje, explora la amistad, el amor, la responsabilidad y esas verdades ocultas que los adultos suelen olvidar.",
+      "en": "A young prince travels from planet to planet, meeting unusual characters and discovering timeless lessons about life. Through his remarkable journey, he explores friendship, love, responsibility, and the hidden truths that adults often forget."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "the-monkeys-paw",
+    "kind": "classic",
+    "title": "The Monkey's Paw",
+    "author": "W. W. Jacobs",
+    "level": "B2",
+    "chapters": 3,
+    "seconds": 1513,
+    "cover": "https://cdn.owloud.app/the-monkeys-paw/cover/cover-v3.jpg",
+    "hero": "https://cdn.owloud.app/the-monkeys-paw/hero/hero.jpg",
+    "summary": {
+      "es": "Una misteriosa pata de mono concede tres deseos y promete hacer realidad cualquier anhelo. Sin embargo, cada deseo tiene un precio inesperado y aterrador que transforma la esperanza en horror, en uno de los relatos sobrenaturales más inolvidables de la literatura.",
+      "en": "A mysterious monkey's paw grants three wishes, promising to fulfill every desire. But each wish carries an unexpected and terrifying cost, turning hope into horror in one of literature's most unforgettable supernatural tales."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "the-time-machine",
+    "kind": "classic",
+    "title": "The Time Machine",
+    "author": "H. G. Wells",
+    "level": "B2",
+    "chapters": 17,
+    "seconds": 12107,
+    "cover": "https://cdn.owloud.app/the-time-machine/cover/cover-v2.jpg",
+    "hero": "https://cdn.owloud.app/the-time-machine/hero/hero.jpg",
+    "summary": {
+      "es": "Un inventor brillante viaja cientos de miles de años hacia el futuro de la Tierra en busca de descubrimientos científicos, pero encuentra algo mucho más inquietante. Su extraordinario viaje revela una civilización que supera todo lo que había imaginado y plantea preguntas perturbadoras sobre el destino de la humanidad.",
+      "en": "A brilliant inventor travels hundreds of thousands of years into Earth's future, expecting scientific discovery but finding something far more unsettling. His extraordinary journey reveals a civilization unlike anything he imagined and raises haunting questions about humanity's destiny."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "velveteen-rabbit",
+    "kind": "classic",
+    "title": "The Velveteen Rabbit",
+    "author": "Margery Williams",
+    "level": "B2",
+    "chapters": 3,
+    "seconds": 1693,
+    "cover": "https://cdn.owloud.app/velveteen-rabbit/cover/cover-v3.jpg",
+    "hero": "https://cdn.owloud.app/velveteen-rabbit/hero/hero.jpg",
+    "summary": {
+      "es": "Un querido conejo de peluche sueña con convertirse en un conejo de verdad gracias al amor del niño al que pertenece. Con el paso del tiempo, descubre que la mayor magia nace de la amistad, la lealtad y la fuerza duradera del amor incondicional.",
+      "en": "A beloved toy rabbit dreams of becoming real through the love of the little boy who owns him. As time passes, he discovers that the greatest magic comes from friendship, loyalty, and the enduring power of unconditional love."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "wizard-of-oz",
+    "kind": "classic",
+    "title": "The Wonderful Wizard of Oz",
+    "author": "L. Frank Baum",
+    "level": "B1",
+    "chapters": 23,
+    "seconds": 14362,
+    "cover": "https://cdn.owloud.app/wizard-of-oz/cover/cover-v4.jpg",
+    "hero": "https://cdn.owloud.app/wizard-of-oz/hero/hero.jpg",
+    "summary": {
+      "es": "Cuando un tornado transporta a Dorothy a la mágica tierra de Oz, emprende un viaje inolvidable para volver a casa junto a tres compañeros extraordinarios. Juntos se enfrentan a extraños peligros y criaturas mágicas, y descubren fortalezas que nunca imaginaron tener.",
+      "en": "When a tornado carries Dorothy to the magical Land of Oz, she begins an unforgettable journey home with three remarkable companions. Together they face strange dangers, magical creatures, and discover strengths they never knew they possessed."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "white-fang",
+    "kind": "classic",
+    "title": "White Fang",
+    "author": "Jack London",
+    "level": "C1",
+    "chapters": 25,
+    "seconds": 27356,
+    "cover": "https://cdn.owloud.app/white-fang/cover/cover-v2.jpg",
+    "hero": "https://cdn.owloud.app/white-fang/hero/hero.jpg",
+    "summary": {
+      "es": "Nacido en las inhóspitas tierras de Canadá, Colmillo Blanco aprende a sobrevivir en un mundo donde impera la fuerza. Sus encuentros con seres humanos crueles y compasivos marcan su destino y ponen a prueba si la confianza puede vencer al miedo y la adversidad.",
+      "en": "Born in the harsh Canadian wilderness, White Fang learns to survive in a world ruled by strength and survival. His encounters with both cruel and compassionate humans shape his destiny, testing whether trust can overcome fear and hardship."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "spain-sagrada",
+    "kind": "story",
+    "title": "137 Years Without a Permit",
+    "author": "Owloud",
+    "level": "B1",
+    "chapters": 1,
+    "seconds": 93,
+    "cover": "https://cdn.owloud.app/spain-sagrada/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/spain-sagrada/hero/hero.jpg",
+    "summary": {
+      "es": "Una de las iglesias más famosas del mundo pasó 137 años construyéndose sin permiso.",
+      "en": "One of the most famous churches in the world grew for 137 years without a building permit."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "puerto-rico-bay",
+    "kind": "story",
+    "title": "A Bay That Glows at Night",
+    "author": "Owloud",
+    "level": "A2",
+    "chapters": 1,
+    "seconds": 59,
+    "cover": "https://cdn.owloud.app/puerto-rico-bay/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/puerto-rico-bay/hero/hero.jpg",
+    "summary": {
+      "es": "En Puerto Rico hay una bahía que brilla de azul por la noche. ¿Qué la ilumina?",
+      "en": "In Puerto Rico, there's a bay that glows blue at night. What makes the light?"
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "belgium-border",
+    "kind": "story",
+    "title": "A Border in the Living Room",
+    "author": "Owloud",
+    "level": "A2",
+    "chapters": 1,
+    "seconds": 51,
+    "cover": "https://cdn.owloud.app/belgium-border/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/belgium-border/hero/hero.jpg",
+    "summary": {
+      "es": "En este pueblo, la frontera entre dos países pasa por en medio de algunas casas.",
+      "en": "In this town, one step takes you from Belgium to the Netherlands, even inside a house."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "morocco-blue",
+    "kind": "story",
+    "title": "A City Painted Blue",
+    "author": "Owloud",
+    "level": "A2",
+    "chapters": 1,
+    "seconds": 60,
+    "cover": "https://cdn.owloud.app/morocco-blue/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/morocco-blue/hero/hero.jpg",
+    "summary": {
+      "es": "En una ciudad de Marruecos, las paredes, las puertas y las calles son azules. ¿Por qué?",
+      "en": "In a city in Morocco, the walls, the doors and the streets are blue. Why?"
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "bhutan-traffic",
+    "kind": "story",
+    "title": "A City Without Traffic Lights",
+    "author": "Owloud",
+    "level": "A2",
+    "chapters": 1,
+    "seconds": 59,
+    "cover": "https://cdn.owloud.app/bhutan-traffic/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/bhutan-traffic/hero/hero.jpg",
+    "summary": {
+      "es": "La capital de Bután no tiene semáforos. Los policías dirigen el tráfico como un baile.",
+      "en": "Bhutan's capital has no traffic lights. Police officers move the cars like in a dance."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "estonia-backup",
+    "kind": "story",
+    "title": "A Country with a Backup",
+    "author": "Owloud",
+    "level": "B2",
+    "chapters": 1,
+    "seconds": 125,
+    "cover": "https://cdn.owloud.app/estonia-backup/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/estonia-backup/hero/hero.jpg",
+    "summary": {
+      "es": "Estonia es tan digital que guarda un respaldo de todo el país… en Luxemburgo.",
+      "en": "Estonia is so digital that it keeps a backup of the whole country… in Luxembourg."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "greenland-roads",
+    "kind": "story",
+    "title": "A Country With No Roads",
+    "author": "Owloud",
+    "level": "A1",
+    "chapters": 1,
+    "seconds": 54,
+    "cover": "https://cdn.owloud.app/greenland-roads/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/greenland-roads/hero/hero.jpg",
+    "summary": {
+      "es": "En Groenlandia ninguna carretera une dos pueblos. Se viaja en avión, barco o trineo.",
+      "en": "In Greenland, no road joins one town to another. People fly, sail or go by dog sled."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "venus-day",
+    "kind": "story",
+    "title": "A Day Longer Than a Year",
+    "author": "Owloud",
+    "level": "A1",
+    "chapters": 1,
+    "seconds": 61,
+    "cover": "https://cdn.owloud.app/venus-day/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/venus-day/hero/hero.jpg",
+    "summary": {
+      "es": "En Venus, un día dura más que un año entero. Y el Sol sale por el oeste.",
+      "en": "On Venus, one day lasts longer than a whole year. And the Sun rises in the west."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "nepal-flag",
+    "kind": "story",
+    "title": "A Flag with Two Triangles",
+    "author": "Owloud",
+    "level": "B1",
+    "chapters": 1,
+    "seconds": 57,
+    "cover": "https://cdn.owloud.app/nepal-flag/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/nepal-flag/hero/hero.jpg",
+    "summary": {
+      "es": "Casi todas las banderas del mundo son rectángulos. La de Nepal es la única que no.",
+      "en": "Almost every flag in the world is a rectangle. Nepal's is the only one that isn't."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "england-parkrun",
+    "kind": "story",
+    "title": "A Free Run Every Saturday",
+    "author": "Owloud",
+    "level": "A1",
+    "chapters": 1,
+    "seconds": 56,
+    "cover": "https://cdn.owloud.app/england-parkrun/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/england-parkrun/hero/hero.jpg",
+    "summary": {
+      "es": "Empezó con 13 corredores en un parque de Londres. Hoy lo corren millones, gratis.",
+      "en": "It started with 13 runners in a London park. Now millions run it, free, every Saturday."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "thailand-durian",
+    "kind": "story",
+    "title": "A Fruit That Smells Very Bad",
+    "author": "Owloud",
+    "level": "A1",
+    "chapters": 1,
+    "seconds": 55,
+    "cover": "https://cdn.owloud.app/thailand-durian/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/thailand-durian/hero/hero.jpg",
+    "summary": {
+      "es": "Muchos hoteles prohíben el durián por su olor. En Tailandia es el rey de las frutas.",
+      "en": "Many hotels ban the durian for its smell. In Thailand, it's the king of fruits."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "sweden-icehotel",
+    "kind": "story",
+    "title": "A Hotel Made of Ice",
+    "author": "Owloud",
+    "level": "A2",
+    "chapters": 1,
+    "seconds": 64,
+    "cover": "https://cdn.owloud.app/sweden-icehotel/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/sweden-icehotel/hero/hero.jpg",
+    "summary": {
+      "es": "Cada invierno, en Suecia construyen un hotel de hielo. En primavera, se derrite.",
+      "en": "Every winter, people in Sweden build a hotel made of ice. In spring, it melts."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "senegal-pink-lake",
+    "kind": "story",
+    "title": "A Lake That Is Pink",
+    "author": "Owloud",
+    "level": "A1",
+    "chapters": 1,
+    "seconds": 54,
+    "cover": "https://cdn.owloud.app/senegal-pink-lake/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/senegal-pink-lake/hero/hero.jpg",
+    "summary": {
+      "es": "En Senegal hay un lago rosa. Su agua es tan salada que flotas en ella.",
+      "en": "In Senegal there's a pink lake. Its water is so salty that you float on it."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "uruguay-laptops",
+    "kind": "story",
+    "title": "A Laptop for Every Child",
+    "author": "Owloud",
+    "level": "A2",
+    "chapters": 1,
+    "seconds": 89,
+    "cover": "https://cdn.owloud.app/uruguay-laptops/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/uruguay-laptops/hero/hero.jpg",
+    "summary": {
+      "es": "Uruguay le dio una laptop a cada niño. Para muchas familias fue su primera computadora.",
+      "en": "Uruguay gave every child a laptop. For many families, it was their first computer."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "space-taller",
+    "kind": "story",
+    "title": "A Little Taller in Space",
+    "author": "Owloud",
+    "level": "A1",
+    "chapters": 1,
+    "seconds": 54,
+    "cover": "https://cdn.owloud.app/space-taller/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/space-taller/hero/hero.jpg",
+    "summary": {
+      "es": "En el espacio, los astronautas crecen unos centímetros. Al volver, se encogen.",
+      "en": "In space, astronauts grow a few centimeters. Back on Earth, they shrink again."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "england-robots",
+    "kind": "story",
+    "title": "A Robot Brings Your Lunch",
+    "author": "Owloud",
+    "level": "A1",
+    "chapters": 1,
+    "seconds": 60,
+    "cover": "https://cdn.owloud.app/england-robots/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/england-robots/hero/hero.jpg",
+    "summary": {
+      "es": "En un pueblo de Inglaterra, robots de seis ruedas llevan la comida a tu puerta.",
+      "en": "In an English town, little six-wheeled robots bring food to people's doors."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "finland-saunas",
+    "kind": "story",
+    "title": "A Sauna for Everyone",
+    "author": "Owloud",
+    "level": "A2",
+    "chapters": 1,
+    "seconds": 53,
+    "cover": "https://cdn.owloud.app/finland-saunas/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/finland-saunas/hero/hero.jpg",
+    "summary": {
+      "es": "Finlandia tiene unos tres millones de saunas, y hasta hay una en el parlamento.",
+      "en": "Finland has about three million saunas, and there is even one in the parliament."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "san-francisco-taxi",
+    "kind": "story",
+    "title": "A Taxi With No Driver",
+    "author": "Owloud",
+    "level": "A1",
+    "chapters": 1,
+    "seconds": 54,
+    "cover": "https://cdn.owloud.app/san-francisco-taxi/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/san-francisco-taxi/hero/hero.jpg",
+    "summary": {
+      "es": "En San Francisco, un taxi pasa por ti y nadie va al volante.",
+      "en": "In San Francisco, a taxi picks you up, and nobody sits in the driver's seat."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "italy-pisa",
+    "kind": "story",
+    "title": "A Tower That Leans",
+    "author": "Owloud",
+    "level": "A2",
+    "chapters": 1,
+    "seconds": 61,
+    "cover": "https://cdn.owloud.app/italy-pisa/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/italy-pisa/hero/hero.jpg",
+    "summary": {
+      "es": "La Torre de Pisa se inclinaba más cada año. Así la salvaron los ingenieros.",
+      "en": "The Tower of Pisa leaned a little more every year. Here's how engineers saved it."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "alaska-whittier",
+    "kind": "story",
+    "title": "A Town in One Building",
+    "author": "Owloud",
+    "level": "A2",
+    "chapters": 1,
+    "seconds": 73,
+    "cover": "https://cdn.owloud.app/alaska-whittier/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/alaska-whittier/hero/hero.jpg",
+    "summary": {
+      "es": "Casi todos los habitantes de este pueblo de Alaska viven en el mismo edificio.",
+      "en": "Almost everyone in this town in Alaska lives in the same building."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "usa-walk-brain",
+    "kind": "story",
+    "title": "A Walk for Your Brain",
+    "author": "Owloud",
+    "level": "A1",
+    "chapters": 1,
+    "seconds": 54,
+    "cover": "https://cdn.owloud.app/usa-walk-brain/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/usa-walk-brain/hero/hero.jpg",
+    "summary": {
+      "es": "Un año de caminatas hizo crecer la parte del cerebro que guarda la memoria.",
+      "en": "A year of walking made the memory part of the brain bigger. Here's the study."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "new-zealand-wizard",
+    "kind": "story",
+    "title": "A Wizard on the Payroll",
+    "author": "Owloud",
+    "level": "B1",
+    "chapters": 1,
+    "seconds": 121,
+    "cover": "https://cdn.owloud.app/new-zealand-wizard/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/new-zealand-wizard/hero/hero.jpg",
+    "summary": {
+      "es": "Daba discursos vestido de mago. Años después, Nueva Zelanda lo nombró su mago oficial.",
+      "en": "He gave speeches dressed as a wizard. Later, New Zealand made him its official wizard."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "octopus-hearts",
+    "kind": "story",
+    "title": "An Animal With Three Hearts",
+    "author": "Owloud",
+    "level": "A1",
+    "chapters": 1,
+    "seconds": 63,
+    "cover": "https://cdn.owloud.app/octopus-hearts/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/octopus-hearts/hero/hero.jpg",
+    "summary": {
+      "es": "El pulpo tiene tres corazones y sangre azul. Y uno se detiene cuando nada.",
+      "en": "The octopus has three hearts and blue blood. And one heart stops when it swims."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "brazil-snake-island",
+    "kind": "story",
+    "title": "An Island Full of Snakes",
+    "author": "Owloud",
+    "level": "A2",
+    "chapters": 1,
+    "seconds": 56,
+    "cover": "https://cdn.owloud.app/brazil-snake-island/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/brazil-snake-island/hero/hero.jpg",
+    "summary": {
+      "es": "Frente a Brasil hay una isla donde nadie vive. La razón: miles de serpientes.",
+      "en": "Near Brazil, there's an island where nobody lives. The reason: thousands of snakes."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "japan-forest-bathing",
+    "kind": "story",
+    "title": "Bathing in the Forest",
+    "author": "Owloud",
+    "level": "C1",
+    "chapters": 1,
+    "seconds": 148,
+    "cover": "https://cdn.owloud.app/japan-forest-bathing/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/japan-forest-bathing/hero/hero.jpg",
+    "summary": {
+      "es": "En Japón, caminar despacio entre árboles es buena medicina, y la ciencia lo respalda.",
+      "en": "In Japan, a slow walk among trees is good medicine, and science agrees."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "ireland-turnips",
+    "kind": "story",
+    "title": "Before the Pumpkins",
+    "author": "Owloud",
+    "level": "B2",
+    "chapters": 1,
+    "seconds": 81,
+    "cover": "https://cdn.owloud.app/ireland-turnips/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/ireland-turnips/hero/hero.jpg",
+    "summary": {
+      "es": "Antes de las calabazas, los primeros faroles de Halloween eran nabos, y venían de Irlanda.",
+      "en": "Before pumpkins, the first Halloween lanterns were turnips, and they came from Ireland."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "rwanda-drones",
+    "kind": "story",
+    "title": "Blood from the Sky",
+    "author": "Owloud",
+    "level": "A2",
+    "chapters": 1,
+    "seconds": 83,
+    "cover": "https://cdn.owloud.app/rwanda-drones/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/rwanda-drones/hero/hero.jpg",
+    "summary": {
+      "es": "En Ruanda, la sangre para los hospitales llega del cielo, en paracaídas de papel.",
+      "en": "In Rwanda, drones drop blood on paper parachutes to hospitals far from the capital."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "jamaica-bobsled",
+    "kind": "story",
+    "title": "Bobsled Without Snow",
+    "author": "Owloud",
+    "level": "A2",
+    "chapters": 1,
+    "seconds": 54,
+    "cover": "https://cdn.owloud.app/jamaica-bobsled/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/jamaica-bobsled/hero/hero.jpg",
+    "summary": {
+      "es": "Una isla tropical sin nieve mandó un equipo de bobsled a los Juegos Olímpicos de Invierno.",
+      "en": "A hot island with no snow sent a bobsled team to the Winter Olympics."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "saudi-camels",
+    "kind": "story",
+    "title": "Camels with Botox",
+    "author": "Owloud",
+    "level": "B1",
+    "chapters": 1,
+    "seconds": 85,
+    "cover": "https://cdn.owloud.app/saudi-camels/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/saudi-camels/hero/hero.jpg",
+    "summary": {
+      "es": "En Arabia Saudita hay concursos de belleza para camellos, y algunos dueños usan bótox.",
+      "en": "In Saudi Arabia, camels compete in a beauty contest, and some owners cheat with Botox."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "india-mangalyaan",
+    "kind": "story",
+    "title": "Cheaper Than a Hollywood Film",
+    "author": "Owloud",
+    "level": "C1",
+    "chapters": 1,
+    "seconds": 154,
+    "cover": "https://cdn.owloud.app/india-mangalyaan/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/india-mangalyaan/hero/hero.jpg",
+    "summary": {
+      "es": "India llegó a Marte al primer intento, por menos de lo que cuesta una película.",
+      "en": "India reached Mars on its first try, for less than the cost of a movie."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "namibia-circles",
+    "kind": "story",
+    "title": "Circles in the Desert",
+    "author": "Owloud",
+    "level": "A1",
+    "chapters": 1,
+    "seconds": 58,
+    "cover": "https://cdn.owloud.app/namibia-circles/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/namibia-circles/hero/hero.jpg",
+    "summary": {
+      "es": "Millones de círculos cubren un desierto de Namibia. Nadie sabe bien quién los hace.",
+      "en": "Millions of circles cover a desert in Namibia. Nobody knows for sure who makes them."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "guinea-eric",
+    "kind": "story",
+    "title": "Eric the Eel",
+    "author": "Owloud",
+    "level": "A2",
+    "chapters": 1,
+    "seconds": 79,
+    "cover": "https://cdn.owloud.app/guinea-eric/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/guinea-eric/hero/hero.jpg",
+    "summary": {
+      "es": "Hizo el tiempo más lento de la historia olímpica, y el público se puso de pie por él.",
+      "en": "He swam the slowest race in Olympic history, and the crowd stood up to cheer him."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "korea-age",
+    "kind": "story",
+    "title": "Everyone Got Younger",
+    "author": "Owloud",
+    "level": "A2",
+    "chapters": 1,
+    "seconds": 52,
+    "cover": "https://cdn.owloud.app/korea-age/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/korea-age/hero/hero.jpg",
+    "summary": {
+      "es": "En 2023, millones de coreanos se volvieron más jóvenes en un solo día.",
+      "en": "In 2023, millions of people in South Korea got one or two years younger in a single day."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "philippines-tarsier",
+    "kind": "story",
+    "title": "Eyes Bigger Than Its Brain",
+    "author": "Owloud",
+    "level": "A1",
+    "chapters": 1,
+    "seconds": 58,
+    "cover": "https://cdn.owloud.app/philippines-tarsier/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/philippines-tarsier/hero/hero.jpg",
+    "summary": {
+      "es": "En Filipinas vive un animal diminuto. Cada uno de sus ojos es tan grande como su cerebro.",
+      "en": "In the Philippines lives a tiny animal. Each of its eyes is as big as its brain."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "moon-footprints",
+    "kind": "story",
+    "title": "Footprints on the Moon",
+    "author": "Owloud",
+    "level": "A1",
+    "chapters": 1,
+    "seconds": 55,
+    "cover": "https://cdn.owloud.app/moon-footprints/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/moon-footprints/hero/hero.jpg",
+    "summary": {
+      "es": "Las huellas de los astronautas siguen en la Luna. Pueden durar millones de años.",
+      "en": "The astronauts' footprints are still on the Moon. They can last millions of years."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "iceland-cousins",
+    "kind": "story",
+    "title": "Is My Date My Cousin?",
+    "author": "Owloud",
+    "level": "A2",
+    "chapters": 1,
+    "seconds": 85,
+    "cover": "https://cdn.owloud.app/iceland-cousins/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/iceland-cousins/hero/hero.jpg",
+    "summary": {
+      "es": "En Islandia casi todos son parientes. Hay una app para saber si tu cita es tu primo.",
+      "en": "Almost everyone in Iceland is related. An app tells you if your date is your cousin."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "denmark-lego",
+    "kind": "story",
+    "title": "Lego Means Play Well",
+    "author": "Owloud",
+    "level": "B1",
+    "chapters": 1,
+    "seconds": 56,
+    "cover": "https://cdn.owloud.app/denmark-lego/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/denmark-lego/hero/hero.jpg",
+    "summary": {
+      "es": "Una pieza de Lego de 1958 todavía encaja con una de hoy. Así empezó todo.",
+      "en": "A Lego brick from 1958 still fits one from today. This is how it all started."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "poland-curie",
+    "kind": "story",
+    "title": "Marie Curie's Radioactive Notebooks",
+    "author": "Owloud",
+    "level": "B2",
+    "chapters": 1,
+    "seconds": 95,
+    "cover": "https://cdn.owloud.app/poland-curie/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/poland-curie/hero/hero.jpg",
+    "summary": {
+      "es": "Más de un siglo después, los cuadernos de Marie Curie siguen siendo radiactivos.",
+      "en": "More than a century later, Marie Curie's notebooks are still radioactive."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "netherlands-bikes",
+    "kind": "story",
+    "title": "More Bikes than People",
+    "author": "Owloud",
+    "level": "A2",
+    "chapters": 1,
+    "seconds": 53,
+    "cover": "https://cdn.owloud.app/netherlands-bikes/hero/hero-v2.jpg",
+    "hero": "https://cdn.owloud.app/netherlands-bikes/hero/hero-v2.jpg",
+    "summary": {
+      "es": "Un país con más bicis que personas, y miles de ellas terminan en los canales.",
+      "en": "A country with more bikes than people, and thousands of them end up in the canals."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "singapore-gum",
+    "kind": "story",
+    "title": "No Gum, Please",
+    "author": "Owloud",
+    "level": "B1",
+    "chapters": 1,
+    "seconds": 55,
+    "cover": "https://cdn.owloud.app/singapore-gum/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/singapore-gum/hero/hero.jpg",
+    "summary": {
+      "es": "En Singapur, las tiendas no pueden vender chicle. Todo empezó con las puertas del metro.",
+      "en": "In Singapore, shops cannot sell chewing gum. It all started with the metro doors."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "pachuca-paste",
+    "kind": "story",
+    "title": "Pachuca, the City of Pastes",
+    "author": "Owloud",
+    "level": "B1",
+    "chapters": 1,
+    "seconds": 50,
+    "cover": "https://cdn.owloud.app/pachuca-paste/hero/hero-v2.jpg",
+    "hero": "https://cdn.owloud.app/pachuca-paste/hero/hero-v2.jpg",
+    "summary": {
+      "es": "Cómo unos mineros ingleses llevaron el paste, y el futbol, a Pachuca.",
+      "en": "How miners from Cornwall brought the pasty, and football, to Pachuca."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "taiwan-outside",
+    "kind": "story",
+    "title": "Play Outside, See Better",
+    "author": "Owloud",
+    "level": "A1",
+    "chapters": 1,
+    "seconds": 55,
+    "cover": "https://cdn.owloud.app/taiwan-outside/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/taiwan-outside/hero/hero.jpg",
+    "summary": {
+      "es": "Taiwán mandó a sus niños a jugar afuera dos horas al día. Menos necesitaron lentes.",
+      "en": "Taiwan sent its children outside to play for two hours a day. Fewer needed glasses."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "iran-yakhchal",
+    "kind": "story",
+    "title": "Saving Winter for Summer",
+    "author": "Owloud",
+    "level": "B1",
+    "chapters": 1,
+    "seconds": 121,
+    "cover": "https://cdn.owloud.app/iran-yakhchal/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/iran-yakhchal/hero/hero.jpg",
+    "summary": {
+      "es": "Sin electricidad y en pleno desierto, en Irán tenían hielo en verano. ¿Cómo?",
+      "en": "With no electricity, in the middle of the desert, Iran had ice in summer. How?"
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "kenya-mpesa",
+    "kind": "story",
+    "title": "Send Money Home",
+    "author": "Owloud",
+    "level": "B2",
+    "chapters": 1,
+    "seconds": 114,
+    "cover": "https://cdn.owloud.app/kenya-mpesa/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/kenya-mpesa/hero/hero.jpg",
+    "summary": {
+      "es": "Kenia probó pagar préstamos por celular, pero los clientes tuvieron una idea mejor.",
+      "en": "A Kenyan company tested repaying loans by phone, but its customers had a better idea."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "sweden-tardigrades",
+    "kind": "story",
+    "title": "The Animal That Survived Space",
+    "author": "Owloud",
+    "level": "C1",
+    "chapters": 1,
+    "seconds": 145,
+    "cover": "https://cdn.owloud.app/sweden-tardigrades/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/sweden-tardigrades/hero/hero.jpg",
+    "summary": {
+      "es": "Un diminuto \"oso de agua\" sobrevivió diez días en el espacio y volvió con vida.",
+      "en": "A tiny \"water bear\" survived ten days in open space, and came back alive."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "australia-emus",
+    "kind": "story",
+    "title": "The Army That Lost to Birds",
+    "author": "Owloud",
+    "level": "B1",
+    "chapters": 1,
+    "seconds": 77,
+    "cover": "https://cdn.owloud.app/australia-emus/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/australia-emus/hero/hero.jpg",
+    "summary": {
+      "es": "Australia mandó al ejército a pelear contra 20,000 aves, y ganaron las aves.",
+      "en": "Australia sent the army to fight 20,000 birds, and the birds won."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "sudan-asteroid",
+    "kind": "story",
+    "title": "The Asteroid We Saw Coming",
+    "author": "Owloud",
+    "level": "B1",
+    "chapters": 1,
+    "seconds": 115,
+    "cover": "https://cdn.owloud.app/sudan-asteroid/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/sudan-asteroid/hero/hero.jpg",
+    "summary": {
+      "es": "En 2008 vieron venir un asteroide horas antes del impacto. Luego hallaron sus restos.",
+      "en": "In 2008, an asteroid was spotted hours before it hit Earth. Later, its pieces were found."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "south-africa-baboon",
+    "kind": "story",
+    "title": "The Baboon Who Worked for the Railway",
+    "author": "Owloud",
+    "level": "B2",
+    "chapters": 1,
+    "seconds": 121,
+    "cover": "https://cdn.owloud.app/south-africa-baboon/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/south-africa-baboon/hero/hero.jpg",
+    "summary": {
+      "es": "Un guardavías que perdió las piernas encontró un ayudante inesperado: un babuino.",
+      "en": "A railway signalman who lost both legs found an unusual assistant: a baboon named Jack."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "whale-shark",
+    "kind": "story",
+    "title": "The Biggest Fish in the Sea",
+    "author": "Owloud",
+    "level": "B1",
+    "chapters": 1,
+    "seconds": 53,
+    "cover": "https://cdn.owloud.app/whale-shark/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/whale-shark/hero/hero.jpg",
+    "summary": {
+      "es": "El pez más grande del mundo mide lo que un autobús, y nadie sabe dónde nacen sus crías.",
+      "en": "The world's biggest fish is as long as a bus, and nobody knows where its babies are born."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "bolivia-mirror",
+    "kind": "story",
+    "title": "The Biggest Mirror in the World",
+    "author": "Owloud",
+    "level": "A2",
+    "chapters": 1,
+    "seconds": 59,
+    "cover": "https://cdn.owloud.app/bolivia-mirror/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/bolivia-mirror/hero/hero.jpg",
+    "summary": {
+      "es": "En lo alto de Bolivia hay un desierto blanco que se convierte en un espejo gigante.",
+      "en": "High in Bolivia, there is a white desert that becomes a giant mirror."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "mozambique-honeyguide",
+    "kind": "story",
+    "title": "The Bird That Talks to Hunters",
+    "author": "Owloud",
+    "level": "B2",
+    "chapters": 1,
+    "seconds": 120,
+    "cover": "https://cdn.owloud.app/mozambique-honeyguide/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/mozambique-honeyguide/hero/hero.jpg",
+    "summary": {
+      "es": "En Mozambique, los cazadores llaman a un ave salvaje, y ella los guía hasta la miel.",
+      "en": "In Mozambique, honey hunters call a wild bird, and the bird leads them to the bees."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "peru-bridge",
+    "kind": "story",
+    "title": "The Bridge Made of Grass",
+    "author": "Owloud",
+    "level": "B2",
+    "chapters": 1,
+    "seconds": 121,
+    "cover": "https://cdn.owloud.app/peru-bridge/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/peru-bridge/hero/hero.jpg",
+    "summary": {
+      "es": "En los Andes hay un puente hecho de pasto, y cada año lo vuelven a construir a mano.",
+      "en": "In the Andes, there's a bridge made of grass, and every year they rebuild it by hand."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "italy-casu-marzu",
+    "kind": "story",
+    "title": "The Cheese That Moves",
+    "author": "Owloud",
+    "level": "C1",
+    "chapters": 1,
+    "seconds": 147,
+    "cover": "https://cdn.owloud.app/italy-casu-marzu/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/italy-casu-marzu/hero/hero.jpg",
+    "summary": {
+      "es": "En Cerdeña se come un queso lleno de gusanos vivos que saltan.",
+      "en": "In Sardinia, people eat a cheese full of live, jumping maggots."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "scotland-stone-heist",
+    "kind": "story",
+    "title": "The Christmas Heist",
+    "author": "Owloud",
+    "level": "B1",
+    "chapters": 1,
+    "seconds": 110,
+    "cover": "https://cdn.owloud.app/scotland-stone-heist/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/scotland-stone-heist/hero/hero.jpg",
+    "summary": {
+      "es": "Navidad de 1950: cuatro estudiantes planean recuperar una piedra robada hace 650 años.",
+      "en": "Christmas 1950: four students plan to take back a stone stolen 650 years ago."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "greece-antikythera",
+    "kind": "story",
+    "title": "The Computer from the Sea",
+    "author": "Owloud",
+    "level": "B2",
+    "chapters": 1,
+    "seconds": 116,
+    "cover": "https://cdn.owloud.app/greece-antikythera/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/greece-antikythera/hero/hero.jpg",
+    "summary": {
+      "es": "Un bulto de bronce de un naufragio resultó ser una máquina que predecía eclipses.",
+      "en": "A lump of bronze from a shipwreck turned out to be a machine that predicted eclipses."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "samoa-date-line",
+    "kind": "story",
+    "title": "The Country That Skipped a Day",
+    "author": "Owloud",
+    "level": "B1",
+    "chapters": 1,
+    "seconds": 86,
+    "cover": "https://cdn.owloud.app/samoa-date-line/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/samoa-date-line/hero/hero.jpg",
+    "summary": {
+      "es": "A finales de 2011, Samoa pasó del jueves directo al sábado.",
+      "en": "At the end of 2011, Samoa went from Thursday straight to Saturday."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "ethiopia-calendar",
+    "kind": "story",
+    "title": "The Country with 13 Months",
+    "author": "Owloud",
+    "level": "A2",
+    "chapters": 1,
+    "seconds": 47,
+    "cover": "https://cdn.owloud.app/ethiopia-calendar/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/ethiopia-calendar/hero/hero.jpg",
+    "summary": {
+      "es": "En Etiopía, el año tiene 13 meses y el Año Nuevo llega en septiembre.",
+      "en": "In Ethiopia, a year has 13 months, and New Year comes in September."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "bali-silence",
+    "kind": "story",
+    "title": "The Day Bali Goes Quiet",
+    "author": "Owloud",
+    "level": "A2",
+    "chapters": 1,
+    "seconds": 60,
+    "cover": "https://cdn.owloud.app/bali-silence/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/bali-silence/hero/hero.jpg",
+    "summary": {
+      "es": "Un día al año, toda una isla se detiene: sin trabajo, sin autos y sin luces.",
+      "en": "One day a year, a whole island stops: no work, no cars, no lights."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "chile-atacama",
+    "kind": "story",
+    "title": "The Desert That Looks Like Mars",
+    "author": "Owloud",
+    "level": "B1",
+    "chapters": 1,
+    "seconds": 122,
+    "cover": "https://cdn.owloud.app/chile-atacama/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/chile-atacama/hero/hero.jpg",
+    "summary": {
+      "es": "El Atacama es tan seco que la NASA prueba ahí robots para Marte. Su cielo es único.",
+      "en": "The Atacama is so dry that NASA tests Mars rovers there. Its night sky is just as special."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "egypt-merer",
+    "kind": "story",
+    "title": "The Diary of the Pyramid",
+    "author": "Owloud",
+    "level": "B2",
+    "chapters": 1,
+    "seconds": 122,
+    "cover": "https://cdn.owloud.app/egypt-merer/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/egypt-merer/hero/hero.jpg",
+    "summary": {
+      "es": "¿Cómo se construyó la Gran Pirámide? Un diario de hace 4,500 años tiene pistas.",
+      "en": "How was the Great Pyramid built? A 4,500-year-old diary has some clues."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "mongolia-dinosaurs",
+    "kind": "story",
+    "title": "The Dinosaurs That Never Stopped Fighting",
+    "author": "Owloud",
+    "level": "B1",
+    "chapters": 1,
+    "seconds": 80,
+    "cover": "https://cdn.owloud.app/mongolia-dinosaurs/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/mongolia-dinosaurs/hero/hero.jpg",
+    "summary": {
+      "es": "En el desierto de Gobi, unos científicos hallaron dos dinosaurios en plena pelea.",
+      "en": "In the Gobi Desert, scientists found two dinosaurs in the middle of a fight."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "peru-nazca-ai",
+    "kind": "story",
+    "title": "The Drawings the Machine Found",
+    "author": "Owloud",
+    "level": "C1",
+    "chapters": 1,
+    "seconds": 152,
+    "cover": "https://cdn.owloud.app/peru-nazca-ai/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/peru-nazca-ai/hero/hero.jpg",
+    "summary": {
+      "es": "Una IA ayudó a encontrar 303 dibujos nuevos de Nazca, en Perú, en solo seis meses.",
+      "en": "An AI helped find 303 new Nazca drawings in Peru in just six months."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "china-terracotta",
+    "kind": "story",
+    "title": "The Farmers Who Found an Army",
+    "author": "Owloud",
+    "level": "B1",
+    "chapters": 1,
+    "seconds": 90,
+    "cover": "https://cdn.owloud.app/china-terracotta/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/china-terracotta/hero/hero.jpg",
+    "summary": {
+      "es": "En 1974, unos campesinos de China cavaban un pozo y encontraron un ejército de barro.",
+      "en": "In 1974, some farmers in China were digging a well. They found an army made of clay."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "switzerland-web",
+    "kind": "story",
+    "title": "The First Website",
+    "author": "Owloud",
+    "level": "A2",
+    "chapters": 1,
+    "seconds": 59,
+    "cover": "https://cdn.owloud.app/switzerland-web/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/switzerland-web/hero/hero.jpg",
+    "summary": {
+      "es": "El primer sitio web no tenía fotos ni colores, y todavía puedes visitarlo hoy.",
+      "en": "The first website had no photos and no colors, and you can still visit it today."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "taiwan-damper",
+    "kind": "story",
+    "title": "The Giant Ball Inside a Skyscraper",
+    "author": "Owloud",
+    "level": "B2",
+    "chapters": 1,
+    "seconds": 117,
+    "cover": "https://cdn.owloud.app/taiwan-damper/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/taiwan-damper/hero/hero.jpg",
+    "summary": {
+      "es": "En lo alto de Taipei 101 cuelga una bola de 660 toneladas que frena su vaivén.",
+      "en": "Near the top of Taipei 101 hangs a 660-ton steel ball that keeps the tower steady."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "ghana-jollof",
+    "kind": "story",
+    "title": "The Great Rice Battle",
+    "author": "Owloud",
+    "level": "A1",
+    "chapters": 1,
+    "seconds": 60,
+    "cover": "https://cdn.owloud.app/ghana-jollof/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/ghana-jollof/hero/hero.jpg",
+    "summary": {
+      "es": "Ghana y Nigeria pelean por quién hace el mejor arroz jollof. Pero no es de ninguno.",
+      "en": "Ghana and Nigeria fight over who makes the best jollof rice. But it isn't from either."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "colombia-hippos",
+    "kind": "story",
+    "title": "The Hippos That Stayed",
+    "author": "Owloud",
+    "level": "B2",
+    "chapters": 1,
+    "seconds": 117,
+    "cover": "https://cdn.owloud.app/colombia-hippos/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/colombia-hippos/hero/hero.jpg",
+    "summary": {
+      "es": "Pablo Escobar tenía cuatro hipopótamos. Hoy son unos 200 y nadie puede detenerlos.",
+      "en": "Pablo Escobar had four hippos. Today there are about 200, and nobody can stop them."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "madagascar-lemurs",
+    "kind": "story",
+    "title": "The Island of the Lemurs",
+    "author": "Owloud",
+    "level": "A2",
+    "chapters": 1,
+    "seconds": 56,
+    "cover": "https://cdn.owloud.app/madagascar-lemurs/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/madagascar-lemurs/hero/hero.jpg",
+    "summary": {
+      "es": "Los lémures salvajes solo viven en Madagascar. Algunos cantan y otros bailan.",
+      "en": "Wild lemurs live only in Madagascar. Some of them sing, and some of them dance."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "cameroon-nyos",
+    "kind": "story",
+    "title": "The Lake That Exploded",
+    "author": "Owloud",
+    "level": "C1",
+    "chapters": 1,
+    "seconds": 151,
+    "cover": "https://cdn.owloud.app/cameroon-nyos/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/cameroon-nyos/hero/hero.jpg",
+    "summary": {
+      "es": "En 1986, un lago tranquilo de Camerún liberó de noche una nube de gas mortal.",
+      "en": "In 1986, a quiet lake in Cameroon released a deadly cloud of gas overnight."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "spain-silbo",
+    "kind": "story",
+    "title": "The Language You Whistle",
+    "author": "Owloud",
+    "level": "C1",
+    "chapters": 1,
+    "seconds": 154,
+    "cover": "https://cdn.owloud.app/spain-silbo/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/spain-silbo/hero/hero.jpg",
+    "summary": {
+      "es": "En una isla de España, la gente habla de un valle a otro silbando.",
+      "en": "On a Spanish island, people talk across valleys by whistling."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "ecuador-equator",
+    "kind": "story",
+    "title": "The Line in the Wrong Place",
+    "author": "Owloud",
+    "level": "A2",
+    "chapters": 1,
+    "seconds": 51,
+    "cover": "https://cdn.owloud.app/ecuador-equator/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/ecuador-equator/hero/hero.jpg",
+    "summary": {
+      "es": "Todos se toman fotos en la línea del ecuador… pero el ecuador real está en otro lugar.",
+      "en": "Everyone takes photos on the equator line… but the real equator is somewhere else."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "india-dabbawalas",
+    "kind": "story",
+    "title": "The Lunchbox Men of Mumbai",
+    "author": "Owloud",
+    "level": "A2",
+    "chapters": 1,
+    "seconds": 85,
+    "cover": "https://cdn.owloud.app/india-dabbawalas/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/india-dabbawalas/hero/hero.jpg",
+    "summary": {
+      "es": "En Mumbai reparten 200,000 almuerzos al día sin apps, y casi ninguno se pierde.",
+      "en": "In Mumbai, 200,000 lunches are delivered daily without apps, and almost none get lost."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "russia-petrov",
+    "kind": "story",
+    "title": "The Man Who Said No",
+    "author": "Owloud",
+    "level": "B1",
+    "chapters": 1,
+    "seconds": 117,
+    "cover": "https://cdn.owloud.app/russia-petrov/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/russia-petrov/hero/hero.jpg",
+    "summary": {
+      "es": "En 1983, una alarma avisó que venían misiles. Un oficial soviético decidió no creerle.",
+      "en": "In 1983, an alarm said missiles were coming. A Soviet officer decided not to believe it."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "panama-swim",
+    "kind": "story",
+    "title": "The Man Who Swam the Canal",
+    "author": "Owloud",
+    "level": "B1",
+    "chapters": 1,
+    "seconds": 86,
+    "cover": "https://cdn.owloud.app/panama-swim/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/panama-swim/hero/hero.jpg",
+    "summary": {
+      "es": "En 1928, un hombre cruzó a nado el Canal de Panamá como un barco. Pagó 36 centavos.",
+      "en": "In 1928, a man swam the Panama Canal like a ship. His toll was 36 cents."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "usa-mars-orbiter",
+    "kind": "story",
+    "title": "The Mars Mistake",
+    "author": "Owloud",
+    "level": "B1",
+    "chapters": 1,
+    "seconds": 121,
+    "cover": "https://cdn.owloud.app/usa-mars-orbiter/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/usa-mars-orbiter/hero/hero.jpg",
+    "summary": {
+      "es": "La NASA perdió una nave de 125 millones de dólares por un error de primaria.",
+      "en": "NASA lost a 125-million-dollar spacecraft over a mistake a schoolkid could spot."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "london-bus-conductors",
+    "kind": "story",
+    "title": "The Men on the Stairs",
+    "author": "Owloud",
+    "level": "C1",
+    "chapters": 1,
+    "seconds": 141,
+    "cover": "https://cdn.owloud.app/london-bus-conductors/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/london-bus-conductors/hero/hero.jpg",
+    "summary": {
+      "es": "Los trabajadores de los autobuses de Londres revelaron que moverse protege el corazón.",
+      "en": "London bus workers in 1950 revealed that moving protects the heart."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "wales-bitcoin-drive",
+    "kind": "story",
+    "title": "The Most Expensive Rubbish",
+    "author": "Owloud",
+    "level": "B1",
+    "chapters": 1,
+    "seconds": 116,
+    "cover": "https://cdn.owloud.app/wales-bitcoin-drive/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/wales-bitcoin-drive/hero/hero.jpg",
+    "summary": {
+      "es": "Tiró a la basura un disco duro con 8,000 bitcoins. Sigue enterrado en un basurero.",
+      "en": "He threw away a hard drive holding 8,000 bitcoins. It's still buried in a landfill."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "england-coffee-webcam",
+    "kind": "story",
+    "title": "The Most Famous Coffee Pot in the World",
+    "author": "Owloud",
+    "level": "A2",
+    "chapters": 1,
+    "seconds": 86,
+    "cover": "https://cdn.owloud.app/england-coffee-webcam/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/england-coffee-webcam/hero/hero.jpg",
+    "summary": {
+      "es": "Unos científicos apuntaron una cámara a su cafetera, y medio mundo se puso a mirarla.",
+      "en": "Scientists pointed a camera at their coffee pot, and half the world started watching."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "tristan-da-cunha",
+    "kind": "story",
+    "title": "The Most Remote Island in the World",
+    "author": "Owloud",
+    "level": "C1",
+    "chapters": 1,
+    "seconds": 147,
+    "cover": "https://cdn.owloud.app/tristan-da-cunha/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/tristan-da-cunha/hero/hero.jpg",
+    "summary": {
+      "es": "Un volcán obligó a una isla remota a irse. Después, decidieron volver.",
+      "en": "A volcano forced a remote island to leave. Then they chose to go back."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "korea-alphago",
+    "kind": "story",
+    "title": "The Move No Human Would Make",
+    "author": "Owloud",
+    "level": "C1",
+    "chapters": 1,
+    "seconds": 142,
+    "cover": "https://cdn.owloud.app/korea-alphago/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/korea-alphago/hero/hero.jpg",
+    "summary": {
+      "es": "Una jugada extraña de una máquina venció al campeón de Go y cambió el juego humano.",
+      "en": "One strange move by a machine beat a Go champion, and changed how humans play."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "gabon-oklo",
+    "kind": "story",
+    "title": "The Nuclear Reactor Nobody Built",
+    "author": "Owloud",
+    "level": "B2",
+    "chapters": 1,
+    "seconds": 123,
+    "cover": "https://cdn.owloud.app/gabon-oklo/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/gabon-oklo/hero/hero.jpg",
+    "summary": {
+      "es": "Hace dos mil millones de años, en lo que hoy es Gabón, se encendió un reactor natural.",
+      "en": "Two billion years ago, in what is now Gabon, nature started its own nuclear reactor."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "cuba-old-cars",
+    "kind": "story",
+    "title": "The Old Cars of Havana",
+    "author": "Owloud",
+    "level": "A2",
+    "chapters": 1,
+    "seconds": 56,
+    "cover": "https://cdn.owloud.app/cuba-old-cars/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/cuba-old-cars/hero/hero.jpg",
+    "summary": {
+      "es": "En La Habana todavía circulan autos de los años 50. ¿Cómo siguen funcionando?",
+      "en": "In Havana, cars from the 1950s are still on the road. How do they keep going?"
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "argentina-pen",
+    "kind": "story",
+    "title": "The Pen from Argentina",
+    "author": "Owloud",
+    "level": "B1",
+    "chapters": 1,
+    "seconds": 77,
+    "cover": "https://cdn.owloud.app/argentina-pen/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/argentina-pen/hero/hero.jpg",
+    "summary": {
+      "es": "Un periodista odiaba las manchas de tinta y terminó inventando algo que usas a diario.",
+      "en": "A journalist hated ink stains and ended up inventing something you use every day."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "venezuela-angel",
+    "kind": "story",
+    "title": "The Pilot on the Waterfall",
+    "author": "Owloud",
+    "level": "B1",
+    "chapters": 1,
+    "seconds": 89,
+    "cover": "https://cdn.owloud.app/venezuela-angel/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/venezuela-angel/hero/hero.jpg",
+    "summary": {
+      "es": "Un piloto aterrizó sobre una montaña en Venezuela y su avión ya no pudo despegar.",
+      "en": "A pilot landed on a mountain in Venezuela, and his plane never took off again."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "vietnam-rats",
+    "kind": "story",
+    "title": "The Rat Tail Business",
+    "author": "Owloud",
+    "level": "B2",
+    "chapters": 1,
+    "seconds": 121,
+    "cover": "https://cdn.owloud.app/vietnam-rats/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/vietnam-rats/hero/hero.jpg",
+    "summary": {
+      "es": "En 1902, Hanói pagaba un centavo por cada cola de rata. El plan funcionó demasiado bien.",
+      "en": "In 1902, Hanoi paid one cent for every rat tail. The plan worked a little too well."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "amazon-bridges",
+    "kind": "story",
+    "title": "The River with No Bridges",
+    "author": "Owloud",
+    "level": "A2",
+    "chapters": 1,
+    "seconds": 47,
+    "cover": "https://cdn.owloud.app/amazon-bridges/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/amazon-bridges/hero/hero.jpg",
+    "summary": {
+      "es": "Un río enorme en Sudamérica, y ni un solo puente lo cruza.",
+      "en": "A huge river in South America, and not one bridge crosses it."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "portugal-pasteis",
+    "kind": "story",
+    "title": "The Secret Little Cake",
+    "author": "Owloud",
+    "level": "A1",
+    "chapters": 1,
+    "seconds": 64,
+    "cover": "https://cdn.owloud.app/portugal-pasteis/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/portugal-pasteis/hero/hero.jpg",
+    "summary": {
+      "es": "En Lisboa, solo unos pocos cocineros saben la receta de este pastel. Y es secreta.",
+      "en": "In Lisbon, only a few cooks know this cake's recipe. They make it in a secret room."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "uzbekistan-aral",
+    "kind": "story",
+    "title": "The Ships in the Desert",
+    "author": "Owloud",
+    "level": "C1",
+    "chapters": 1,
+    "seconds": 141,
+    "cover": "https://cdn.owloud.app/uzbekistan-aral/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/uzbekistan-aral/hero/hero.jpg",
+    "summary": {
+      "es": "Viejos barcos pesqueros descansan en la arena donde antes había un lago gigante.",
+      "en": "Old fishing boats sit in the sand where a giant lake once was."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "turkey-gobekli",
+    "kind": "story",
+    "title": "The Temple Older Than Farming",
+    "author": "Owloud",
+    "level": "B2",
+    "chapters": 1,
+    "seconds": 119,
+    "cover": "https://cdn.owloud.app/turkey-gobekli/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/turkey-gobekli/hero/hero.jpg",
+    "summary": {
+      "es": "En Turquía, cazadores-recolectores alzaron enormes pilares hace unos 11,600 años.",
+      "en": "In Turkey, hunter-gatherers raised giant stone pillars about 11,600 years ago."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "france-eiffel",
+    "kind": "story",
+    "title": "The Tower That Grows",
+    "author": "Owloud",
+    "level": "A2",
+    "chapters": 1,
+    "seconds": 54,
+    "cover": "https://cdn.owloud.app/france-eiffel/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/france-eiffel/hero/hero.jpg",
+    "summary": {
+      "es": "La Torre Eiffel no siempre mide lo mismo, y la culpa es del sol.",
+      "en": "The Eiffel Tower is not always the same size, and the sun is to blame."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "norway-mirrors",
+    "kind": "story",
+    "title": "The Town That Built a Sun",
+    "author": "Owloud",
+    "level": "A2",
+    "chapters": 1,
+    "seconds": 86,
+    "cover": "https://cdn.owloud.app/norway-mirrors/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/norway-mirrors/hero/hero.jpg",
+    "summary": {
+      "es": "Seis meses al año, el sol no llega a este pueblo. Así que lo trajeron con espejos.",
+      "en": "Six months a year, the sun never reaches this town. So they brought it in with mirrors."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "canada-bear-jail",
+    "kind": "story",
+    "title": "The Town with a Jail for Bears",
+    "author": "Owloud",
+    "level": "B1",
+    "chapters": 1,
+    "seconds": 82,
+    "cover": "https://cdn.owloud.app/canada-bear-jail/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/canada-bear-jail/hero/hero.jpg",
+    "summary": {
+      "es": "Un pueblo de Canadá tiene una cárcel, pero no es para personas: es para osos polares.",
+      "en": "A small town in Canada has a jail, but it's not for people. It's for polar bears."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "norway-seed-vault",
+    "kind": "story",
+    "title": "The Vault at the End of the World",
+    "author": "Owloud",
+    "level": "C1",
+    "chapters": 1,
+    "seconds": 147,
+    "cover": "https://cdn.owloud.app/norway-seed-vault/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/norway-seed-vault/hero/hero.jpg",
+    "summary": {
+      "es": "Cerca del Polo Norte, una montaña guarda una copia de las semillas del mundo.",
+      "en": "Near the North Pole, a mountain holds a backup of the world's seeds."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "germany-wall",
+    "kind": "story",
+    "title": "The Wall That Fell by Mistake",
+    "author": "Owloud",
+    "level": "B1",
+    "chapters": 1,
+    "seconds": 121,
+    "cover": "https://cdn.owloud.app/germany-wall/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/germany-wall/hero/hero.jpg",
+    "summary": {
+      "es": "Un error en una conferencia de prensa abrió el Muro de Berlín esa misma noche.",
+      "en": "A mistake at a press conference opened the Berlin Wall that very night."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "costa-rica-sloth",
+    "kind": "story",
+    "title": "Too Slow to Stay Clean",
+    "author": "Owloud",
+    "level": "A1",
+    "chapters": 1,
+    "seconds": 59,
+    "cover": "https://cdn.owloud.app/costa-rica-sloth/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/costa-rica-sloth/hero/hero.jpg",
+    "summary": {
+      "es": "El perezoso es tan lento que le crecen plantas en el pelo. Va al baño una vez por semana.",
+      "en": "The sloth is so slow that plants grow on its fur. It uses the toilet once a week."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "japan-trains",
+    "kind": "story",
+    "title": "Twenty Seconds Early",
+    "author": "Owloud",
+    "level": "A2",
+    "chapters": 1,
+    "seconds": 50,
+    "cover": "https://cdn.owloud.app/japan-trains/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/japan-trains/hero/hero.jpg",
+    "summary": {
+      "es": "Un tren en Japón salió 20 segundos antes, y la compañía pidió perdón.",
+      "en": "A train in Japan left 20 seconds early, and the company said sorry."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "kazakhstan-apples",
+    "kind": "story",
+    "title": "Where Apples Come From",
+    "author": "Owloud",
+    "level": "A1",
+    "chapters": 1,
+    "seconds": 62,
+    "cover": "https://cdn.owloud.app/kazakhstan-apples/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/kazakhstan-apples/hero/hero.jpg",
+    "summary": {
+      "es": "Las manzanas que comemos vienen de los bosques silvestres de Kazajistán.",
+      "en": "The apples we eat come from the wild forests of Kazakhstan."
+    },
+    "freeFull": false,
+    "order": null
+  },
+  {
+    "id": "czech-robot",
+    "kind": "story",
+    "title": "Where the Word Robot Came From",
+    "author": "Owloud",
+    "level": "B1",
+    "chapters": 1,
+    "seconds": 79,
+    "cover": "https://cdn.owloud.app/czech-robot/hero/hero.jpg",
+    "hero": "https://cdn.owloud.app/czech-robot/hero/hero.jpg",
+    "summary": {
+      "es": "La palabra «robot» nació en Praga en 1920, en una obra sobre obreros artificiales.",
+      "en": "The word \"robot\" was born in Prague in 1920, in a play about artificial workers."
+    },
+    "freeFull": false,
+    "order": null
+  }
+]

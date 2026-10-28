@@ -1,0 +1,122 @@
+---
+// The closing call to action, shared by the home and the library pages: a
+// green panel with the owl perched on its top edge and book covers around the
+// copy. The owl sits outside the panel because the panel clips the covers at
+// its edges.
+import { Image } from "astro:assets";
+import StoreButtons from "./StoreButtons.astro";
+import { libraryItem } from "../data/library";
+import { home } from "../i18n/home";
+import type { Lang } from "../i18n/ui";
+
+interface Props {
+  lang: Lang;
+  title: string;
+  text: string;
+}
+
+const { lang, title, text } = Astro.props;
+
+// Well-known books from the catalog. From lg: up they float around the panel;
+// below that, the first five fan out at its bottom edge.
+const covers = [
+  "alice-a2",
+  "dracula-b1",
+  "the-little-prince",
+  "treasure-island-a2",
+  "speckled-band-a2",
+  "peter-pan-a2",
+  "wizard-of-oz",
+  "call-of-the-wild",
+].map((id) => libraryItem(id).cover);
+// Where each floating cover sits, in covers' order: three down each side,
+// plus a smaller, paler one per side that only fits from xl: up
+const scatter = [
+  "left-[2%] -top-6 w-[118px] -rotate-6",
+  "left-[6%] top-[36%] w-[100px] rotate-6 xl:left-[9%]",
+  "left-[3%] -bottom-10 w-[112px] rotate-3",
+  "left-[17%] top-[8%] hidden w-[80px] -rotate-3 opacity-60 xl:block",
+  "right-[3%] -top-8 w-[112px] rotate-6",
+  "right-[6%] top-[38%] w-[100px] -rotate-6 xl:right-[9%]",
+  "right-[2%] -bottom-12 w-[118px] -rotate-3",
+  "right-[17%] bottom-[10%] hidden w-[80px] rotate-3 opacity-60 xl:block",
+];
+// The fan: the middle cover is bigger, the outer ones tilt and sit lower
+const fan = [
+  "w-[84px] -rotate-12 translate-y-6 sm:w-[100px]",
+  "w-[84px] -rotate-6 translate-y-2 sm:w-[100px]",
+  "z-10 w-[100px] sm:w-[120px]",
+  "w-[84px] rotate-6 translate-y-2 sm:w-[100px]",
+  "w-[84px] rotate-12 translate-y-6 sm:w-[100px]",
+];
+---
+
+<section class="px-4 pt-24 sm:px-6">
+  <div class="relative mx-auto max-w-6xl">
+    <img
+      src="/owloud-mascot.png"
+      alt=""
+      width="1254"
+      height="1254"
+      loading="lazy"
+      class="absolute left-1/2 top-0 z-20 w-28 -translate-x-1/2 -translate-y-[60%] motion-safe:animate-[bob_5s_ease-in-out_infinite] md:w-32"
+    />
+    <div
+      class="relative overflow-hidden rounded-[32px] bg-green-light px-6 pt-20 lg:pb-24 lg:pt-24"
+    >
+      <div aria-hidden="true" class="hidden lg:block">
+        {
+          covers.map((cover, i) => (
+            <Image
+              src={cover}
+              alt=""
+              width={118}
+              height={177}
+              densities={[1, 2]}
+              class={`absolute aspect-[2/3] rounded-lg object-cover shadow-[0_18px_30px_-14px_rgba(6,60,49,0.6)] motion-safe:animate-[bob_6s_ease-in-out_infinite] ${scatter[i]}`}
+              style={`animation-delay: ${(i * 0.7).toFixed(1)}s`}
+            />
+          ))
+        }
+        <!-- Soft light behind the copy, so a cover that comes close fades
+             under it instead of crossing the text -->
+        <div
+          class="absolute inset-y-0 left-1/2 w-[640px] -translate-x-1/2 bg-[radial-gradient(closest-side,var(--color-green-light)_70%,transparent)]"
+        >
+        </div>
+      </div>
+
+      <div class="relative mx-auto max-w-xl text-center">
+        <h2
+          class="text-[clamp(32px,4.4vw,52px)] font-black leading-[1.08] tracking-[-0.02em] text-green-dark"
+        >
+          {title}
+        </h2>
+        <p
+          class="mt-4 text-balance text-[17px] font-semibold text-green-dark md:text-[19px]"
+        >
+          {text}
+        </p>
+        <StoreButtons lang={lang} class="mt-8 justify-center" />
+        <p class="mt-4 text-balance text-sm font-bold text-green-dark/80">
+          {home[lang].heroNote}
+        </p>
+      </div>
+
+      <div aria-hidden="true" class="-mb-12 mt-10 flex justify-center lg:hidden">
+        {
+          covers.slice(0, fan.length).map((cover, i) => (
+            <Image
+              src={cover}
+              alt=""
+              width={120}
+              height={180}
+              densities={[1, 2]}
+              class={`-mx-3 aspect-[2/3] shrink-0 rounded-lg object-cover shadow-[0_14px_24px_-12px_rgba(6,60,49,0.6)] sm:-mx-2 ${fan[i]}`}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

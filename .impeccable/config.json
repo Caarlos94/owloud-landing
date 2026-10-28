@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "broken-image",
+        "value": "*",
+        "files": [
+          "src/components/Library.astro"
+        ],
+        "createdAt": "2026-10-28T03:39:41.749Z",
+        "reason": "model judgment: the detail dialog's <img data-dialog-hero> and <img data-dialog-cover> get their src from the page script when a title opens; pre-existing, not a placeholder"
+      }
+    ]
+  }
+}

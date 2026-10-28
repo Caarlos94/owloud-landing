@@ -1,0 +1,14 @@
+---
+// An English article, from src/content/blog/en/<slug>.md
+import BlogPost from "../../../components/BlogPost.astro";
+import { blogPosts, postSlug } from "../../../data/blog";
+
+export async function getStaticPaths() {
+  return (await blogPosts("en")).map((post) => ({
+    params: { slug: postSlug(post) },
+    props: { post },
+  }));
+}
+---
+
+<BlogPost post={Astro.props.post} />

@@ -1,0 +1,572 @@
+---
+// The library page, shared by src/pages/biblioteca.astro (Spanish) and
+// src/pages/en/library.astro (English): the whole catalog (data/library.ts),
+// filtered by level, with a detail card for each title. All copy lives in
+// i18n/library.ts.
+import { Image, getImage } from "astro:assets";
+import Base from "../layouts/Base.astro";
+import ClosingCta from "./ClosingCta.astro";
+import StoreButtons from "./StoreButtons.astro";
+import {
+  catalogLevels,
+  catalogStats,
+  levels,
+  libraryItems,
+  type LibraryItem,
+} from "../data/library";
+import { library } from "../i18n/library";
+import { homePath, libraryPath, type Lang } from "../i18n/ui";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = library[lang];
+
+// ─── The catalog, by section ───
+const byLevel = (a: LibraryItem, b: LibraryItem) =>
+  levels.indexOf(a.level) - levels.indexOf(b.level);
+const adaptations = libraryItems.filter((i) => i.kind === "adaptation");
+// Easiest first, so "All" opens on the books most people can start with
+const classics = libraryItems
+  .filter((i) => i.kind === "classic")
+  .sort(byLevel);
+const stories = libraryItems.filter((i) => i.kind === "story");
+
+const shownLevels = catalogLevels;
+const levelCount = (level: string, items = libraryItems) =>
+  items.filter((i) => level === "all" || i.level === level).length;
+
+const stats = [
+  { value: catalogStats.books, label: t.statBooks },
+  { value: catalogStats.stories, label: t.statStories },
+  { value: catalogStats.hours, label: t.statHours },
+  {
+    value: `${shownLevels[0]}–${shownLevels[shownLevels.length - 1]}`,
+    label: t.statLevels,
+  },
+];
+
+// Stories shown before "show more": 12 fills whole rows at 1, 2, 3 and 4 columns
+const storyLimit = 12;
+
+const sections = [
+  {
+    kind: "adaptation",
+    title: t.adaptationsTitle,
+    text: t.adaptationsText(catalogStats.freeAdaptations),
+    items: adaptations,
+  },
+  {
+    kind: "classic",
+    title: t.classicsTitle,
+    text: t.classicsText,
+    items: classics,
+  },
+  { kind: "story", title: t.storiesTitle, text: t.storiesText, items: stories },
+];
+
+// What the filter script writes into each section for each level: its title
+// count and, for the stories, the "show more" label. Worked out here so the
+// copy's plural rules stay in i18n/library.ts.
+const sectionLabels = (items: LibraryItem[], limit?: number) =>
+  JSON.stringify(
+    Object.fromEntries(
+      ["all", ...shownLevels].map((level) => {
+        const count = levelCount(level, items);
+        return [
+          level,
+          {
+            count: t.titles(count),
+            more: limit && count > limit ? t.showMore(count - limit) : "",
+          },
+        ];
+      }),
+    ),
+  );
+
+// "20 min" or "2 h 43 min"; a story under a minute still says "1 min"
+const duration = (seconds: number) => {
+  const minutes = Math.max(1, Math.round(seconds / 60));
+  const h = Math.floor(minutes / 60);
+  const m = minutes % 60;
+  if (!h) return `${m} min`;
+  return m ? `${h} h ${m} min` : `${h} h`;
+};
+
+// The detail card's picture: each title's hero image, resized at build time
+// like the covers. The card script reads it from the title's button.
+const heroImages = new Map(
+  await Promise.all(
+    libraryItems.map(
+      async (item) =>
+        [
+          item.id,
+          await getImage({
+            src: item.hero,
+            width: 560,
+            height: 373,
+            densities: [1, 2],
+          }),
+        ] as const,
+    ),
+  ),
+);
+
+// The data the detail card shows, on the button that opens it
+const cardData = (item: LibraryItem) => {
+  const hero = heroImages.get(item.id)!;
+  return {
+    "data-open": item.id,
+    "data-kind": t.kinds[item.kind],
+    "data-free": item.freeFull ? "" : undefined,
+    "data-title": item.title,
+    "data-author": item.kind === "story" ? "" : item.author,
+    "data-level": item.level,
+    "data-level-name": t.levelNames[item.level],
+    "data-meta":
+      item.kind === "story"
+        ? duration(item.seconds)
+        : `${t.chapters(item.chapters)} · ${duration(item.seconds)}`,
+    "data-summary": item.summary[lang],
+    "data-note":
+      item.kind === "story" ? t.storyNote : item.freeFull ? t.freeFullNote : "",
+    "data-hero-src": hero.src,
+    "data-hero-srcset": hero.srcSet.attribute,
+  };
+};
+
+// Breadcrumb structured data, for the "Owloud › Biblioteca" line in Google
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { name: t.breadcrumbHome, path: homePath[lang] },
+    { name: t.breadcrumb, path: libraryPath[lang] },
+  ].map((crumb, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: crumb.name,
+    item: new URL(crumb.path, Astro.site).href,
+  })),
+};
+
+// The level pill on covers and pictures
+const levelBadge =
+  "absolute left-2 top-2 rounded-full border-2 border-green-dark bg-white px-2 py-0.5 text-[12px] font-black leading-none text-green-dark";
+---
+
+<Base
+  lang={lang}
+  title={t.metaTitle}
+  description={t.metaDescription(catalogStats.books, catalogStats.stories)}
+  alternates={libraryPath}
+>
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify(breadcrumbSchema)}
+  />
+  <main class="overflow-x-hidden">
+    <!-- ─── Hero ────────────────────────────────────────────────────────── -->
+    <section class="mx-auto max-w-6xl px-6 pb-16 pt-32 text-center lg:pt-40">
+      <nav aria-label={t.breadcrumb}>
+        <ol
+          class="flex items-center justify-center gap-2 text-[14px] font-bold text-green-dark/65"
+        >
+          <li>
+            <a href={homePath[lang]} class="hover:text-green-primary"
+              >{t.breadcrumbHome}</a
+            >
+          </li>
+          <li aria-hidden="true">/</li>
+          <li aria-current="page" class="text-green-dark">{t.breadcrumb}</li>
+        </ol>
+      </nav>
+      <h1
+        class="mx-auto mt-5 max-w-4xl text-[clamp(38px,5.4vw,64px)] font-black leading-[1.04] tracking-[-0.03em] text-green-dark"
+      >
+        {t.heroTitle}
+        <span class="block text-green-primary">{t.heroAccent}</span>
+      </h1>
+      <p
+        class="mx-auto mt-6 max-w-2xl text-[18px] font-semibold leading-[1.45] text-green-dark md:text-[21px]"
+      >
+        {t.heroText}
+      </p>
+
+      <!-- The catalog in four numbers; the grid's 1px gaps draw the lines
+           between them -->
+      <div class="card-sticker mx-auto mt-10 max-w-3xl overflow-hidden">
+        <dl class="grid grid-cols-2 gap-px bg-green-dark/15 md:grid-cols-4">
+          {
+            stats.map((stat) => (
+              <div class="flex flex-col-reverse bg-white px-4 py-5">
+                <dt class="text-[14px] font-bold">{stat.label}</dt>
+                <dd class="text-[30px] font-black leading-tight text-green-dark">
+                  {stat.value}
+                </dd>
+              </div>
+            ))
+          }
+        </dl>
+      </div>
+    </section>
+
+    <!-- ─── Level picker ────────────────────────────────────────────────── -->
+    <!-- Each card filters the sections below (script at the bottom) and says
+         what that level feels like. A row that swipes on phones and tablets,
+         equal columns from lg: up. -->
+    <section class="mx-auto max-w-6xl px-6">
+      <div class="text-center">
+        <h2
+          class="text-[clamp(26px,3.4vw,38px)] font-extrabold leading-tight text-green-dark"
+        >
+          {t.levelTitle}
+        </h2>
+        <p class="mt-2 text-[17px]">{t.levelText}</p>
+      </div>
+      <div
+        class="-mx-6 mt-8 flex snap-x snap-mandatory scroll-px-6 gap-3 overflow-x-auto px-6 pb-3 pt-1 [scrollbar-width:none] lg:mx-0 lg:grid lg:auto-cols-fr lg:grid-flow-col lg:overflow-visible lg:px-0"
+      >
+        {
+          ["all", ...shownLevels].map((level) => (
+            <button
+              type="button"
+              data-level-filter={level}
+              aria-pressed={level === "all" ? "true" : "false"}
+              class="group flex w-[200px] shrink-0 cursor-pointer snap-start flex-col rounded-2xl border-2 border-green-dark bg-white p-4 text-left shadow-sticker transition-[background-color,translate] duration-200 hover:-translate-y-0.5 aria-pressed:bg-green-primary lg:w-auto"
+            >
+              <span class="flex items-baseline justify-between gap-2">
+                <span class="text-[26px] font-black leading-none text-green-dark group-aria-pressed:text-white">
+                  {level === "all" ? t.levelAll : level}
+                </span>
+                <span class="text-[13px] font-bold text-green-dark/60 group-aria-pressed:text-white/80">
+                  {t.titles(levelCount(level))}
+                </span>
+              </span>
+              {level !== "all" && (
+                <span class="mt-1.5 text-[15px] font-extrabold leading-tight text-green-dark group-aria-pressed:text-white">
+                  {t.levelNames[level as keyof typeof t.levelNames]}
+                </span>
+              )}
+              <span class="mt-2 text-[14px] leading-snug group-aria-pressed:text-white/90">
+                {level === "all"
+                  ? t.levelAllText
+                  : t.levelTexts[level as keyof typeof t.levelTexts]}
+              </span>
+            </button>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- ─── Catalog ─────────────────────────────────────────────────────── -->
+    <!-- One section per kind of title. Books show their cover, stories their
+         picture; every title is a button that opens the detail card. A
+         section with nothing at the picked level hides. -->
+    {
+      sections.map((section) => (
+        <section
+          data-section
+          data-labels={sectionLabels(
+            section.items,
+            section.kind === "story" ? storyLimit : undefined,
+          )}
+          data-limit={section.kind === "story" ? storyLimit : undefined}
+          class="mx-auto max-w-6xl px-6 pt-20"
+        >
+          <header class="flex flex-wrap items-end justify-between gap-x-6 gap-y-2">
+            <div class="max-w-2xl">
+              <h2 class="text-[clamp(26px,3.4vw,38px)] font-extrabold leading-tight text-green-dark">
+                {section.title}
+              </h2>
+              <p class="mt-2 text-[16px] leading-relaxed md:text-[17px]">
+                {section.text}
+              </p>
+            </div>
+            <p
+              data-section-count
+              class="text-[15px] font-bold text-green-dark/70"
+            >
+              {t.titles(section.items.length)}
+            </p>
+          </header>
+
+          {section.kind === "story" ? (
+            <ul class="mt-8 grid gap-5 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
+              {section.items.map((item, i) => (
+                <li data-item data-level={item.level} hidden={i >= storyLimit}>
+                  <button
+                    type="button"
+                    aria-haspopup="dialog"
+                    {...cardData(item)}
+                    class="card-sticker hover-lift flex h-full w-full cursor-pointer flex-col overflow-hidden text-left"
+                  >
+                    <span class="relative block">
+                      <Image
+                        src={item.hero}
+                        alt=""
+                        widths={[400, 700]}
+                        sizes="(min-width: 1280px) 262px, (min-width: 768px) 32vw, (min-width: 640px) 48vw, 100vw"
+                        width={700}
+                        height={467}
+                        class="aspect-[3/2] w-full bg-green-light object-cover"
+                      />
+                      <span class={levelBadge}>{item.level}</span>
+                    </span>
+                    <span class="flex flex-1 flex-col p-4">
+                      <span class="text-[17px] font-extrabold leading-snug text-green-dark">
+                        {item.title}
+                      </span>
+                      <span class="mt-1.5 line-clamp-2 text-[14px] leading-relaxed">
+                        {item.summary[lang]}
+                      </span>
+                      <span class="mt-auto pt-3 text-[13px] font-bold text-green-dark/70">
+                        {duration(item.seconds)}
+                      </span>
+                    </span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <ul class="mt-8 grid grid-cols-2 gap-x-5 gap-y-9 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+              {section.items.map((item) => (
+                <li data-item data-level={item.level}>
+                  <button
+                    type="button"
+                    aria-haspopup="dialog"
+                    {...cardData(item)}
+                    class="group block w-full cursor-pointer text-left"
+                  >
+                    <span class="relative block">
+                      <Image
+                        data-cover
+                        src={item.cover}
+                        alt=""
+                        widths={[220, 440]}
+                        sizes="(min-width: 1024px) 205px, (min-width: 768px) 22vw, (min-width: 640px) 30vw, 45vw"
+                        width={440}
+                        height={660}
+                        class="aspect-[2/3] w-full rounded-xl bg-green-light object-cover shadow-[0_18px_30px_-16px_rgba(6,60,49,0.6)] transition-[translate,box-shadow] duration-200 group-hover:-translate-y-1.5 group-hover:shadow-[0_26px_34px_-16px_rgba(6,60,49,0.65)]"
+                      />
+                      <span class={levelBadge}>{item.level}</span>
+                      {item.freeFull && (
+                        <span class="absolute right-2 top-2 rounded-full border-2 border-green-dark bg-amber px-2 py-0.5 text-[12px] font-black leading-none text-white">
+                          {t.free}
+                        </span>
+                      )}
+                    </span>
+                    <span class="mt-3 line-clamp-2 block text-[16px] font-extrabold leading-snug text-green-dark group-hover:text-green-primary">
+                      {item.title}
+                    </span>
+                    <span class="mt-0.5 block text-[14px]">{item.author}</span>
+                    <span class="mt-1 block text-[13px] font-bold text-green-dark/70">
+                      {t.chaptersShort(item.chapters)} · {duration(item.seconds)}
+                    </span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
+
+          {section.kind === "story" && (
+            <div class="mt-10 flex justify-center">
+              <button
+                type="button"
+                data-show-more
+                class="h-14 cursor-pointer rounded-[12px] border-2 border-green-dark bg-white px-8 text-[17px] font-bold text-green-dark shadow-sticker transition-[background-color,translate] duration-200 hover:-translate-y-0.5 hover:bg-green-light"
+              >
+                {t.showMore(section.items.length - storyLimit)}
+              </button>
+            </div>
+          )}
+        </section>
+      ))
+    }
+
+    <ClosingCta lang={lang} title={t.ctaTitle} text={t.ctaText} />
+  </main>
+
+  <!-- ─── Detail card ─────────────────────────────────────────────────── -->
+  <!-- One dialog for every title; the script fills it from the button that
+       opened it. Esc, the close button or a click outside closes it. -->
+  <dialog
+    data-dialog
+    aria-labelledby="title-dialog-name"
+    class="m-auto w-[calc(100%-2rem)] max-w-[560px] overflow-hidden rounded-3xl border-2 border-green-dark bg-white p-0 text-neutral-700 shadow-sticker-xl backdrop:bg-green-darker/60 backdrop:backdrop-blur-sm"
+  >
+    <div class="max-h-[calc(100dvh-2rem)] overflow-y-auto">
+      <div class="relative bg-green-light">
+        <!-- Cropped to 2:1 so a book's card fits a laptop screen unscrolled -->
+        <img
+          data-dialog-hero
+          alt=""
+          width="560"
+          height="280"
+          class="aspect-[2/1] w-full object-cover transition-opacity duration-200"
+        />
+        <form method="dialog">
+          <button
+            aria-label={t.close}
+            class="absolute right-3 top-3 grid size-11 cursor-pointer place-items-center rounded-full border-2 border-green-dark bg-white text-green-dark shadow-sticker-sm hover:bg-green-light"
+          >
+            <!-- X (Lucide, ISC) -->
+            <svg
+              viewBox="0 0 24 24"
+              class="size-5"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M18 6 6 18M6 6l12 12"></path>
+            </svg>
+          </button>
+        </form>
+      </div>
+
+      <div class="px-6 pb-6 sm:px-8 sm:pb-8">
+        <!-- A book's cover rises over the picture (z-10: the picture's box is
+             positioned, so it would paint on top); a story has none -->
+        <div class="flex items-end gap-4 pt-5">
+          <img
+            data-dialog-cover
+            alt=""
+            width="96"
+            height="144"
+            class="relative z-10 -mt-20 aspect-[2/3] w-24 shrink-0 rounded-lg border-2 border-white object-cover shadow-[0_14px_24px_-12px_rgba(6,60,49,0.6)]"
+          />
+          <p class="flex flex-wrap items-center gap-2 pb-1">
+            <span
+              data-dialog-level
+              class="rounded-full border-2 border-green-dark px-2.5 py-0.5 text-[13px] font-black text-green-dark"
+            ></span>
+            <span data-dialog-kind class="text-[14px] font-bold text-green-dark/70"
+            ></span>
+            <span
+              data-dialog-free
+              class="rounded-full border-2 border-green-dark bg-amber px-2.5 py-0.5 text-[13px] font-black text-white"
+              >{t.free}</span
+            >
+          </p>
+        </div>
+
+        <h2
+          id="title-dialog-name"
+          data-dialog-title
+          class="mt-4 text-[clamp(24px,5vw,30px)] font-black leading-tight text-green-dark"
+        >
+        </h2>
+        <p data-dialog-author class="mt-1 text-[16px] font-semibold"></p>
+        <p data-dialog-meta class="mt-2 text-[14px] font-bold text-green-dark/70">
+        </p>
+        <p data-dialog-summary class="mt-4 text-[16px] leading-relaxed"></p>
+
+        <div class="mt-6 rounded-2xl bg-green-light p-5">
+          <p class="text-[18px] font-extrabold text-green-dark">
+            {t.listenTitle}
+          </p>
+          <p data-dialog-note class="mt-0.5 text-[14px] font-semibold"></p>
+          <StoreButtons lang={lang} class="mt-4" />
+        </div>
+      </div>
+    </div>
+  </dialog>
+</Base>
+
+<script>
+  // ─── Level filter and "show more" ───
+  // Each section hides the titles at other levels and, when nothing's left,
+  // itself. The stories show their first few until "show more" is pressed;
+  // picking another level folds them again.
+  const filters = [
+    ...document.querySelectorAll<HTMLElement>("[data-level-filter]"),
+  ];
+  const sections = [...document.querySelectorAll<HTMLElement>("[data-section]")];
+  let level = "all";
+  let expanded = false;
+
+  const render = () => {
+    for (const section of sections) {
+      const items = [...section.querySelectorAll<HTMLElement>("[data-item]")];
+      const matching = items.filter(
+        (item) => level === "all" || item.dataset.level === level,
+      );
+      const limit =
+        expanded || !section.dataset.limit
+          ? Infinity
+          : Number(section.dataset.limit);
+      items.forEach((item) => (item.hidden = true));
+      matching.forEach((item, i) => (item.hidden = i >= limit));
+      section.hidden = matching.length === 0;
+
+      const labels = JSON.parse(section.dataset.labels ?? "{}")[level];
+      const count = section.querySelector("[data-section-count]");
+      if (count && labels) count.textContent = labels.count;
+      const more = section.querySelector<HTMLElement>("[data-show-more]");
+      if (more && labels) {
+        more.textContent = labels.more;
+        more.hidden = matching.length <= limit;
+      }
+    }
+  };
+
+  filters.forEach((filter) =>
+    filter.addEventListener("click", () => {
+      level = filter.dataset.levelFilter ?? "all";
+      expanded = false;
+      filters.forEach((f) =>
+        f.setAttribute("aria-pressed", String(f === filter)),
+      );
+      render();
+    }),
+  );
+  document.querySelectorAll("[data-show-more]").forEach((more) =>
+    more.addEventListener("click", () => {
+      expanded = true;
+      render();
+    }),
+  );
+
+  // ─── Detail card ───
+  const dialog = document.querySelector<HTMLDialogElement>("[data-dialog]")!;
+  const part = <T extends HTMLElement>(name: string) =>
+    dialog.querySelector<T>(`[data-dialog-${name}]`)!;
+  const hero = part<HTMLImageElement>("hero");
+  const cover = part<HTMLImageElement>("cover");
+
+  document.querySelectorAll<HTMLElement>("[data-open]").forEach((button) =>
+    button.addEventListener("click", () => {
+      const d = button.dataset;
+      // The old picture would show until the new one loads, so fade it out
+      hero.style.opacity = "0";
+      hero.onload = () => (hero.style.opacity = "1");
+      hero.srcset = d.heroSrcset ?? "";
+      hero.src = d.heroSrc ?? "";
+      // A book's cover is the one already on its button, loaded and sized
+      const buttonCover = button.querySelector<HTMLImageElement>("[data-cover]");
+      cover.hidden = !buttonCover;
+      if (buttonCover) cover.src = buttonCover.currentSrc || buttonCover.src;
+
+      part("level").textContent = `${d.level} · ${d.levelName}`;
+      part("kind").textContent = d.kind ?? "";
+      part("free").hidden = d.free === undefined;
+      part("title").textContent = d.title ?? "";
+      part("author").textContent = d.author ?? "";
+      part("author").hidden = !d.author;
+      part("meta").textContent = d.meta ?? "";
+      part("summary").textContent = d.summary ?? "";
+      part("note").textContent = d.note ?? "";
+      part("note").hidden = !d.note;
+      dialog.showModal();
+    }),
+  );
+  // A click on the backdrop lands on the dialog itself; inside, on its content
+  dialog.addEventListener("click", (e) => {
+    if (e.target === dialog) dialog.close();
+  });
+</script>

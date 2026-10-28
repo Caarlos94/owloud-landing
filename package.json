@@ -9,7 +9,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "sync:library": "node --env-file=../owloud/.env scripts/sync-library.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
